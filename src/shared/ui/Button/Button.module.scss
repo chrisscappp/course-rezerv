@@ -1,0 +1,23 @@
+.Button {
+	cursor: pointer;
+}
+
+.clear {
+	padding: 0;
+	background: none;
+	border: none;
+	outline: none;
+}
+
+.error {
+	border-color: red;
+	background: red;
+	padding: 7px 11px;
+}
+
+.outline {
+	border: 1px solid var(--primary-color);
+	background: none;
+	padding: 10px 15px;
+	color: var(--primary-color);
+}
