@@ -1,8 +1,9 @@
-import type { StorybookConfig } from "@storybook/react-webpack5";
+//import type { StorybookConfig } from "@storybook/react-webpack5";
+import * as cn from './webpack.config'
 
-const config: StorybookConfig = {
+const config = {
 	stories: [
-		"../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"
+		"../../src/**/*.stories.@(js|jsx|ts|tsx)"
 	],
 	addons: [
 		"@storybook/addon-links",

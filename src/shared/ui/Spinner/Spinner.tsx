@@ -1,4 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames"
+import React from "react";
 import "./Spinner.scss"
 
 interface SpinnerProps {
@@ -8,6 +9,6 @@ interface SpinnerProps {
 export const Spinner = ({ className }: SpinnerProps) => {
 
 	return (
-		<span className = {classNames("loader", {}, [className])}></span>
+		<div className = {classNames("loader", {}, [className])}></div>
 	)
 }

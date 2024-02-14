@@ -4,6 +4,7 @@ import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { useCollapsed } from "app/providers/SidebarProvider/lib/useCollapsed";
 import { LangSwitcher } from "widgets/LangSwitcher"
 import { Button } from "shared/ui/Button/Button";
+import React from "react";
 import cls from "./SideBar.module.scss"
 
 interface SidebarProps {
