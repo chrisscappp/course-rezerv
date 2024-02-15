@@ -28,7 +28,7 @@ export const BugButton = ({ className }: BugButtonProps) => {
 			className = {classNames(cls.PageError, {}, [className])}
 			onClick = {onThrow}
 		>
-			throw error im bug button
+			throw error
     	</Button>
 	)
 }
