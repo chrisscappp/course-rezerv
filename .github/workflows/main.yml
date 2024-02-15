@@ -29,4 +29,4 @@ jobs:
       - name: start storybook
         run: npm run storybook
       - name: start loki
-        name: npm run loki
+        run: npm run loki
