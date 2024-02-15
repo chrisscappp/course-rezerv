@@ -21,13 +21,13 @@ export default function buildPlugins({paths, isDev}: BuildOptions): webpack.Webp
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev)
 		}), // глобальная переменная
-		new BundleAnalyzerPlugin({
-			openAnalyzer: false
-		}),
 	]
 
 	if (isDev) {
 		plugins.push(new ReactRefreshWebpackPlugin())
+		plugins.push(new BundleAnalyzerPlugin({
+			openAnalyzer: false
+		}))
 	}
 
 	return plugins
