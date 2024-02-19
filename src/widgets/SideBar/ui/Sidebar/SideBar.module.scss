@@ -6,12 +6,8 @@
 	transition: width 0.3s;
 }
 
-.collapsed {
-	width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
-	position: absolute; // опускаем переключатели вниз
+	position: absolute; // опускаем переключатели вниз, ботом и тд относительно родителя
 	bottom: 20px;
 	display: flex;
 	justify-content: center;
@@ -21,3 +17,52 @@
 .lang {
 	margin-left: 20px;
 }
+
+.links {
+	margin-top: 20px;
+	margin-left: 25px;
+	display: flex;
+	flex-direction: column;
+}
+
+.item {
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+}
+
+.link {
+	margin-left: 10px;
+	opacity: 1;
+}
+
+.icon {
+	fill: var(--inverted-primary-color);
+}
+
+.collapseBtn {
+	position: absolute;
+	right: -40px;
+	bottom: 40px;
+}
+
+.collapsed {
+	width: var(--sidebar-width-collapsed);
+
+	.switchers {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.lang {
+		margin-top: 10px;
+		margin-left: 0px;
+	}
+
+	.link {
+		opacity: 0;
+		transition: 0.1s opacity;
+		width: 0;
+	}
+}
+
