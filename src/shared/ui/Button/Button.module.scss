@@ -2,13 +2,19 @@
 	cursor: pointer;
 	color: var(--primary-color);
 	padding: 6px 15px;
+	border-radius: 5px;
 }
 
-.clear {
+.clear,
+.clearInverted {
 	padding: 0;
 	background: none;
 	border: none;
 	outline: none;
+}
+
+.clearInverted {
+	color: var(--inverted-primary-color);
 }
 
 .error {
@@ -18,6 +24,12 @@
 }
 
 .outline {
+	border: 1px solid var(--inverted-primary-color);
+	background: none;
+	color: var(--inverted-primary-color);
+}
+
+.outlineInverted {
 	border: 1px solid var(--primary-color);
 	background: none;
 	color: var(--primary-color);
@@ -37,30 +49,35 @@
 
 .square {
 	padding: 0;
+	border-radius: 0;
 }
 
 .square.size_s {
 	width: var(--font-line-s);
 	height: var(--font-line-s);
 	font: var(--font-s);
+	border-radius: 0;
 }
 
 .square.size_m {
 	width: var(--font-line-m);
 	height: var(--font-line-m);
 	font: var(--font-m);
+	border-radius: 0;
 }
 
 .square.size_l {
 	width: var(--font-line-l);
 	height: var(--font-line-l);
 	font: var(--font-l);
+	border-radius: 0;
 }
 
 .square.size_xl {
 	width: var(--font-line-xl);
 	height: var(--font-line-xl);
 	font: var(--font-xl);
+	border-radius: 0;
 }
 
 .size_s {

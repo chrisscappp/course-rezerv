@@ -19,10 +19,13 @@ module.exports = {
 	plugins: [
 		'react',
 		'@typescript-eslint',
-		'i18next'
+		'i18next',
+		'react-hooks'
 	],
 	rules: {
 		indent: ["error", "tab"],
+		"react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    	"react-hooks/exhaustive-deps": "error",
 		'no-mixed-spaces-and-tabs': 0,
 		'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
 		'import/no-unresolved': 'off',
@@ -51,9 +54,10 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: '**/src/**/*.test.{ts,tsx}',
+			files: '**/src/**/*.{test,stories}.{ts,tsx}',
 			rules: {
-				'i18next/no-literal-string': 'off'
+				'i18next/no-literal-string': 'off',
+				'max-len': 'off',
 			}
 		}
 	]
