@@ -2,6 +2,7 @@ import { classNames } from "shared/lib/classNames/classNames"
 import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import React from "react"
 import { Portal } from "../Portal/Portal";
+import { useTheme } from "app/providers/ThemeProvider";
 import cls from "./Modal.module.scss"
 
 interface ModalProps {
@@ -22,6 +23,7 @@ export const Modal = (props: ModalProps) => {
 		children
 	} = props
 
+	const { theme } = useTheme()
 	const [ isClosing, setIsClosing ] = useState(false)
 	const timerRef = useRef<ReturnType<typeof setTimeout>>()
 
@@ -70,6 +72,7 @@ export const Modal = (props: ModalProps) => {
 		<Portal>
 			<div 
 				className = {classNames(cls.Modal, mods, [className])}
+				// вешаем класс темы в модальное окно
 			>
 				<div className = {cls.overlay} onClick = {handleClose}>
 					<div className = {classNames(cls.content, {[cls.contentOpened]: isOpen})} onClick = {onClickContent}>

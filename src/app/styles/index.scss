@@ -4,9 +4,12 @@
 @import "./themes/light.scss";
 @import "./themes/red.scss";
 
-.app {
+body {
 	font: var(--font-l);
 	color: var(--primary-color);
+}
+
+.app {
 	background: var(--bg-color);
 	min-height: 100vh;
 }
