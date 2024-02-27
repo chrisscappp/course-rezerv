@@ -1,4 +1,6 @@
 {
 	"Войти": "Sign in",
-	"Регистрация": "Sign up"
+	"Регистрация": "Sign up",
+	"Введите username": "Input username",
+	"Введите пароль": "Input пароль"
 }

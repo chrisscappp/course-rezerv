@@ -1,7 +1,7 @@
 import { CounterSchema } from "enitites/Counter/index"
-import { InputSchema } from "enitites/Input/index"
+import { UserSchema } from "enitites/User"
 
 export interface StateSchema {
 	counter: CounterSchema,
-	input: InputSchema
+	user: UserSchema
 }

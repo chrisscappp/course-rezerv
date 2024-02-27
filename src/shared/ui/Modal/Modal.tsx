@@ -9,6 +9,7 @@ interface ModalProps {
 	className?: string;
 	isOpen?: boolean;
 	onClose?: () => void;
+	lazy?: boolean;
 	children?: ReactNode;
 } // специальный тип html тега
 
@@ -20,12 +21,21 @@ export const Modal = (props: ModalProps) => {
 		className,
 		isOpen,
 		onClose, // если изменится onClose, то произойдёт перерендер компонента
+		lazy,
 		children
 	} = props
 
 	const { theme } = useTheme()
 	const [ isClosing, setIsClosing ] = useState(false)
+	const [isMounted, setIsMounted] = useState(false)
 	const timerRef = useRef<ReturnType<typeof setTimeout>>()
+
+	useEffect(() => {
+		if (isOpen) {
+			setIsMounted(true)
+		}
+	}, [isOpen])
+	// проверяем открытось модалки. если открылась - рендерим
 
 	const handleClose = useCallback(() => {
 		if (onClose) {
@@ -66,6 +76,10 @@ export const Modal = (props: ModalProps) => {
 	const mods: Record<string, boolean> = {
 		[cls.opened]: isOpen,
 		[cls.isClosing]: isClosing
+	}
+
+	if (lazy && !isMounted) {
+		return null
 	}
 
 	return (
