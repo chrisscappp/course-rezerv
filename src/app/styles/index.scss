@@ -4,7 +4,8 @@
 @import "./themes/light.scss";
 @import "./themes/red.scss";
 
-body {
+.app,
+.app_modal {
 	font: var(--font-l);
 	color: var(--primary-color);
 }

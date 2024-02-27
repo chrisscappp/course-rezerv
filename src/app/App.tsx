@@ -5,11 +5,14 @@ import { Sidebar } from "widgets/SideBar"
 import { BugButton } from "app/providers/ErrorBoundary/index"
 import { Suspense } from "react" // для fallback к i18n
 import "./styles/index.scss"
+import { useTheme } from "./providers/ThemeProvider"
 
 const App = () => {
 
+	const { theme } = useTheme()
+
 	return (
-		<div className = {classNames("app", {}, [])}>
+		<div className = {classNames("app", {}, [theme])}>
 			<Suspense fallback = "">
 				<Navbar/>				
 				<div className = "content-page">
