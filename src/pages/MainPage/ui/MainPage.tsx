@@ -21,6 +21,7 @@ const MainPage = () => {
 				placeholder = "Введите текст"
 				onChange = {onChange}
 				value = {value}
+				
 			/>
 		</div>
 	)

@@ -1,13 +1,13 @@
-/* eslint-disable max-len */
-/* eslint-disable i18next/no-literal-string */
 import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./Navbar.module.scss"
-import { useCollapsed } from "app/providers/SidebarProvider";
 import { useTranslation } from "react-i18next";
 import React, { useCallback, useState } from "react";
-import { Modal } from "shared/ui/Modal/Modal";
 import { ButtonTheme, Button } from "shared/ui/Button/Button";
 import { LoginModal } from "feautures/AuthByUsername";
+import { RegisterModal } from "feautures/RegisterByUsername";
+import { getUserAuthData } from "enitites/User/index"
+import { useDispatch, useSelector } from "react-redux";
+import { userActions } from "enitites/User/index";
 
 interface NavbarProps {
 	className?: string;
@@ -15,33 +15,64 @@ interface NavbarProps {
 
 export const Navbar = ({ className }: NavbarProps) => {
 
-	//const { toggleCollapsed } = useCollapsed()
 	const { t } = useTranslation("navbar")
+	const authData = useSelector(getUserAuthData)
+	const dispatch = useDispatch()
 
 	const [ isAuthModal, setIsAuthModal ] = useState<boolean>(false)
+	const [ isRegModal, setIsRegModal ] = useState<boolean>(false)
 
-	const onShowModal = useCallback(() => {
+	const onShowAuthModal = useCallback(() => {
 		setIsAuthModal(true)
 	}, [])
 	// ссылки на ф-ии которые мы передаем пропсами всегда надо сохранять
 	// во избежание лишних рендеров
 
-	const onCloseModal = useCallback(() => {
+	const onCloseAuthModal = useCallback(() => {
 		setIsAuthModal(false)
 	}, [])
+
+	const onShowRegModal = useCallback(() => {
+		setIsRegModal(true)
+	}, [])
+
+	const onCloseRegModal = useCallback(() => {
+		setIsRegModal(false)
+	}, [])
+
+	const onLogout = useCallback(() => {
+		dispatch(userActions.logout())
+		onCloseAuthModal()
+	}, [dispatch, onCloseAuthModal])
+
+	if (authData) {
+		return (
+			<div className = {classNames(cls.Navbar, {}, [className])}>
+				<div className = {cls.btns}>
+					<Button 
+						theme = {ButtonTheme.OUTLINE}
+						onClick = {onLogout}
+					>
+						{t("Выйти")}
+					</Button>
+				</div>
+			</div>
+		)
+	}
 
 	return (
 		<div className = {classNames(cls.Navbar, {}, [className])}>
 			<div className = {cls.btns}>
 				<Button 
 					theme = {ButtonTheme.OUTLINE}
-					onClick = {onShowModal}
+					onClick = {onShowAuthModal}
 				>
 					{t("Войти")}
 				</Button>
 				<Button 
 					theme = {ButtonTheme.OUTLINE}
 					className = {cls.regBtn}
+					onClick = {onShowRegModal}
 				>
 					{t("Регистрация")}
 				</Button>
@@ -49,7 +80,11 @@ export const Navbar = ({ className }: NavbarProps) => {
 			
 			<LoginModal
 				isOpen = {isAuthModal}
-				onClose = {onCloseModal}
+				onClose = {onCloseAuthModal}
+			/>
+			<RegisterModal
+				isOpen = {isRegModal}
+				onClose = {onCloseRegModal}
 			/>
 		</div>
 	)

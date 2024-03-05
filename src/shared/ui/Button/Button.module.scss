@@ -95,3 +95,13 @@
 .size_xl {
 	font-size: var(--font-size-xl);
 }
+
+.disabled {
+	opacity: 0.5;
+}
+
+.hovered:hover {
+	background: var(--primary-color);
+	color: var(--inverted-primary-color);
+	transition: 0.3s;
+}

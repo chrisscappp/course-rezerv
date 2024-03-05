@@ -39,6 +39,42 @@ server.post('/login', (req, res) => {
 	}
 });
 
+//эндпоинт регистрации
+server.post('/register', (req, res) => {
+	try {
+		const { id, username, password } = req.body;
+		const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
+		const { users = [] } = db;
+
+		const userFromBd = users.find(
+			(user) => user.username === username
+		);
+
+		if (userFromBd) {
+			return res.status(403).json({ message: 'This user is already register' });
+		}
+
+		const newUser = {
+			id: id,
+			username: username,
+			password: password
+		}
+
+		//let obj = {
+		//	users: users
+		//}
+		users.push(newUser)
+		//let json = JSON.stringify(obj)
+		//fs.writeFile('db.json', json, 'utf8', () => {});
+		
+		delete newUser['password']
+		return res.json(newUser);
+	} catch (e) {
+		console.log(e);
+		return res.status(500).json({ message: e.message });
+	}
+});
+
 // проверяем, авторизован ли пользователь
 // eslint-disable-next-line
 server.use((req, res, next) => {

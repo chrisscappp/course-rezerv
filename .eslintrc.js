@@ -48,6 +48,7 @@ module.exports = {
 			},
 		], // отсутсвие переводов внутри jsx
 		'max-len': ['error', 130, { 'ignoreComments': true }],
+		"react/display-name": "off"
 	},
 	globals: {
 		__IS_DEV__: true,

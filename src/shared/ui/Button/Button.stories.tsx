@@ -18,6 +18,23 @@ export const Default: Story = {
 	},
 };
 
+export const Disabled: Story = {
+	args: {
+		children: "Text",
+		theme: ButtonTheme.OUTLINE,
+		disabled: true
+	},
+};
+
+export const DisabledDark: Story = {
+	args: {
+		children: "Text",
+		theme: ButtonTheme.OUTLINE,
+		disabled: true
+	},
+	decorators: [ThemeDecorator(Themes.DARK)]
+};
+
 export const Clear: Story = {
 	args: {
 		children: "Text",

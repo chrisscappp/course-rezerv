@@ -25,10 +25,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
 		setCollapsed(prev => !prev)
 	}
 
-	//const { collapsed, toggleCollapsed } = useCollapsed()
-
-	//console.log("COLLAPSED", collapsed)
-
 	return (
 		<div 
 			className = {classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}

@@ -13,13 +13,6 @@ export default ({config}: {config: webpack.Configuration}) => {
 		src: path.resolve(__dirname, "..", "..", "src")
 	}
 
-	/*if (isStringArr(config.resolve?.modules) && isStringArr(config.resolve?.extensions)) {
-		config.resolve.modules.push(paths.src)
-		config.resolve.extensions.push('ts', 'tsx')
-	}
-
-	*/
-
 	config?.resolve?.modules?.push(paths.src)
 	config?.resolve?.extensions?.push('.ts', '.tsx')
 
@@ -34,7 +27,9 @@ export default ({config}: {config: webpack.Configuration}) => {
 		config.module.rules.push(buildCssLoader(true))
 	}
 	
-	
+	config.plugins?.push(new webpack.DefinePlugin({
+		__IS_DEV__: JSON.stringify(true)
+	})) // теперь сторибук знает о глобальных переменных
 	
 	return config
 }

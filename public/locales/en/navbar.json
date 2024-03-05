@@ -2,5 +2,13 @@
 	"Войти": "Sign in",
 	"Регистрация": "Sign up",
 	"Введите username": "Input username",
-	"Введите пароль": "Input пароль"
+	"Введите пароль": "Input password",
+	"Повторите пароль": "Repeat password",
+	"Неверный логин или пароль": "Uncorrect username or password",
+	"Форма авторизации": "Authtorization form",
+	"Форма регистрации": "Registration form",
+	"Выйти": "Logout",
+	"Зарегистрироваться": "Register",
+	"Пароли не совпадают": "Password dont match",
+	"Пользователь с таким логином уже существует": "User with this login is already create"
 }

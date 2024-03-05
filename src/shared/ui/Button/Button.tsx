@@ -25,6 +25,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	theme?: ButtonTheme;
 	square?: boolean;
 	size?: ButtonSize;
+	disabled?: boolean;
+	hoveredTheme?: ButtonTheme;
+	hovered?: boolean;
 } // специальный тип html тега
 
 export const Button: FC<ButtonProps> = (props) => {
@@ -34,6 +37,9 @@ export const Button: FC<ButtonProps> = (props) => {
 		theme,
 		children, 
 		square,
+		disabled,
+		hoveredTheme,
+		hovered,
 		size = ButtonSize.M,
 		...otherProps
 	} = props
@@ -41,12 +47,15 @@ export const Button: FC<ButtonProps> = (props) => {
 	const mods: Record<string, boolean> = {
 		[cls[theme]]: true,
 		[cls.square]: square,
-		[cls[size]]: true
+		[cls[size]]: true,
+		[cls.disabled]: disabled,
+		[cls.hovered]: hovered
 	}
 
 	return (
 		<button 
 			className = {classNames(cls.Button, mods, [className])}
+			disabled = {disabled}
 			{...otherProps}
 		>
 			{children}
