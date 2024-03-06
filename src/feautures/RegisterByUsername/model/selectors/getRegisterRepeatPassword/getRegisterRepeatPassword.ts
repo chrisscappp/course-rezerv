@@ -1,8 +1,5 @@
-import { getRegisterState } from "../getRegisterState/getRegisterState";
-import { RegisterSchema } from "../../types/registerSchema";
-import { createSelector } from "@reduxjs/toolkit";
+import { StateSchema } from "app/providers/StoreProvider";
 
-export const getRegisterRepeatPassword = createSelector(
-	getRegisterState,
-	(state: RegisterSchema) => state.repeatPassword
-)
+export const getRegisterRepeatPassword = (state: StateSchema) => {
+	return state?.registerForm?.repeatPassword
+}

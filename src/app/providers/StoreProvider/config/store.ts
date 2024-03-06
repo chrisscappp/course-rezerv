@@ -1,8 +1,7 @@
-import { DeepPartial, ReducersMapObject, configureStore } from '@reduxjs/toolkit'
+import { ReducersMapObject, configureStore } from '@reduxjs/toolkit'
 import { StateSchema } from "../config/types"
 import { counterReducer } from "enitites/Counter"
 import { userReducer } from "enitites/User"
-import { registerFormReducer } from "feautures/RegisterByUsername"
 import { createReducerManager } from "./reducerManager"
 
 export function createReduxStore(
@@ -13,8 +12,7 @@ export function createReduxStore(
 	const rootReducers: ReducersMapObject<StateSchema> = {
 		...asyncReducers,
 		counter: counterReducer,
-		user: userReducer,
-		registerForm: registerFormReducer
+		user: userReducer
 	}
 
 	const reducerManager = createReducerManager(rootReducers)

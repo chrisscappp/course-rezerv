@@ -1,8 +1,5 @@
-import { getRegisterState } from "../getRegisterState/getRegisterState";
-import { RegisterSchema } from "../../types/registerSchema";
-import { createSelector } from "@reduxjs/toolkit";
+import { StateSchema } from "app/providers/StoreProvider";
 
-export const getRegisterLogin = createSelector(
-	getRegisterState,
-	(state: RegisterSchema) => state.username
-)
+export const getRegisterLogin = (state: StateSchema) => {
+	return state?.registerForm?.username
+}

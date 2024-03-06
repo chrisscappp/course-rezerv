@@ -9,8 +9,8 @@ export interface StateSchema {
 	user: UserSchema,
 
 	// Async
-	loginForm?: LoginSchema,
 	registerForm?: RegisterSchema
+	loginForm?: LoginSchema,
 }
 
 export type StateSchemaKey = keyof StateSchema

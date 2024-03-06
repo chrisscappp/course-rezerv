@@ -83,11 +83,13 @@ export const Navbar = ({ className }: NavbarProps) => {
 				onClose = {onCloseAuthModal}
 			/> 
 			}
-			
+			{isRegModal &&
 			<RegisterModal
 				isOpen = {isRegModal}
 				onClose = {onCloseRegModal}
 			/>
+			}
+			
 		</div>
 	)
 }

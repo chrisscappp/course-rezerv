@@ -34,9 +34,6 @@ export const Modal = (props: ModalProps) => {
 		if (isOpen) {
 			setIsMounted(true)
 		}
-		return () => {
-			setIsMounted(false)
-		}
 	}, [isOpen])
 	// проверяем открытось модалки. если открылась - рендерим
 

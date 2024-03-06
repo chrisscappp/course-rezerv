@@ -7,18 +7,32 @@ import { Input } from "shared/ui/Input/Input";
 import { useDispatch, useSelector } from "react-redux";
 import { Text, TextTheme } from "shared/ui/Text/Text"
 import { registerByUsername } from "../../model/services/registerByUsername/registerByUsername";
-import { getRegisterState } from "../../model/selectors/getRegisterState/getRegisterState";
-import { registerFormActions } from "../../model/slice/registerFormSlice";
+import { registerFormActions, registerFormReducer } from "../../model/slice/registerFormSlice";
+import { getRegisterLogin } from "../../model/selectors/getRegisterLogin/getRegisterLogin";
+import { getRegisterPassword } from "../../model/selectors/getRegisterPassword/getRegisterPassword";
+import { getRegisterRepeatPassword } from "../../model/selectors/getRegisterRepeatPassword/getRegisterRepeatPassword";
+import { getRegisterIsLoading } from "../../model/selectors/getRegisterIsLoading/getRegisterIsLoading";
+import { getRegisterError } from "../../model/selectors/getRegisterError/getRegisterError";
+import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { DynamicModuleLoader } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
-interface RegisterFormProps {
+export interface RegisterFormProps {
 	className?: string;
 }
 
-export const RegisterForm = memo(({ className }: RegisterFormProps) => {
+const initialReducers: ReducersList = {
+	registerForm: registerFormReducer
+}
+
+const RegisterForm = memo(({ className }: RegisterFormProps) => {
 
 	const { t } = useTranslation("navbar")
 	const dispatch = useDispatch()
-	const { username, password, repeatPassword, error, isLoading } = useSelector(getRegisterState)
+	const username = useSelector(getRegisterLogin)
+	const password = useSelector(getRegisterPassword)
+	const repeatPassword = useSelector(getRegisterRepeatPassword)
+	const error = useSelector(getRegisterError)
+	const isLoading = useSelector(getRegisterIsLoading)
 
 	const onChangeUsername = useCallback((value: string) => {
 		dispatch(registerFormActions.setUsername(value))
@@ -43,46 +57,54 @@ export const RegisterForm = memo(({ className }: RegisterFormProps) => {
 	}, [dispatch, password, repeatPassword, username])
 
 	return (
-		<div 
-			className = {classNames(cls.RegisterForm, {}, [className])}
+		<DynamicModuleLoader
+			reducers = {initialReducers}
+			removeAfterUnmount
 		>
-			<Text
-				title = {t("Форма регистрации")}
-				className = {cls.formTitle}
-			/>
-			{error && <Text text = {t(error)} theme = {TextTheme.ERROR} />}
-			<Input 
-				autoFocus
-				type="text" 
-				className = {cls.input}
-				placeholder = {t("Введите username")}
-				value = {username}
-				onChange = {onChangeUsername}
-			/>
-			<Input 
-				type="text"
-				className = {cls.input}
-				placeholder = {t("Введите пароль")}
-				value = {password}
-				onChange = {onChangePassword}
-			/>
-			<Input 
-				type="text"
-				className = {cls.input}
-				placeholder = {t("Повторите пароль")}
-				value = {repeatPassword}
-				onChange = {onChangeRepeatPassword}
-			/>
-			<Button 
-				className = {cls.regBtn}
-				theme = {ButtonTheme.OUTLINE_INVERTED}
-				hovered
-				hoveredTheme = {ButtonTheme.ERROR}
-				onClick = {onRegister}
-				disabled = {isLoading}
+			<div 
+				className = {classNames(cls.RegisterForm, {}, [className])}
 			>
-				{t("Зарегистрироваться")}
-			</Button>
-		</div>
+				<Text
+					title = {t("Форма регистрации")}
+					className = {cls.formTitle}
+				/>
+				{error && <Text text = {t(error)} theme = {TextTheme.ERROR} />}
+				<Input 
+					autoFocus
+					type="text" 
+					className = {cls.input}
+					placeholder = {t("Введите username")}
+					value = {username ? username : ""}
+					onChange = {onChangeUsername}
+				/>
+				<Input 
+					type="text"
+					className = {cls.input}
+					placeholder = {t("Введите пароль")}
+					value = {password ? password : ""}
+					onChange = {onChangePassword}
+				/>
+				<Input 
+					type="text"
+					className = {cls.input}
+					placeholder = {t("Повторите пароль")}
+					value = {repeatPassword ? repeatPassword : ""}
+					onChange = {onChangeRepeatPassword}
+				/>
+				<Button 
+					className = {cls.regBtn}
+					theme = {ButtonTheme.OUTLINE_INVERTED}
+					hovered
+					hoveredTheme = {ButtonTheme.ERROR}
+					onClick = {onRegister}
+					disabled = {isLoading ? isLoading : false}
+				>
+					{t("Зарегистрироваться")}
+				</Button>
+			</div>
+		</DynamicModuleLoader>
+		
 	)
 })
+
+export default RegisterForm

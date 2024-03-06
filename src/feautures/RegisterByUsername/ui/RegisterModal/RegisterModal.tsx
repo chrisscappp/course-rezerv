@@ -1,7 +1,8 @@
 import { classNames } from "shared/lib/classNames/classNames"
-import React from "react";
+import React, { Suspense }  from "react";
 import { Modal } from "shared/ui/Modal/Modal";
-import { RegisterForm } from "../RegisterForm/RegisterForm";
+import { RegisterFormAsync } from "../RegisterForm/RegisterForm.async";
+import { Spinner } from "shared/ui/Spinner/Spinner";
 
 interface RegisterModalProps {
 	className?: string;
@@ -18,7 +19,9 @@ export const RegisterModal = ({ className, isOpen, onClose }: RegisterModalProps
 			onClose = {onClose}
 			lazy
 		>
-			<RegisterForm/>
+			<Suspense fallback = {<Spinner/>}>
+				<RegisterFormAsync/>
+			</Suspense>
 		</Modal>
 	)
 }
