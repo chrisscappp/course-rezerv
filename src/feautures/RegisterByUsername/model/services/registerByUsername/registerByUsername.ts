@@ -5,7 +5,7 @@ import { USER_LOCALSTORAGE_KEY } from "shared/consts/localStorage";
 import axios from 'axios'
 
 interface RegisterByUsernameProps {
-	id: number;
+	id: string;
 	username: string;
 	password: string;
 }
