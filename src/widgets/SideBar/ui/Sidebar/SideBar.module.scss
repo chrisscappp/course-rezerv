@@ -25,21 +25,6 @@
 	flex-direction: column;
 }
 
-.item {
-	margin-top: 10px;
-	display: flex;
-	align-items: center;
-}
-
-.link {
-	margin-left: 10px;
-	opacity: 1;
-}
-
-.icon {
-	fill: var(--inverted-primary-color);
-}
-
 .collapseBtn {
 	position: absolute;
 	right: -40px;
@@ -57,12 +42,6 @@
 	.lang {
 		margin-top: 10px;
 		margin-left: 0px;
-	}
-
-	.link {
-		opacity: 0;
-		transition: 0.1s opacity;
-		width: 0;
 	}
 }
 

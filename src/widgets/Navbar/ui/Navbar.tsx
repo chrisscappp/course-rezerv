@@ -1,7 +1,7 @@
 import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./Navbar.module.scss"
 import { useTranslation } from "react-i18next";
-import React, { useCallback, useState } from "react";
+import React, { memo, useCallback, useState } from "react";
 import { ButtonTheme, Button } from "shared/ui/Button/Button";
 import { LoginModal } from "feautures/AuthByUsername";
 import { RegisterModal } from "feautures/RegisterByUsername";
@@ -13,7 +13,7 @@ interface NavbarProps {
 	className?: string;
 } // доп классname
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
 
 	const { t } = useTranslation("navbar")
 	const authData = useSelector(getUserAuthData)
@@ -92,6 +92,6 @@ export const Navbar = ({ className }: NavbarProps) => {
 			
 		</div>
 	)
-}
+})
 
 // компоненты не требующие асинхронного чанка экспортируем именованным образом

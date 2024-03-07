@@ -15,19 +15,21 @@ import { getRegisterIsLoading } from "../../model/selectors/getRegisterIsLoading
 import { getRegisterError } from "../../model/selectors/getRegisterError/getRegisterError";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { DynamicModuleLoader } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 export interface RegisterFormProps {
 	className?: string;
+	onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
 	registerForm: registerFormReducer
 }
 
-const RegisterForm = memo(({ className }: RegisterFormProps) => {
+const RegisterForm = memo(({ className, onSuccess }: RegisterFormProps) => {
 
 	const { t } = useTranslation("navbar")
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 	const username = useSelector(getRegisterLogin)
 	const password = useSelector(getRegisterPassword)
 	const repeatPassword = useSelector(getRegisterRepeatPassword)
@@ -46,15 +48,19 @@ const RegisterForm = memo(({ className }: RegisterFormProps) => {
 		dispatch(registerFormActions.setRepeatPasword(value))
 	}, [dispatch])
 
-	const onRegister = useCallback(() => {
+	const onRegister = useCallback(async () => {
 		dispatch(registerFormActions.setError(""))
 		if (!(password === repeatPassword)) {
 			dispatch(registerFormActions.setError("Пароли не совпадают"))
 		} else {
-			dispatch(registerByUsername({ id: "3", password, username }))
+			const res = await dispatch(registerByUsername({ id: "3", password, username }))
+			if (res.meta.requestStatus === "fulfilled") {
+				onSuccess()
+				// явно закрыли модалку после регистрации
+			}
 		}
 
-	}, [dispatch, password, repeatPassword, username])
+	}, [dispatch, onSuccess, password, repeatPassword, username])
 
 	return (
 		<DynamicModuleLoader

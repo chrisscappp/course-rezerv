@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next"
-import React from "react"
+import React, { memo } from "react"
 
 const AboutPage = () => {
 
@@ -12,4 +12,4 @@ const AboutPage = () => {
 	)
 }
 
-export default AboutPage
+export default memo(AboutPage)

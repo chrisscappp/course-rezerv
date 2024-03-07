@@ -1,6 +1,6 @@
 import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./LoginForm.module.scss"
-import React, { useCallback, memo, useEffect } from "react";
+import React, { useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
@@ -13,19 +13,21 @@ import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLogi
 import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 export interface LoginFormProps {
 	className?: string;
+	onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
 	loginForm: loginFormReducer
 }
 
-const LoginForm = memo(({ className }: LoginFormProps) => {
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
 	const { t } = useTranslation("navbar")
-	const dispatch = useDispatch()
+	const dispatch = useAppDispatch()
 	const username = useSelector(getLoginUsername)
 	const password = useSelector(getLoginPassword)
 	const error = useSelector(getLoginError)
@@ -39,10 +41,13 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
 		dispatch(loginFormActions.setPassword(value))
 	}, [dispatch])
 
-	const onLogin = useCallback(() => {
-		dispatch(loginByUsername({ password, username }))
+	const onLogin = useCallback(async () => {
+		const res = await dispatch(loginByUsername({ password, username }))
+		if (res.meta.requestStatus === "fulfilled") {
+			onSuccess()
+		}
 		// передали асинхронный action
-	}, [dispatch, password, username])
+	}, [dispatch, onSuccess, password, username])
 
 	return (
 		<DynamicModuleLoader 

@@ -25,3 +25,4 @@ export interface ReducerManagerType {
 export interface ReduxStoreWithManager {
 	reducerManager: ReducerManagerType
 }
+

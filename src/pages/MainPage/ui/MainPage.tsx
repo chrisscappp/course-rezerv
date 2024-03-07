@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next"
-import React, { useState } from "react"
+import React, { memo, useState } from "react"
 import { Counter } from "enitites/Counter"
 import { Input } from "shared/ui/Input/Input"
 
@@ -27,4 +27,4 @@ const MainPage = () => {
 	)
 }
 
-export default MainPage
+export default memo(MainPage)

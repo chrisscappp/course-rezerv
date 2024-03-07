@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames"
-import { ButtonHTMLAttributes, FC } from "react";
+import { ButtonHTMLAttributes, FC, ReactNode, memo } from "react";
 import React from "react"
 import cls from "./Button.module.scss"
 
@@ -28,9 +28,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	disabled?: boolean;
 	hoveredTheme?: ButtonTheme;
 	hovered?: boolean;
+	children?: ReactNode;
 } // специальный тип html тега
 
-export const Button: FC<ButtonProps> = (props) => {
+export const Button = memo((props: ButtonProps) => {
 
 	const { 
 		className, 
@@ -61,4 +62,4 @@ export const Button: FC<ButtonProps> = (props) => {
 			{children}
 		</button>
 	)
-}
+})

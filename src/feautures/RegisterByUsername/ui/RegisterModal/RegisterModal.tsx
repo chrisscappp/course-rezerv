@@ -20,7 +20,9 @@ export const RegisterModal = ({ className, isOpen, onClose }: RegisterModalProps
 			lazy
 		>
 			<Suspense fallback = {<Spinner/>}>
-				<RegisterFormAsync/>
+				<RegisterFormAsync
+					onSuccess = {onClose}
+				/>
 			</Suspense>
 		</Modal>
 	)

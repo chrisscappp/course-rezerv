@@ -10,7 +10,6 @@ export function createReducerManager(initialReducers: ReducersMapObject<StateSch
 	return {
 		getReducerMap: () => reducers,
 		reduce: (state: StateSchema, action: AnyAction) => {
-			console.log("keysToRemove", keysToRemove)
 			if (keysToRemove.length > 0) {
 				state = { ...state }
 				for (let key of keysToRemove) {

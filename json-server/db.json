@@ -17,6 +17,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "firstname": "Александр",
+    "lastname": "Шаненков",
+    "age": "19",
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Saint-Petersburg",
+    "username": "admin",
+    "avatar": "https://pbs.twimg.com/profile_images/977700491051323394/OiI5vDqo.jpg"
   }
 }

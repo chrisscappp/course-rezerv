@@ -1,7 +1,6 @@
 import { classNames } from "shared/lib/classNames/classNames"
-import { useState } from "react";
+import { memo, useMemo, useState } from "react";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
-import { useCollapsed } from "app/providers/SidebarProvider/lib/useCollapsed";
 import { LangSwitcher } from "widgets/LangSwitcher"
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
 import React from "react";
@@ -11,19 +10,31 @@ import { useTranslation } from "react-i18next";
 import { RouterPath } from "shared/config/routeConfig/routeConfig";
 import HomeIcon from "shared/assets/icons/home-icon.svg"
 import AboutIcon from "shared/assets/icons/about-icon.svg"
+import { SideBarItemList } from "widgets/SideBar/model/items";
+import { SideBarItem } from "../SidebarItem/SideBarItem"
 
 interface SidebarProps {
 	className?: string;
 } // доп класс
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
 
 	const [ collapsed, setCollapsed ] = useState(true)
-	const { t } = useTranslation("navbar")
 
 	const onToggle = () => {
 		setCollapsed(prev => !prev)
 	}
+
+	const itemsList = useMemo(() => SideBarItemList.map((item) => {
+		return (
+			<SideBarItem
+				key = {item.path}
+				item = {item}
+				collapsed = {collapsed}
+			/>
+		)
+	}), [collapsed]) // мемоизировали в памяти список ссылок
+	// чтобы они не перерисовывались в момент обновления state у Sidebar - он родитель
 
 	return (
 		<div 
@@ -41,26 +52,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
 				{collapsed ? ">" : "<"}
 			</Button>
 			<div className = {cls.links}>
-				<AppLink 
-					theme = {AppLinkTheme.PRIMARY} 
-					to = {RouterPath.main} 
-					className = {cls.item}
-				> 
-					<HomeIcon className = {cls.icon}/>
-					<span className = {cls.link}>
-						{t("Главная")}
-					</span>
-				</AppLink>
-				<AppLink 
-					theme = {AppLinkTheme.PRIMARY} 
-					to = {RouterPath.about}
-					className = {cls.item}
-				> 
-					<AboutIcon className = {cls.icon}/>
-					<span className = {cls.link}>
-						{t("О сайте")} 
-					</span>	
-				</AppLink>
+				{itemsList}
 			</div>
 			<div
 				className = {classNames(cls.switchers, {}, [])}
@@ -73,4 +65,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
 			</div>
 		</div>
 	)
-}
+})
