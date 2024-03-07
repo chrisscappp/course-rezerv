@@ -51,7 +51,7 @@ const RegisterForm = memo(({ className }: RegisterFormProps) => {
 		if (!(password === repeatPassword)) {
 			dispatch(registerFormActions.setError("Пароли не совпадают"))
 		} else {
-			dispatch(registerByUsername({ id: 3, password, username }))
+			dispatch(registerByUsername({ id: "3", password, username }))
 		}
 
 	}, [dispatch, password, repeatPassword, username])

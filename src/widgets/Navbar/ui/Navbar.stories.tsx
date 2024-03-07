@@ -29,7 +29,7 @@ export const NavbarDark: Story = {
 		StoreDecorator({
 			user: {
 				authData: {
-					id: 1,
+					id: "1",
 					username: "asdfg"
 				}
 			}
