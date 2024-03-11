@@ -109,7 +109,6 @@ const RegisterForm = memo(({ className, onSuccess }: RegisterFormProps) => {
 				</Button>
 			</div>
 		</DynamicModuleLoader>
-		
 	)
 })
 

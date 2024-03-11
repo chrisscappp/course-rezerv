@@ -4,6 +4,7 @@ import cls from "./SideBarItem.module.scss"
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { SideBarItemType } from "../../model/items"
 import { memo } from "react";
+import React from "react";
 
 interface SideBarItemProps {
 	item: SideBarItemType;

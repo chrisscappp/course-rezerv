@@ -8,6 +8,7 @@ export type ReducersList = {
 }
 
 type ReducersListEntry = [StateSchemaKey, Reducer]
+// тип для кортежа
 
 export interface DynamicModuleLoaderProps {
 	reducers: ReducersList;

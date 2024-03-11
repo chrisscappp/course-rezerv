@@ -1,6 +1,5 @@
 import { AnyAction, Reducer, ReducersMapObject, combineReducers } from "@reduxjs/toolkit"
 import { StateSchema, StateSchemaKey, ReducerManagerType } from "./types"
-import { useDispatch } from "react-redux"
 
 export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>): ReducerManagerType {
 	const reducers = { ...initialReducers }

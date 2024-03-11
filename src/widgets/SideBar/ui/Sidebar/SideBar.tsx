@@ -5,11 +5,6 @@ import { LangSwitcher } from "widgets/LangSwitcher"
 import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
 import React from "react";
 import cls from "./SideBar.module.scss"
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { useTranslation } from "react-i18next";
-import { RouterPath } from "shared/config/routeConfig/routeConfig";
-import HomeIcon from "shared/assets/icons/home-icon.svg"
-import AboutIcon from "shared/assets/icons/about-icon.svg"
 import { SideBarItemList } from "widgets/SideBar/model/items";
 import { SideBarItem } from "../SidebarItem/SideBarItem"
 

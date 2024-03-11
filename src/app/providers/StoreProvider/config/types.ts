@@ -1,8 +1,9 @@
 import { AnyAction, CombinedState, Reducer, ReducersMapObject } from "@reduxjs/toolkit"
-import { CounterSchema } from "enitites/Counter/index"
+import { CounterSchema } from "enitites/Counter"
 import { UserSchema } from "enitites/User"
-import { LoginSchema } from "feautures/AuthByUsername/index"
-import { RegisterSchema } from "feautures/RegisterByUsername/index"
+import { LoginSchema } from "feautures/AuthByUsername"
+import { RegisterSchema } from "feautures/RegisterByUsername"
+import { ProfileSchema } from "enitites/Profile"
 
 export interface StateSchema {
 	counter: CounterSchema,
@@ -11,6 +12,7 @@ export interface StateSchema {
 	// Async
 	registerForm?: RegisterSchema
 	loginForm?: LoginSchema,
+	profile?: ProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
