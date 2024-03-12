@@ -3,11 +3,6 @@ import { loginByUsername } from "./loginByUsername"
 import { userActions } from "enitites/User/index"
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
 
-jest.mock("axios")
-const mockedAxios = jest.mocked(axios, true)
-// замокали axios, с глубоким моком. теперь замоканный axios будет поддерживать
-// типы jest. мокаем также внутренние поля (поле пост например). глубокий мок
-
 describe("test loginByUsername", () => {
 	/*let dispatch: Dispatch
 	let getState: () => StateSchema
@@ -67,27 +62,27 @@ describe("test loginByUsername", () => {
 			id: "1" 
 		} // данные которые должны вернуться
 		
-		mockedAxios.post.mockReturnValue(Promise.resolve({data: userData}))
+		
 		
 		const asyncThunk = new TestAsyncThunk(loginByUsername)
+		asyncThunk.api.post.mockReturnValue(Promise.resolve({data: userData}))
 		const res = await asyncThunk.callThunk({ username: "123", password: "123" })
 		
 		expect(asyncThunk.dispatch).toHaveBeenCalledTimes(3)
 		expect(asyncThunk.dispatch).toHaveBeenCalledWith(userActions.setAuthData(userData))
-		expect(mockedAxios.post).toHaveBeenCalled()
+		expect(asyncThunk.api.post).toHaveBeenCalled()
 		expect(res.meta.requestStatus).toBe("fulfilled")
 		expect(res.payload).toEqual(userData)
 	})
 
 	test("rejected login", async () => {
 		
-		mockedAxios.post.mockReturnValue(Promise.resolve({ status: 403 }))
-		
 		const asyncThunk = new TestAsyncThunk(loginByUsername)
+		asyncThunk.api.post.mockReturnValue(Promise.resolve({ status: 403 }))
 		const res = await asyncThunk.callThunk({ username: "123", password: "123" })
 		
 		expect(asyncThunk.dispatch).toHaveBeenCalledTimes(2)
-		expect(mockedAxios.post).toHaveBeenCalled()
+		expect(asyncThunk.api.post).toHaveBeenCalled()
 		expect(res.meta.requestStatus).toBe("rejected")
 		expect(res.payload).toBe("Неверный логин или пароль")
 	})

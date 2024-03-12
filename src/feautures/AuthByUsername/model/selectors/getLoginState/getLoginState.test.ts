@@ -1,5 +1,4 @@
 import { getLoginState } from "./getLoginState";
-import { DeepPartial } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 
 describe('getLoginState test', () => {

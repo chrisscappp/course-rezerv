@@ -11,10 +11,13 @@ export function useTheme(): UseThemeResult {
 
 	const toggleTheme = (th: Themes) => {
 		const newTheme = theme === Themes.LIGHT ? Themes.DARK : Themes.LIGHT
-		setTheme(newTheme)
-		//document.body.className = newTheme
+		setTheme?.(newTheme)
+		// функция может быть undefined тк context инициализируется не сразу
 		localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme)
 	}
 
-	return { theme, toggleTheme }
+	return { 
+		theme: theme || Themes.LIGHT, 
+		toggleTheme 
+	}
 }

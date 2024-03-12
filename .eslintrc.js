@@ -48,10 +48,12 @@ module.exports = {
 			},
 		], // отсутсвие переводов внутри jsx
 		'max-len': ['error', 130, { 'ignoreComments': true }],
-		"react/display-name": "off"
+		"react/display-name": "off",
+		'no-undef': 'off'
 	},
 	globals: {
 		__IS_DEV__: true,
+		__API__: true
 	},
 	overrides: [
 		{

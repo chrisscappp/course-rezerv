@@ -60,9 +60,6 @@ server.post('/register', (req, res) => {
 			password: password
 		}
 
-		//let obj = {
-		//	users: users
-		//}
 		users.push(newUser)
 		//let json = JSON.stringify(obj)
 		//fs.writeFile('db.json', json, 'utf8', () => {});

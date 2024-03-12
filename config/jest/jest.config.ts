@@ -49,7 +49,8 @@ export default {
   },
   rootDir: "../../",
   globals: {
-    __IS_DEV__: true
+    __IS_DEV__: true,
+    __API__: ""
   },
   
   // Indicates whether the coverage information should be collected while executing the test

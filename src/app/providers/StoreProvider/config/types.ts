@@ -4,6 +4,9 @@ import { UserSchema } from "enitites/User"
 import { LoginSchema } from "feautures/AuthByUsername"
 import { RegisterSchema } from "feautures/RegisterByUsername"
 import { ProfileSchema } from "enitites/Profile"
+import { AxiosInstance } from "axios"
+import { NavigateOptions } from "react-router-dom"
+import { To } from "history"
 
 export interface StateSchema {
 	counter: CounterSchema,
@@ -28,3 +31,12 @@ export interface ReduxStoreWithManager {
 	reducerManager: ReducerManagerType
 }
 
+export interface ThunkExtraArg {
+	api: AxiosInstance,
+	navigate?: (to: To, options?: NavigateOptions) => void,
+}
+
+export interface ThunkConfig<T> {
+	rejectValue: T,
+	extra: ThunkExtraArg
+} // тип для thunkAPI

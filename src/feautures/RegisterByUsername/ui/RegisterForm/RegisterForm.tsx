@@ -53,13 +53,14 @@ const RegisterForm = memo(({ className, onSuccess }: RegisterFormProps) => {
 		if (!(password === repeatPassword)) {
 			dispatch(registerFormActions.setError("Пароли не совпадают"))
 		} else {
-			const res = await dispatch(registerByUsername({ id: "3", password, username }))
-			if (res.meta.requestStatus === "fulfilled") {
-				onSuccess()
-				// явно закрыли модалку после регистрации
+			if (password && username) {
+				const res = await dispatch(registerByUsername({ id: "3", password, username }))
+				if (res.meta.requestStatus === "fulfilled") {
+					onSuccess()
+					// явно закрыли модалку после регистрации
+				}
 			}
 		}
-
 	}, [dispatch, onSuccess, password, repeatPassword, username])
 
 	return (

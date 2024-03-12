@@ -1,6 +1,5 @@
 import { loginFormActions, loginFormReducer } from "./loginFormSlice";
 import { LoginSchema } from "../types/loginSchema";
-import { DeepPartial } from "@reduxjs/toolkit";
 
 describe('loginFormSlice', () => {
 	test('set username', () => {

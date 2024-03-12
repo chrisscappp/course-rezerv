@@ -1,7 +1,7 @@
 import webpack from "webpack"
 import { BuildPaths } from "../build/types/config"
 import path from "path"
-import { isStringArr, isConfigModule } from "../../src/shared/lib/typeGuards/configGuard"
+import { isConfigModule } from "../../src/shared/lib/typeGuards/configGuard"
 import { buildCssLoader } from "../build/loaders/buildCssLoader"
 import { buildSvgLoader } from "../build/loaders/buildSvgLoader"
 
@@ -28,7 +28,8 @@ export default ({config}: {config: webpack.Configuration}) => {
 	}
 	
 	config.plugins?.push(new webpack.DefinePlugin({
-		__IS_DEV__: JSON.stringify(true)
+		__IS_DEV__: JSON.stringify(true),
+		__API__: JSON.stringify("")
 	})) // теперь сторибук знает о глобальных переменных
 	
 	return config

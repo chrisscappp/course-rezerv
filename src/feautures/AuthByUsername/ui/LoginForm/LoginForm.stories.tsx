@@ -13,7 +13,6 @@ const meta: Meta<typeof LoginForm> = {
 export default meta;
 type Story = StoryObj<typeof LoginForm>;
 
-
 export const LoginFormLight: Story = {
 	args: {},
 	decorators: [StoreDecorator({

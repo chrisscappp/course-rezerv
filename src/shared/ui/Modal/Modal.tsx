@@ -1,5 +1,5 @@
-import { classNames } from "shared/lib/classNames/classNames"
-import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { Mods, classNames } from "shared/lib/classNames/classNames"
+import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import React from "react"
 import { Portal } from "../Portal/Portal";
 import { useTheme } from "app/providers/ThemeProvider";
@@ -28,7 +28,7 @@ export const Modal = (props: ModalProps) => {
 	const { theme } = useTheme()
 	const [ isClosing, setIsClosing ] = useState(false)
 	const [isMounted, setIsMounted] = useState(false)
-	const timerRef = useRef<ReturnType<typeof setTimeout>>()
+	const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
 
 	useEffect(() => {
 		if (isOpen) {
@@ -73,7 +73,7 @@ export const Modal = (props: ModalProps) => {
 	}, [isOpen, onKeyDown])
 	// кладём ф-ии, состояние от которых зависит этот хук
 
-	const mods: Record<string, boolean> = {
+	const mods: Mods = {
 		[cls.opened]: isOpen,
 		[cls.isClosing]: isClosing
 	}

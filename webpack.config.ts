@@ -22,12 +22,15 @@ export default (env: BuildEnv) => {
 	const mode = env.mode || "development"
 	const isDev = mode === "development" ? true : false
 	const PORT = env.port || 3000
+	const apiURL = env.apiUrl || "http://localhost:3003"
+	// извне, или по умолчанию
 
 	const config: webpack.Configuration = buildWebpackConfig({
 		mode: mode,
 		paths: buildPaths,
 		isDev: isDev,
-		port: PORT
+		port: PORT,
+		apiURL
 	})
 	
 	return config

@@ -1,5 +1,4 @@
 import { getRegisterState } from "./getRegisterState";
-import { DeepPartial } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 
 describe('getRegisterState', () => {
@@ -8,13 +7,13 @@ describe('getRegisterState', () => {
 			registerForm: { 
 				username: "username",
 				password: "password",
-				repeatPassword: "repeatPassword"
+				repeatPassword: "repeatPassword",
 			}
 		}
 		expect(getRegisterState(state as StateSchema)).toEqual({
 			username: "username",
 			password: "password",
-			repeatPassword: "repeatPassword"
+			repeatPassword: "repeatPassword",
 		})
 	})
 }) 
