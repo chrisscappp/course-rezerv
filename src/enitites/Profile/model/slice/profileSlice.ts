@@ -31,7 +31,7 @@ export const profileSlice = createSlice({
 			.addCase(fetchProfileData.rejected, (state, action) => {
 				state.isLoading = false;
 				state.error = action.payload;
-			});
+			})
 	},
 })
 

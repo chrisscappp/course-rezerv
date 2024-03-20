@@ -1,18 +1,19 @@
 /* eslint-disable react/display-name */
-import { classNames } from "shared/lib/classNames/classNames"
+import { Mods, classNames } from "shared/lib/classNames/classNames"
 import { ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef } from "react";
 import React, {useState} from "react"
 import cls from "./Input.module.scss"
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value">
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "onChange" | "value" | "readOnly">
 
 interface InputProps extends HTMLInputProps {
 	className?: string;
-	value?: string;
+	value?: string | number;
 	type?: string;
 	placeholder?: string;
-	onChange?: (value: string) => void;
+	onChange?: (value: any) => void;
 	autoFocus?: boolean;
+	readonly?: boolean;
 } // специальный тип html тега
 
 export const Input = memo((props: InputProps) => {
@@ -24,6 +25,7 @@ export const Input = memo((props: InputProps) => {
 		placeholder = "your text",
 		onChange,
 		autoFocus,
+		readonly,
 		...otherProps
 	} = props
 	// переопределяем св-ва которые будем использовать кастомно
@@ -58,6 +60,10 @@ export const Input = memo((props: InputProps) => {
 		setCaretPosition(e.target.value.length)
 	}
 
+	const mods: Mods = {
+		[cls.readonly]: readonly
+	}
+
 	return (
 		<div 
 			className = {classNames(cls.InputWrapper, {}, [className])}
@@ -75,6 +81,7 @@ export const Input = memo((props: InputProps) => {
 					onBlur = {onBlur}
 					onFocus = {onFocus}
 					onSelect = {onSelect}
+					readOnly = {readonly}
 					{...otherProps}
 				/>
 				{isFocused && (

@@ -1,13 +1,13 @@
 import { Decorator, StoryFn } from "@storybook/react"
 import { StoreProvider, StateSchema } from "app/providers/StoreProvider";
-import { profileReducer } from "enitites/Profile";
+import { editableProfileReducer } from "feautures/EditableProfileCard";
 import { loginFormReducer } from "feautures/AuthByUsername/model/slice/loginFormSlice";
 import React from "react";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 
 const initialAsyncReducers: ReducersList = {
 	loginForm: loginFormReducer,
-	profile: profileReducer
+	editableProfile: editableProfileReducer
 }
 
 export const StoreDecorator = (

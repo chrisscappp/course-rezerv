@@ -1,13 +1,37 @@
 {
   "posts": [
-    { "id": "1", "title": "a title", "views": 100 },
-    { "id": "2", "title": "new title", "views": 200 },
-	{ "id": "3", "title": "aboba", "views": 400 },
-    { "id": "4", "title": "another title", "views": 200 }
+    {
+      "id": "1",
+      "title": "a title",
+      "views": 100
+    },
+    {
+      "id": "2",
+      "title": "new title",
+      "views": 200
+    },
+    {
+      "id": "3",
+      "title": "aboba",
+      "views": 400
+    },
+    {
+      "id": "4",
+      "title": "another title",
+      "views": 200
+    }
   ],
   "comments": [
-    { "id": "1", "text": "a comment about post 1", "postId": "1" },
-    { "id": "2", "text": "another comment about post 1", "postId": "1" }
+    {
+      "id": "1",
+      "text": "a comment about post 1",
+      "postId": "1"
+    },
+    {
+      "id": "2",
+      "text": "another comment about post 1",
+      "postId": "1"
+    }
   ],
   "users": [
     {
@@ -19,11 +43,11 @@
   "profile": {
     "firstname": "Александр",
     "lastname": "Шаненков",
-    "age": "19",
-    "currency": "RUB",
+    "age": 19,
+    "currency": "EUR",
     "country": "Russia",
     "city": "Saint-Petersburg",
     "username": "admin",
-    "avatar": "https://pbs.twimg.com/profile_images/977700491051323394/OiI5vDqo.jpg"
+    "avatar": "https://pic.rutubelist.ru/user/e5/0a/e50aa387f2a0cc2a012071b0e7ac10f6.jpg"
   }
 }

@@ -4,15 +4,11 @@ import { Profile } from "../../types/profile";
 
 export const fetchProfileData = createAsyncThunk<
 	Profile, 
-	// возвращамемый тип
 	void, 
-	// тип аргументов action
 	ThunkConfig<string>
-	// типизировали thunkAPI
 >(
   	'profile/fetchProfileData',
   	async (_, thunkAPI) => {
-		// в поле extra лежит тот api который мы передали при создании store
 		const {
 			extra,
 			rejectWithValue
@@ -23,8 +19,7 @@ export const fetchProfileData = createAsyncThunk<
 			return response.data
 		} catch (e) {
 			console.error(e)
-			return rejectWithValue("Неверный логин или пароль")
+			return rejectWithValue("Произошла ошибка при загрузке профиля. Попробуйте обновить страницу")
 		}	
   	},
 )
-// вызывается внутри компонента

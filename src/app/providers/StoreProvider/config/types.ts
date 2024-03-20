@@ -4,6 +4,7 @@ import { UserSchema } from "enitites/User"
 import { LoginSchema } from "feautures/AuthByUsername"
 import { RegisterSchema } from "feautures/RegisterByUsername"
 import { ProfileSchema } from "enitites/Profile"
+import { EditableProfileSchema } from "feautures/EditableProfileCard"
 import { AxiosInstance } from "axios"
 import { NavigateOptions } from "react-router-dom"
 import { To } from "history"
@@ -15,7 +16,8 @@ export interface StateSchema {
 	// Async
 	registerForm?: RegisterSchema
 	loginForm?: LoginSchema,
-	profile?: ProfileSchema
+	profile?: ProfileSchema,
+	editableProfile?: EditableProfileSchema
 }
 
 export type StateSchemaKey = keyof StateSchema
@@ -38,5 +40,6 @@ export interface ThunkExtraArg {
 
 export interface ThunkConfig<T> {
 	rejectValue: T,
-	extra: ThunkExtraArg
+	extra: ThunkExtraArg,
+	state: StateSchema
 } // тип для thunkAPI

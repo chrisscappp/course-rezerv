@@ -18,9 +18,15 @@
 }
 
 .error {
-	border-color: red;
-	background: red;
+	border-color: var(--red-light);
+	background: var(--red-light);
 	padding: 7px 11px;
+}
+
+.outline_red {
+	border: 1px solid var(--red-light);
+	background: none;
+	color: var(--red-light);
 }
 
 .outline {
