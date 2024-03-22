@@ -1,4 +1,4 @@
-import { Country } from "shared/consts/common"
+import { Country } from "enitites/Country"
 import { Currency } from "enitites/Currency";
 
 export interface Profile {

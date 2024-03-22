@@ -8,6 +8,7 @@ import { Spinner } from "shared/ui/Spinner/Spinner";
 import { Avatar } from "shared/ui/Avatar/Avatar";
 import { CurrencySelect, Currency } from "enitites/Currency";
 import { Country, CountrySelect } from "enitites/Country";
+import React from "react"
 
 interface ProfileCardProps {
 	className?: string;

@@ -7,7 +7,7 @@ import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-export default function buildPlugins({ paths, isDev, apiURL }: BuildOptions): webpack.WebpackPluginInstance[] {
+export default function buildPlugins({ paths, isDev, apiURL, project }: BuildOptions): webpack.WebpackPluginInstance[] {
 
 	const plugins = [
 		new HtmlWebpackPlugin({
@@ -20,7 +20,8 @@ export default function buildPlugins({ paths, isDev, apiURL }: BuildOptions): we
 		}),
 		new webpack.DefinePlugin({
 			__IS_DEV__: JSON.stringify(isDev),
-			__API__: JSON.stringify(apiURL)
+			__API__: JSON.stringify(apiURL),
+			__PROJECT__: JSON.stringify(project)
 		}), // глобальная переменная
 	]
 

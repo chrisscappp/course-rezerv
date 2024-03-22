@@ -13,6 +13,7 @@ import { fetchProfileData } from "enitites/Profile";
 import { editableProfileActions } from "../model/slice/editableProfileSlice";
 import { Currency } from "enitites/Currency";
 import { Country } from "enitites/Country";
+import React from "react"
 
 interface EditableProfileCardProps {
 	className?: string;
@@ -34,7 +35,14 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 	const readonly = useSelector(getProfileReadonly)
 
 	useEffect(() => {
-		dispatch(fetchProfileData())
+		if (__PROJECT__ !== "storybook") {
+			dispatch(fetchProfileData())
+			return () => {
+				editableProfileActions.setReadonly(false)
+			}
+		}
+		// тк storybook делает запрос, а данные мы задаём ему сами
+		// то выполним этот блок кода опционально
 	}, [dispatch])	
 
 	const onChangeFirstname = useCallback((value?: string) => {

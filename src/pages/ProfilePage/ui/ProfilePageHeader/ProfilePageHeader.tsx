@@ -12,7 +12,7 @@ import {
 } from "feautures/EditableProfileCard"
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
-import { useCallback } from "react";
+import React, { useCallback } from "react";
 
 interface ProfilePageHeaderProps {
 	className?: string;
@@ -38,7 +38,6 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
 		if (JSON.stringify(formData) !== JSON.stringify(data)) {
 			dispatch(updateProfileData())
 		}
-		dispatch(editableProfileActions.setReadonly(true))
 	}, [data, dispatch, formData])
 
 	return (
