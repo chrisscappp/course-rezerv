@@ -18,7 +18,8 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
 		output: {
 			filename: "[name].[contenthash].js",
 			path: paths.build,
-			clean: true
+			clean: true,
+			publicPath: "/"
 		}, // куда и как делаем сборку приложения
 		plugins: buildPlugins(options), // плагины для работы вебпак
 		devtool: isDev ? "inline-source-map" : undefined,
