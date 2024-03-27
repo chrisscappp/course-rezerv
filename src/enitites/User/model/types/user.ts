@@ -5,4 +5,5 @@ export interface IUser {
 
 export interface UserSchema {
 	authData?: IUser; // если undefined - пользователь не авторизован
+	_inited: boolean;
 }

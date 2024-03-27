@@ -6,17 +6,19 @@ import { BugButton } from "app/providers/ErrorBoundary/index"
 import { Suspense, useEffect } from "react" // для fallback к i18n
 import "./styles/index.scss"
 import { useTheme } from "./providers/ThemeProvider"
-import { useDispatch } from "react-redux"
-import { userActions } from "enitites/User"
+import { useDispatch, useSelector } from "react-redux"
+import { getUserInited, userActions } from "enitites/User"
 
 const App = () => {
 
 	const { theme } = useTheme()
 	const dispatch = useDispatch()
+	const initedAuthData = useSelector(getUserInited)
 
 	useEffect(() => {
 		dispatch(userActions.initAuthData())
 	}, [dispatch])
+	// AppRouter рендериться раньше чем данные об авторизации. добавим флаг
 
 	return (
 		<div className = {classNames("app", {}, [theme])}>
@@ -24,7 +26,7 @@ const App = () => {
 				<Navbar/>				
 				<div className = "content-page">
 					<Sidebar/>
-					<AppRouter/>
+					{initedAuthData && <AppRouter/>}
 				</div>
 				<BugButton/>
 			</Suspense>
