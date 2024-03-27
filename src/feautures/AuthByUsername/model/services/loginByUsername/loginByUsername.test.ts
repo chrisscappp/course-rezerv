@@ -62,8 +62,6 @@ describe("test loginByUsername", () => {
 			id: "1" 
 		} // данные которые должны вернуться
 		
-		
-		
 		const asyncThunk = new TestAsyncThunk(loginByUsername)
 		asyncThunk.api.post.mockReturnValue(Promise.resolve({data: userData}))
 		const res = await asyncThunk.callThunk({ username: "123", password: "123" })
