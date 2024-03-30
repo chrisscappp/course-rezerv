@@ -1,0 +1,18 @@
+.ArticleCodeBlockComponent {
+	border: 1px solid var(--primary-color);
+	padding: 20px;
+	position: relative;
+	background: var(--code-block-bg);
+	overflow: auto; // добавляем скролл внутренний
+}
+
+.copyBtn {
+	position: absolute;
+	right: 20px;
+	top: 10px;	
+}
+
+.copyIcon {
+	stroke: var(--primary-color);
+	fill: none;
+}

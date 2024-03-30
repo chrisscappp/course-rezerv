@@ -1,6 +1,6 @@
 import React from "react"
 import type { Meta, StoryObj } from '@storybook/react';
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 import { Themes } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config/storybookConfig/themeDecorator/themeDecorator";
 
@@ -72,5 +72,37 @@ export const TextErrorDark: Story = {
 	args: {
 		text: "title error",
 		theme: TextTheme.ERROR
+	},
+};
+
+export const TextSizeS: Story = {
+	args: {
+		title: "title",
+		text: "text",
+		size: TextSize.S
+	},
+};
+
+export const TextSizeM: Story = {
+	args: {
+		title: "title",
+		text: "text",
+		size: TextSize.M
+	},
+};
+
+export const TextSizeL: Story = {
+	args: {
+		title: "title",
+		text: "text",
+		size: TextSize.L
+	},
+};
+
+export const TextSizeXL: Story = {
+	args: {
+		title: "title",
+		text: "text",
+		size: TextSize.XL
 	},
 };

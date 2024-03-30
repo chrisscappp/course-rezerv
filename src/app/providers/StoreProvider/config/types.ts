@@ -8,6 +8,8 @@ import { EditableProfileSchema } from "feautures/EditableProfileCard"
 import { AxiosInstance } from "axios"
 import { NavigateOptions } from "react-router-dom"
 import { To } from "history"
+import { ArticleDetailsSchema } from "enitites/Article"
+import { ArticleDetailsCommentsSchema } from "pages/ArticlesDetailsPage"
 
 export interface StateSchema {
 	counter: CounterSchema,
@@ -17,7 +19,9 @@ export interface StateSchema {
 	registerForm?: RegisterSchema
 	loginForm?: LoginSchema,
 	profile?: ProfileSchema,
-	editableProfile?: EditableProfileSchema
+	editableProfile?: EditableProfileSchema,
+	articleDetails?: ArticleDetailsSchema
+	articleDetailsComments?: ArticleDetailsCommentsSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

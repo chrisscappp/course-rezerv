@@ -4,10 +4,12 @@ import { editableProfileReducer } from "feautures/EditableProfileCard";
 import { loginFormReducer } from "feautures/AuthByUsername/model/slice/loginFormSlice";
 import React from "react";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { articleDetailsReducer } from "enitites/Article/model/slice/articleSlice";
 
 const initialAsyncReducers: ReducersList = {
 	loginForm: loginFormReducer,
-	editableProfile: editableProfileReducer
+	editableProfile: editableProfileReducer,
+	articleDetails: articleDetailsReducer
 }
 
 export const StoreDecorator = (
