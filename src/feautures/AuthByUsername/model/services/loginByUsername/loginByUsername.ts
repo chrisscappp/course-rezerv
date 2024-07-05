@@ -35,7 +35,7 @@ export const loginByUsername = createAsyncThunk<
 			localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data))
 			dispatch(userActions.setAuthData(response.data))
 			// вызвали асинхронно action для логинизации юсера
-			extra.navigate?.("/profile")
+			extra.navigate?.(`/profile/${response.data.id}`)
 			return response.data
 			// по умолчанию данные обернутся в fullfiledWithValue
 		} catch (e) {

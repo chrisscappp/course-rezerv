@@ -8,6 +8,7 @@ import { editableProfileReducer, EditableProfileCard, getProfileValidateErrors }
 import { useSelector } from "react-redux";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { ValidateProfileError } from "feautures/EditableProfileCard/model/types/editableProfile";
+import { useParams } from "react-router-dom";
 
 interface ProfilePageProps {
 	className?: string;
@@ -21,6 +22,7 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 
 	const { t } = useTranslation("profile")
 	const validateErrors = useSelector(getProfileValidateErrors)
+	const {id: userId} = useParams<{ id: string }>()
 
 	const validateTranslate: Record<ValidateProfileError, string> = {
 		[ValidateProfileError.INCORRECT_AGE]: t("Некорректный возраст"),
@@ -43,7 +45,9 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 						/>
 					)
 				})}
-				<EditableProfileCard/>
+				<EditableProfileCard
+					userId = {userId}
+				/>
 			</div>
 		</DynamicModuleLoader>
 	)

@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next"
 import { classNames } from "shared/lib/classNames/classNames"
 import { ArticleDetails } from "enitites/Article";
@@ -19,6 +19,8 @@ import {
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { fetchArticleCommentsById } from "../../model/services/fetchArticleComments";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { AddCommentForm } from "feautures/AddCommentForm";
+import { sendCommentForArticle } from "../../model/services/addCommentForArticle";
 
 interface ArticlesDetailsPageProps {
 	className?: string;
@@ -38,8 +40,12 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 	const commentsError = useSelector(getArticleDetailsCommentsError)
 	const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading)
 
+	const onSendComment = useCallback((text: string) => {
+		dispatch(sendCommentForArticle(text))
+	}, [dispatch])
+
 	useInitialEffect(() => {
-		dispatch(fetchArticleCommentsById(id))
+		dispatch(fetchArticleCommentsById(id ? id : ""))
 	}) // вынесли хук с проверкой на storybook
 
 	if (!id) {
@@ -50,8 +56,6 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 		)
 	}
 
-	console.log("COMMENTS", comments)
-
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
 			<div className = {classNames(cls.ArticlesDetailsPage, {}, [className])}>
@@ -61,6 +65,10 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 				<Text
 					title = {t("Комментарии")}
 					className = {cls.commentTitle}
+				/>
+				<AddCommentForm
+					className = {cls.addComment}
+					onSend = {onSendComment}
 				/>
 				{/* стейт с комментами храним на уровне страницы */}
 				<CommentList

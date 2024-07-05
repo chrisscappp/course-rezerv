@@ -8,15 +8,17 @@ import { getProfileForm } from "../model/selectors/getProfileForm/getProfileForm
 import { getProfileError } from "../model/selectors/getProfileError/getProfileError";
 import { getProfileIsLoading } from "../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { getProfileReadonly } from "../model/selectors/getProfileReadonly/getProfileReadonly";
-import { useCallback, useEffect } from "react";
+import { useCallback } from "react";
 import { fetchProfileData } from "enitites/Profile";
 import { editableProfileActions } from "../model/slice/editableProfileSlice";
 import { Currency } from "enitites/Currency";
 import { Country } from "enitites/Country";
 import React from "react"
+import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 
 interface EditableProfileCardProps {
 	className?: string;
+	userId?: string;
 }
 
 const checkNumberReg = new RegExp('^[0-9]+$');
@@ -24,7 +26,8 @@ const checkNumberReg = new RegExp('^[0-9]+$');
 export const EditableProfileCard = (props: EditableProfileCardProps) => {
 
 	const {
-		className
+		className,
+		userId
 	} = props
 
 	const { t } = useTranslation("profile")
@@ -34,16 +37,15 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 	const isLoading = useSelector(getProfileIsLoading)
 	const readonly = useSelector(getProfileReadonly)
 
-	useEffect(() => {
-		if (__PROJECT__ !== "storybook") {
-			dispatch(fetchProfileData())
-			return () => {
-				editableProfileActions.setReadonly(false)
-			}
+	useInitialEffect(() => {
+		if (userId) {
+			dispatch(fetchProfileData(userId))
 		}
-		// тк storybook делает запрос, а данные мы задаём ему сами
-		// то выполним этот блок кода опционально
-	}, [dispatch])	
+		
+		return () => {
+			editableProfileActions.setReadonly(false)
+		}
+	})	
 
 	const onChangeFirstname = useCallback((value?: string) => {
 		dispatch(editableProfileActions.updateProfile({firstname: value || ""}))

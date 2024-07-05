@@ -13,6 +13,7 @@ import {
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import React, { useCallback } from "react";
+import { getUserAuthData } from "enitites/User";
 
 interface ProfilePageHeaderProps {
 	className?: string;
@@ -25,6 +26,8 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
 	const formData = useSelector(getProfileForm)
 	const data = useSelector(getProfileData)
 	const dispatch = useAppDispatch()
+	const authData = useSelector(getUserAuthData)
+	const canEdit = data?.id === authData?.id
 
 	const onEdit = useCallback(() => {
 		dispatch(editableProfileActions.setReadonly(false))
@@ -43,38 +46,40 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
 	return (
 		<div className = {classNames(cls.ProfilePageHeader, {}, [className])}>
 			<Text title = {t("Профиль")}/>
-			
-			{
-				readonly ? (
-					<Button 
-						theme = {ButtonTheme.OUTLINE_INVERTED}
-						className = {cls.editBtn}
-						onClick = {onEdit}
-					>
-						{t("Редактировать")}
-					</Button>
-				)
-					:
-					(
-						<>
-							<Button 
-								theme = {ButtonTheme.OUTLINE_RED}
-								className = {cls.editBtn}
-								onClick = {onCancelEdit}
-							>
-								{t("Отменить изменения")}
-							</Button>
+			{canEdit && (
+				<div className = {cls.btnsWrap}>
+					{
+						readonly ? (
 							<Button 
 								theme = {ButtonTheme.OUTLINE_INVERTED}
-								className = {cls.saveBtn}
-								onClick = {onSave}
+								className = {cls.editBtn}
+								onClick = {onEdit}
 							>
-								{t("Сохранить")}
+								{t("Редактировать")}
 							</Button>
-						</>
-						
-					)
-			}
+						)
+							:
+							(
+								<>
+									<Button 
+										theme = {ButtonTheme.OUTLINE_RED}
+										className = {cls.editBtn}
+										onClick = {onCancelEdit}
+									>
+										{t("Отменить изменения")}
+									</Button>
+									<Button 
+										theme = {ButtonTheme.OUTLINE_INVERTED}
+										className = {cls.saveBtn}
+										onClick = {onSave}
+									>
+										{t("Сохранить")}
+									</Button>
+								</>
+							)
+					}
+				</div>
+			)}
 		</div>	
 	)
 }

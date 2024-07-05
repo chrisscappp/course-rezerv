@@ -112,7 +112,7 @@ describe('editableProfileSlice', () => {
 		expect(
 			editableProfileReducer(
 				state as EditableProfileSchema,
-				fetchProfileData.fulfilled({ lastname: "123" }, "")
+				fetchProfileData.fulfilled({ lastname: "123" }, "", "")
 			)
 		).toEqual({
 			isLoading: false,
@@ -128,7 +128,7 @@ describe('editableProfileSlice', () => {
 		expect(
 			editableProfileReducer(
 				state as EditableProfileSchema,
-				fetchProfileData.rejected({ message: "123" } as Error, "", undefined, errorMsg)
+				fetchProfileData.rejected({ message: "123" } as Error, "", "", errorMsg)
 			)
 		).toEqual({
 			isLoading: false,
