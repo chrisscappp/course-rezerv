@@ -11,6 +11,7 @@ import { To } from "history"
 import { ArticleDetailsSchema } from "enitites/Article"
 import { ArticleDetailsCommentsSchema } from "pages/ArticlesDetailsPage"
 import { AddCommentFormSchema } from "feautures/AddCommentForm"
+import { ArticlesPageSchema } from "pages/ArticlesPage"
 
 export interface StateSchema {
 	counter: CounterSchema,
@@ -21,9 +22,10 @@ export interface StateSchema {
 	loginForm?: LoginSchema,
 	profile?: ProfileSchema,
 	editableProfile?: EditableProfileSchema,
-	articleDetails?: ArticleDetailsSchema
-	articleDetailsComments?: ArticleDetailsCommentsSchema
-	addCommentForm?: AddCommentFormSchema
+	articleDetails?: ArticleDetailsSchema,
+	articleDetailsComments?: ArticleDetailsCommentsSchema,
+	addCommentForm?: AddCommentFormSchema,
+	articlesPage?: ArticlesPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

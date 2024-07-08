@@ -1,9 +1,10 @@
-export {
-	ArticleDetails
-} from "./ui/ArticleDetails/ArticleDetails"
+export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails"
+export { ArticleList } from "./ui/ArticleList/ArticleList"
+export { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector"
 
 export {
-	Article
+	Article,
+	ArticleView
 } from "./model/types/article"
 
 export { ArticleDetailsSchema } from "./model/types/articleDetailsSchema"

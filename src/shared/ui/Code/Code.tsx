@@ -2,12 +2,12 @@ import React, { memo, ReactNode } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./Code.module.scss"
 
-interface ArticleDetailsProps {
+interface CodeProps {
 	className?: string;
 	children: ReactNode;
 }
 
-export const Code = memo((props: ArticleDetailsProps) => {
+export const Code = memo((props: CodeProps) => {
 
 	const {
 		className,

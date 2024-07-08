@@ -1,0 +1,17 @@
+.TILE {
+	.ArticleList {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.card {
+		margin-right: 30px;
+		margin-bottom: 20px;
+	}
+}
+
+.TILE_DETAIL {
+	.card {
+		margin-bottom: 40px;
+	}
+}

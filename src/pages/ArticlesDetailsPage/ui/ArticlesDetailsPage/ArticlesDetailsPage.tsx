@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next"
 import { classNames } from "shared/lib/classNames/classNames"
 import { ArticleDetails } from "enitites/Article";
 import cls from "./ArticlesDetailsPage.module.scss"
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import React from 'react'
 import { CommentList } from "enitites/Comment";
 import { Text } from "shared/ui/Text/Text";
@@ -21,6 +21,8 @@ import { fetchArticleCommentsById } from "../../model/services/fetchArticleComme
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { AddCommentForm } from "feautures/AddCommentForm";
 import { sendCommentForArticle } from "../../model/services/addCommentForArticle";
+import { Button, ButtonTheme } from "shared/ui/Button/Button";
+import { RouterPath } from "shared/config/routeConfig/routeConfig";
 
 interface ArticlesDetailsPageProps {
 	className?: string;
@@ -39,6 +41,11 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 	const comments = useSelector(getArticleComments.selectAll)
 	const commentsError = useSelector(getArticleDetailsCommentsError)
 	const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading)
+	const navigate = useNavigate()
+
+	const onOpenArticleList = useCallback(() => {
+		navigate(RouterPath.articles)
+	}, [navigate])
 
 	const onSendComment = useCallback((text: string) => {
 		dispatch(sendCommentForArticle(text))
@@ -59,6 +66,12 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
 			<div className = {classNames(cls.ArticlesDetailsPage, {}, [className])}>
+				<Button 
+					theme = {ButtonTheme.OUTLINE_INVERTED}
+					onClick = {onOpenArticleList}
+				>
+					{t("Назад к списку")}
+				</Button>
 				<ArticleDetails
 					id = {id}
 				/>

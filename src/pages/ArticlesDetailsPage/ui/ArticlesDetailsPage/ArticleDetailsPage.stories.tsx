@@ -17,6 +17,11 @@ type Story = StoryObj<typeof ArticlesDetailsPage>;
 const article: Article = {
 	id: "1",
 	title: "JavaScript news",
+	user: {
+		id: "1",
+		username: "admin",
+		avatar: "asdasd"
+	},
 	subtitle: "Что нового в JS за 2024 год?",
 	img: "https://fuzeservers.ru/wp-content/uploads/9/3/a/93a14a817aba78c219b6421198863989.png",
 	views: 2024,

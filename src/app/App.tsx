@@ -28,7 +28,6 @@ const App = () => {
 					<Sidebar/>
 					{initedAuthData && <AppRouter/>}
 				</div>
-				<BugButton/>
 			</Suspense>
 		</div>
 	)
