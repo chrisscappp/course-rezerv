@@ -16,9 +16,15 @@ export function useInfiniteScroll(props: UseInfiniteScrollProps) {
 
 	useEffect(() => {
 		let observer: IntersectionObserver | null = null
+		const wrapperElement = wrapperRef.current
+		const triggerElement = triggerRef.current
+		// замкнули значения рефов, чтобы запомнить их
+		// данные могут перезатерется. тут они остаются старыми
+		// в таком случае они доступны useEffect даже после размонитрования компонента
+
 		if (onScrollEnd) {
 			const options = {
-				root: wrapperRef.current, // обертка в которой происходит скролл
+				root: wrapperElement, // обертка в которой происходит скролл
 				rootMargin: '0px',
 				threshold: 1.0
 			}
@@ -30,14 +36,15 @@ export function useInfiniteScroll(props: UseInfiniteScrollProps) {
 				}
 			}, options)
 
-			observer.observe(triggerRef.current)
+			observer.observe(triggerElement)
 		}
 		
 
 		return () => {
-			if (observer) {
+			if (observer && triggerElement) {
+				debugger
 				// eslint-disable-next-line react-hooks/exhaustive-deps
-				observer.unobserve(triggerRef.current)
+				observer.unobserve(triggerElement)
 			}
 		}
 	}, [onScrollEnd, triggerRef, wrapperRef])
