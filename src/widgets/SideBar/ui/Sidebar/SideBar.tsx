@@ -34,7 +34,7 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 	// чтобы они не перерисовывались в момент обновления state у Sidebar - он родитель
 
 	return (
-		<div 
+		<menu 
 			className = {classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}
 			data-testid = "sidebar"
 		>
@@ -60,6 +60,6 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
 					short = {collapsed}
 				/>
 			</div>
-		</div>
+		</menu>
 	)
 })

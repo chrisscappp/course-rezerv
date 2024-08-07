@@ -23,6 +23,7 @@ import { AddCommentForm } from "feautures/AddCommentForm";
 import { sendCommentForArticle } from "../../model/services/addCommentForArticle";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { RouterPath } from "shared/config/routeConfig/routeConfig";
+import { Page } from "shared/ui/Page/Page";
 
 interface ArticlesDetailsPageProps {
 	className?: string;
@@ -53,19 +54,19 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 
 	useInitialEffect(() => {
 		dispatch(fetchArticleCommentsById(id ? id : ""))
-	}) // вынесли хук с проверкой на storybook
+	}, []) // вынесли хук с проверкой на storybook
 
 	if (!id) {
 		return (
-			<div className = {classNames(cls.ArticlesDetailsPage, {}, [className])}>
+			<Page className = {classNames(cls.ArticlesDetailsPage, {}, [className])}>
 				{t("Статья не найдена")}
-			</div>
+			</Page>
 		)
 	}
 
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-			<div className = {classNames(cls.ArticlesDetailsPage, {}, [className])}>
+			<Page className = {classNames(cls.ArticlesDetailsPage, {}, [className])}>
 				<Button 
 					theme = {ButtonTheme.OUTLINE_INVERTED}
 					onClick = {onOpenArticleList}
@@ -88,7 +89,7 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 					comments = {comments}
 					isLoading = {commentsIsLoading}
 				/>
-			</div>
+			</Page>
 		</DynamicModuleLoader>
 		
 	)

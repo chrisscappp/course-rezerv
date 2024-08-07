@@ -45,7 +45,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 		return () => {
 			editableProfileActions.setReadonly(false)
 		}
-	})	
+	}, [])	
 
 	const onChangeFirstname = useCallback((value?: string) => {
 		dispatch(editableProfileActions.updateProfile({firstname: value || ""}))

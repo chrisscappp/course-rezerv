@@ -60,7 +60,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 	
 	useInitialEffect(() => {
 		dispatch(fetchArticleById(id))
-	}) // вынесли хук с проверкой на storybook
+	}, []) // вынесли хук с проверкой на storybook
 
 	let content;
 
