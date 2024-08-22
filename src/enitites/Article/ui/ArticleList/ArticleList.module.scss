@@ -1,17 +1,18 @@
 .TILE {
-	.ArticleList {
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	.card {
-		margin-right: 30px;
-		margin-bottom: 20px;
-	}
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 30px;
 }
 
 .TILE_DETAIL {
 	.card {
 		margin-bottom: 40px;
 	}
+}
+
+.emptyList {
+	margin-top: 32px;
+	display: flex;
+	justify-content: center;
 }

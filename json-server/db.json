@@ -25,11 +25,11 @@
     {
       "id": "1",
       "userId": "1",
-      "title": "JavaScript news",
+      "title": "JavaScript news СВЕЖАЯ",
       "subtitle": "Что нового в JS за 2024 год?",
       "img": "https://fuzeservers.ru/wp-content/uploads/9/3/a/93a14a817aba78c219b6421198863989.png",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "views": 20242,
+      "createdAt": "20.08.2024",
       "type": [
         "IT"
       ],
@@ -97,11 +97,11 @@
     {
       "id": "2",
       "userId": "1",
-      "title": "Python news",
+      "title": "Python news СВЕЖАЯ",
       "subtitle": "Что нового в Python за 2024 год?",
       "img": "https://krymmedia.com/wp-content/uploads/2022/06/Python-Symbol.png",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "views": 202,
+      "createdAt": "19.08.2024",
       "type": [
         "IT"
       ],
@@ -121,11 +121,11 @@
     {
       "id": "3",
       "userId": "1",
-      "title": "React news",
+      "title": "React news СТАРАЯ",
       "subtitle": "Что нового в React за 2024 год?",
       "img": "https://avatars.dzeninfra.ru/get-zen_doc/10349846/pub_6494b2aa15e3cb0044e3708f_6494b2e246f488519d2a904e/scale_1200",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "views": 9999,
+      "createdAt": "20.03.2024",
       "type": [
         "IT"
       ],
@@ -145,11 +145,11 @@
     {
       "id": "4",
       "userId": "1",
-      "title": "Python news",
+      "title": "Python news СТАРАЯ",
       "subtitle": "Что нового в Python за 2024 год?",
       "img": "https://krymmedia.com/wp-content/uploads/2022/06/Python-Symbol.png",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "views": 21,
+      "createdAt": "12.01.2001",
       "type": [
         "IT"
       ],
@@ -169,13 +169,14 @@
     {
       "id": "5",
       "userId": "1",
-      "title": "React news",
-      "subtitle": "Что нового в React за 2024 год?",
-      "img": "https://avatars.dzeninfra.ru/get-zen_doc/10349846/pub_6494b2aa15e3cb0044e3708f_6494b2e246f488519d2a904e/scale_1200",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "title": "React и Redux",
+      "subtitle": "Мега статья по реакт редакс",
+      "img": "https://avatars.mds.yandex.net/i?id=c63d7c80770493a0bfc364e4240fe1f6_l-4833820-images-thumbs&n=13",
+      "views": 228,
+      "createdAt": "07.07.2022",
       "type": [
-        "IT"
+        "IT",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -193,13 +194,14 @@
     {
       "id": "6",
       "userId": "1",
-      "title": "Python news",
-      "subtitle": "Что нового в Python за 2024 год?",
-      "img": "https://krymmedia.com/wp-content/uploads/2022/06/Python-Symbol.png",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "title": "Aboba news prod",
+      "subtitle": "Жмых эирлейнс начинает пожилое пилотирование",
+      "img": "https://sun9-24.userapi.com/impg/LyNyU5FBxD8NgnFK7Op1MVyob2zJ_yYvVwVFbQ/t0I4ZqYvlFk.jpg?size=807x672&quality=95&sign=7a3975ead556a66921e2856691ea683a&c_uniq_tag=XWg7aRbTbLp_EBfWZmR9BDZKZi0qYwEjaLH_JqWGjeI&type=album",
+      "views": 13372,
+      "createdAt": "22.07.2023",
       "type": [
-        "IT"
+        "IT",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -217,13 +219,15 @@
     {
       "id": "7",
       "userId": "1",
-      "title": "React news",
-      "subtitle": "Что нового в React за 2024 год?",
-      "img": "https://avatars.dzeninfra.ru/get-zen_doc/10349846/pub_6494b2aa15e3cb0044e3708f_6494b2e246f488519d2a904e/scale_1200",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "title": "Выборы 2024",
+      "subtitle": "Путин - президент мира",
+      "img": "https://avatars.mds.yandex.net/i?id=eeb40a277a8d4547b06aaedf194b0bc3_l-10640350-images-thumbs&n=13",
+      "views": 321,
+      "createdAt": "22.04.2024",
       "type": [
-        "IT"
+        "IT",
+        "POLITICS",
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -241,11 +245,11 @@
     {
       "id": "8",
       "userId": "1",
-      "title": "Python news",
-      "subtitle": "Что нового в Python за 2024 год?",
+      "title": "Python news news news",
+      "subtitle": "Что нового в Python за 2022 год?",
       "img": "https://krymmedia.com/wp-content/uploads/2022/06/Python-Symbol.png",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "views": 1234,
+      "createdAt": "27.03.2022",
       "type": [
         "IT"
       ],
@@ -265,11 +269,11 @@
     {
       "id": "9",
       "userId": "1",
-      "title": "React news",
-      "subtitle": "Что нового в React за 2024 год?",
-      "img": "https://avatars.dzeninfra.ru/get-zen_doc/10349846/pub_6494b2aa15e3cb0044e3708f_6494b2e246f488519d2a904e/scale_1200",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "title": "Kotlin news",
+      "subtitle": "Что нового в Kotlin за 2024 год?",
+      "img": "https://i2.wp.com/miro.medium.com/1*LKQFevXW9ilKYoQhuzE1uA.png",
+      "views": 656,
+      "createdAt": "21.07.2024",
       "type": [
         "IT"
       ],
@@ -289,10 +293,10 @@
     {
       "id": "10",
       "userId": "1",
-      "title": "Python news",
-      "subtitle": "Что нового в Python за 2024 год?",
-      "img": "https://krymmedia.com/wp-content/uploads/2022/06/Python-Symbol.png",
-      "views": 2024,
+      "title": "Java news",
+      "subtitle": "Что нового в Java за 2024 год?",
+      "img": "https://smartprogress.do/uploadImages/001564600.jpg",
+      "views": 2212,
       "createdAt": "27.03.2024",
       "type": [
         "IT"
@@ -313,13 +317,14 @@
     {
       "id": "11",
       "userId": "1",
-      "title": "React news",
-      "subtitle": "Что нового в React за 2024 год?",
-      "img": "https://avatars.dzeninfra.ru/get-zen_doc/10349846/pub_6494b2aa15e3cb0044e3708f_6494b2e246f488519d2a904e/scale_1200",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "title": "C++",
+      "subtitle": "Что нового в C++ за 2023 год?",
+      "img": "https://avatars.mds.yandex.net/i?id=3b92cd90d2baeb17fff8dbe1b723260cf4216ff9-9065710-images-thumbs&n=13",
+      "views": 7567,
+      "createdAt": "20.05.2023",
       "type": [
-        "IT"
+        "IT",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -337,11 +342,11 @@
     {
       "id": "12",
       "userId": "1",
-      "title": "Python news",
-      "subtitle": "Что нового в Python за 2024 год?",
-      "img": "https://krymmedia.com/wp-content/uploads/2022/06/Python-Symbol.png",
+      "title": "Си шэрп news",
+      "subtitle": "Что нового в шэп си за 2021 год?",
+      "img": "https://i.ytimg.com/vi/AuK2GyIGNLo/maxresdefault.jpg",
       "views": 2024,
-      "createdAt": "27.03.2024",
+      "createdAt": "02.08.2021",
       "type": [
         "IT"
       ],
@@ -361,13 +366,14 @@
     {
       "id": "13",
       "userId": "1",
-      "title": "React news",
-      "subtitle": "Что нового в React за 2024 год?",
-      "img": "https://avatars.dzeninfra.ru/get-zen_doc/10349846/pub_6494b2aa15e3cb0044e3708f_6494b2e246f488519d2a904e/scale_1200",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "title": "Новая вакцина от рака?",
+      "subtitle": "Экспериментальная сыворотка лечащая рак",
+      "img": "https://avatars.mds.yandex.net/i?id=6feca1fb245ee85c0dd08d2cf14fbe1d_l-5485957-images-thumbs&n=13",
+      "views": 726371,
+      "createdAt": "29.07.2024",
       "type": [
-        "IT"
+        "SCIENCE",
+        "ECONOMICS"
       ],
       "blocks": [
         {
@@ -385,11 +391,11 @@
     {
       "id": "14",
       "userId": "1",
-      "title": "Python news",
-      "subtitle": "Что нового в Python за 2024 год?",
-      "img": "https://krymmedia.com/wp-content/uploads/2022/06/Python-Symbol.png",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "title": "Байден скоро умрёт",
+      "subtitle": "Что скрывает ЦРУ о действующем президенте сша?",
+      "img": "https://s-z-n.ru/wp-content/uploads/2024/02/V-Belom-dome-Bajden-pro-rak.jpg",
+      "views": 34502,
+      "createdAt": "20.08.2024",
       "type": [
         "IT"
       ],
@@ -409,11 +415,11 @@
     {
       "id": "15",
       "userId": "1",
-      "title": "React news",
+      "title": "React news часть вторая",
       "subtitle": "Что нового в React за 2024 год?",
       "img": "https://avatars.dzeninfra.ru/get-zen_doc/10349846/pub_6494b2aa15e3cb0044e3708f_6494b2e246f488519d2a904e/scale_1200",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "views": 24,
+      "createdAt": "20.08.2024",
       "type": [
         "IT"
       ],
@@ -433,11 +439,11 @@
     {
       "id": "16",
       "userId": "1",
-      "title": "Python news",
+      "title": "Python news часть вторая",
       "subtitle": "Что нового в Python за 2024 год?",
       "img": "https://krymmedia.com/wp-content/uploads/2022/06/Python-Symbol.png",
       "views": 2024,
-      "createdAt": "27.03.2024",
+      "createdAt": "15.08.2024",
       "type": [
         "IT"
       ],
@@ -457,11 +463,11 @@
     {
       "id": "17",
       "userId": "1",
-      "title": "React news",
-      "subtitle": "Что нового в React за 2024 год?",
+      "title": "лвыао оа оываор ыроваро",
+      "subtitle": "ыы ы ы ы ы ы ы ы лвлолв олыво олыв",
       "img": "https://avatars.dzeninfra.ru/get-zen_doc/10349846/pub_6494b2aa15e3cb0044e3708f_6494b2e246f488519d2a904e/scale_1200",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "views": 777,
+      "createdAt": "18.04.2023",
       "type": [
         "IT"
       ],
@@ -481,13 +487,13 @@
     {
       "id": "18",
       "userId": "1",
-      "title": "Python news",
-      "subtitle": "Что нового в Python за 2024 год?",
-      "img": "https://krymmedia.com/wp-content/uploads/2022/06/Python-Symbol.png",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "title": "Противоядие от насекомых",
+      "subtitle": "Что делать в дачный сезон этого года с насекомыми",
+      "img": "https://avatars.mds.yandex.net/i?id=8606fe6c3496d7c57cd423751bd44283_l-13277686-images-thumbs&n=13",
+      "views": 8975,
+      "createdAt": "06.05.2024",
       "type": [
-        "IT"
+        "SCIENCE"
       ],
       "blocks": [
         {
@@ -505,13 +511,13 @@
     {
       "id": "19",
       "userId": "1",
-      "title": "React news",
-      "subtitle": "Что нового в React за 2024 год?",
-      "img": "https://avatars.dzeninfra.ru/get-zen_doc/10349846/pub_6494b2aa15e3cb0044e3708f_6494b2e246f488519d2a904e/scale_1200",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "title": "Кино вино и домино",
+      "subtitle": "Выход кинопремьеры белоснежка и 1 гном",
+      "img": "https://avatars.mds.yandex.net/i?id=f9e40c01586618cbeb52827e12b301e4_l-13595317-images-thumbs&n=13",
+      "views": 224,
+      "createdAt": "01.02.2022",
       "type": [
-        "IT"
+        "POLITICS"
       ],
       "blocks": [
         {
@@ -529,11 +535,11 @@
     {
       "id": "20",
       "userId": "1",
-      "title": "React news",
-      "subtitle": "Что нового в React за 2024 год?",
+      "title": "React",
+      "subtitle": "лучш",
       "img": "https://avatars.dzeninfra.ru/get-zen_doc/10349846/pub_6494b2aa15e3cb0044e3708f_6494b2e246f488519d2a904e/scale_1200",
-      "views": 2024,
-      "createdAt": "27.03.2024",
+      "views": 21232,
+      "createdAt": "21.01.2021",
       "type": [
         "IT"
       ],

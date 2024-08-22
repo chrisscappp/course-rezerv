@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { ValidateProfileError } from "feautures/EditableProfileCard/model/types/editableProfile";
 import { useParams } from "react-router-dom";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page/Page";
 
 interface ProfilePageProps {
 	className?: string;

@@ -6,35 +6,37 @@ import { RegisterSchema } from "feautures/RegisterByUsername"
 import { ProfileSchema } from "enitites/Profile"
 import { EditableProfileSchema } from "feautures/EditableProfileCard"
 import { AxiosInstance } from "axios"
-import { NavigateOptions } from "react-router-dom"
-import { To } from "history"
 import { ArticleDetailsSchema } from "enitites/Article"
 import { ArticleDetailsCommentsSchema } from "pages/ArticlesDetailsPage"
 import { AddCommentFormSchema } from "feautures/AddCommentForm"
 import { ArticlesPageSchema } from "pages/ArticlesPage"
+import { ScrollRestoringSchema } from "widgets/ScrollRestoring"
 
 export interface StateSchema {
-	counter: CounterSchema,
-	user: UserSchema,
+  counter: CounterSchema;
+  user: UserSchema;
+  scroll: ScrollRestoringSchema;
 
-	// Async
-	registerForm?: RegisterSchema
-	loginForm?: LoginSchema,
-	profile?: ProfileSchema,
-	editableProfile?: EditableProfileSchema,
-	articleDetails?: ArticleDetailsSchema,
-	articleDetailsComments?: ArticleDetailsCommentsSchema,
-	addCommentForm?: AddCommentFormSchema,
-	articlesPage?: ArticlesPageSchema
+  // Async
+  registerForm?: RegisterSchema;
+  loginForm?: LoginSchema;
+  profile?: ProfileSchema;
+  editableProfile?: EditableProfileSchema;
+  articleDetails?: ArticleDetailsSchema;
+  articleDetailsComments?: ArticleDetailsCommentsSchema;
+  addCommentForm?: AddCommentFormSchema;
+  articlesPage?: ArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>
 
 export interface ReducerManagerType {
-	getReducerMap: () => ReducersMapObject<StateSchema>;
-	reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
-	add: (key: StateSchemaKey, reducer: Reducer) => void;
-	remove: (key: StateSchemaKey) => void;
+  getReducerMap: () => ReducersMapObject<StateSchema>;
+  getMountedReducers: () => MountedReducers;
+  reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
+  add: (key: StateSchemaKey, reducer: Reducer) => void;
+  remove: (key: StateSchemaKey) => void;
 }
 
 export interface ReduxStoreWithManager {
@@ -42,8 +44,7 @@ export interface ReduxStoreWithManager {
 }
 
 export interface ThunkExtraArg {
-	api: AxiosInstance,
-	navigate?: (to: To, options?: NavigateOptions) => void,
+	api: AxiosInstance
 }
 
 export interface ThunkConfig<T> {

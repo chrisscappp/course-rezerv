@@ -23,7 +23,7 @@ import { AddCommentForm } from "feautures/AddCommentForm";
 import { sendCommentForArticle } from "../../model/services/addCommentForArticle";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { RouterPath } from "shared/config/routeConfig/routeConfig";
-import { Page } from "shared/ui/Page/Page";
+import { Page } from "widgets/Page/Page";
 
 interface ArticlesDetailsPageProps {
 	className?: string;
@@ -66,7 +66,7 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
-			<Page className = {classNames(cls.ArticlesDetailsPage, {}, [className])}>
+			<Page className = {classNames(cls.ArticlesDetailsPage, {}, [className])} saveScroll>
 				<Button 
 					theme = {ButtonTheme.OUTLINE_INVERTED}
 					onClick = {onOpenArticleList}

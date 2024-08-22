@@ -1,10 +1,13 @@
 export { ArticleDetails } from "./ui/ArticleDetails/ArticleDetails"
 export { ArticleList } from "./ui/ArticleList/ArticleList"
 export { ArticleViewSelector } from "./ui/ArticleViewSelector/ArticleViewSelector"
+export { ArticleSortSelector } from "./ui/ArticleSortSelector/ArticleSortSelector"
 
 export {
 	Article,
-	ArticleView
+	ArticleView,
+	ArticleSortType,
+	ArticleType
 } from "./model/types/article"
 
 export { ArticleDetailsSchema } from "./model/types/articleDetailsSchema"

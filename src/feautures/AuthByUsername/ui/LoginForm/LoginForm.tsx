@@ -4,7 +4,7 @@ import React, { useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { loginFormActions, loginFormReducer } from "../../model/slice/loginFormSlice";
 import { loginByUsername } from "../..//model/services/loginByUsername/loginByUsername";
 import { Text, TextTheme } from "shared/ui/Text/Text"
@@ -14,6 +14,8 @@ import { getLoginError } from "../../model/selectors/getLoginError/getLoginError
 import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { useNavigate } from "react-router-dom";
+import { IUser } from "enitites/User";
 
 export interface LoginFormProps {
 	className?: string;
@@ -32,6 +34,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 	const password = useSelector(getLoginPassword)
 	const error = useSelector(getLoginError)
 	const isLoading = useSelector(getLoginIsLoading)
+	const navigate = useNavigate()
 
 	const onChangeUsername = useCallback((value: string) => {
 		dispatch(loginFormActions.setUsername(value))
@@ -44,10 +47,12 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 	const onLogin = useCallback(async () => {
 		const res = await dispatch(loginByUsername({ password, username }))
 		if (res.meta.requestStatus === "fulfilled") {
+			const user = res.payload as IUser
 			onSuccess()
+			navigate(`/profile/${user.id}`);
 		}
 		// передали асинхронный action
-	}, [dispatch, onSuccess, password, username])
+	}, [dispatch, navigate, onSuccess, password, username])
 
 	return (
 		<DynamicModuleLoader 
