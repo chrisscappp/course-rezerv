@@ -15,6 +15,7 @@ import { fetchNextArticlesPart } from "../../model/services/fetchNextArticlesPar
 import { initArticlesPage } from "pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 import { useSearchParams } from "react-router-dom";
+import { ArticleListItem } from "enitites/Article/ui/ArticleListItem/ArticleListItem";
 
 interface ArticlesPageProps {
 	className?: string;
@@ -42,6 +43,10 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 	const onLoadNextPart = useCallback(() => {
 		dispatch(fetchNextArticlesPart())
 	}, [dispatch])
+
+	const itemContent = (index: number) => {
+		return <ArticleListItem article={articles[index]} view={view}/>
+	}
 
 	return (
 		<DynamicModuleLoader reducers = {reducers}>

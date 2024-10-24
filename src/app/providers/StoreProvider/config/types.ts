@@ -7,7 +7,7 @@ import { ProfileSchema } from "enitites/Profile"
 import { EditableProfileSchema } from "feautures/EditableProfileCard"
 import { AxiosInstance } from "axios"
 import { ArticleDetailsSchema } from "enitites/Article"
-import { ArticleDetailsCommentsSchema } from "pages/ArticlesDetailsPage"
+import { ArticleDetailsPageSchema } from "pages/ArticlesDetailsPage"
 import { AddCommentFormSchema } from "feautures/AddCommentForm"
 import { ArticlesPageSchema } from "pages/ArticlesPage"
 import { ScrollRestoringSchema } from "widgets/ScrollRestoring"
@@ -23,9 +23,9 @@ export interface StateSchema {
   profile?: ProfileSchema;
   editableProfile?: EditableProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema

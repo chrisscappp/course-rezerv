@@ -3,9 +3,8 @@ import HtmlWebpackPlugin from "html-webpack-plugin";
 import { BuildOptions } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
-
+import CopyPlugin from "copy-webpack-plugin"
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
-//const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 export default function buildPlugins({ paths, isDev, apiURL, project }: BuildOptions): webpack.WebpackPluginInstance[] {
 
@@ -23,6 +22,11 @@ export default function buildPlugins({ paths, isDev, apiURL, project }: BuildOpt
 			__API__: JSON.stringify(apiURL),
 			__PROJECT__: JSON.stringify(project)
 		}), // глобальная переменная
+		 new CopyPlugin({
+			patterns: [
+				{ from: paths.locales, to: paths.buildLocales }
+			],
+		}),
 	]
 
 	if (isDev) {

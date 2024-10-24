@@ -44,10 +44,10 @@ module.exports = {
 			1 , 
 			{
 				markupOnly: true, 
-				ignoreAttribute: ['data-testid', 'to'],
+				ignoreAttribute: ['data-testid', 'to', 'target', 'ref'],
 			},
 		], // отсутсвие переводов внутри jsx
-		'max-len': ['error', 130, { 'ignoreComments': true }],
+		'max-len': ['error', 170, { 'ignoreComments': true }],
 		"react/display-name": "off",
 		'no-undef': 'off'
 	},

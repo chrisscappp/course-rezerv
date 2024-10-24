@@ -1,14 +1,14 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next"
 import { classNames } from "shared/lib/classNames/classNames"
-import { ArticleDetails } from "enitites/Article";
+import { ArticleDetails, ArticleList, ArticleView } from "enitites/Article";
 import cls from "./ArticlesDetailsPage.module.scss"
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import React from 'react'
 import { CommentList } from "enitites/Comment";
-import { Text } from "shared/ui/Text/Text";
+import { Text, TextSize } from "shared/ui/Text/Text";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { articleDetailsCommentsReducer, getArticleComments } from "../../model/slice/articleDetailsCommentsSlice";
+import { getArticleComments } from "../../model/slice/articleDetailsCommentsSlice";
 import { useSelector } from "react-redux";
 import { 
 	getArticleDetailsCommentsIsLoading
@@ -21,18 +21,27 @@ import { fetchArticleCommentsById } from "../../model/services/fetchArticleComme
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { AddCommentForm } from "feautures/AddCommentForm";
 import { sendCommentForArticle } from "../../model/services/addCommentForArticle";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { RouterPath } from "shared/config/routeConfig/routeConfig";
 import { Page } from "widgets/Page/Page";
+import { getArticleRecomendations } from "../../model/slice/articlesPageRecomendationsSlice";
+import { 
+	getArticleDetailsRecomendationsError, 
+	getArticleDetailsRecomendationsIsLoading
+} from "../../model/selectors/recomendations";
+import { 
+	fetchArticleRecomendations
+} from "../../model/services/fetchArticleRecomendations/fetchArticleRecomendations";
+import { articleDetailsPageReducer } from "../../model/slice";
+import { ArticlesDetailsPageHeader } from "../ArticlesDetailsPageHeader/ArticlesDetailsPageHeader";
 
 interface ArticlesDetailsPageProps {
 	className?: string;
 }
 
 const reducers: ReducersList = {
-	articleDetailsComments: articleDetailsCommentsReducer
-}
+	articleDetailsPage: articleDetailsPageReducer
+} // передали главный редюсер (группу)
 
+// страница - это перечисление фичей
 const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 	
 	const { className } = props
@@ -41,12 +50,10 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 	const { id } = useParams<{ id: string }>()
 	const comments = useSelector(getArticleComments.selectAll)
 	const commentsError = useSelector(getArticleDetailsCommentsError)
-	const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading)
-	const navigate = useNavigate()
-
-	const onOpenArticleList = useCallback(() => {
-		navigate(RouterPath.articles)
-	}, [navigate])
+	const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
+	const recomendations = useSelector(getArticleRecomendations.selectAll);
+	const recomendationsError = useSelector(getArticleDetailsRecomendationsError);
+	const recomendationsIsLoading = useSelector(getArticleDetailsRecomendationsIsLoading);
 
 	const onSendComment = useCallback((text: string) => {
 		dispatch(sendCommentForArticle(text))
@@ -54,6 +61,7 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 
 	useInitialEffect(() => {
 		dispatch(fetchArticleCommentsById(id ? id : ""))
+		dispatch(fetchArticleRecomendations())
 	}, []) // вынесли хук с проверкой на storybook
 
 	if (!id) {
@@ -67,16 +75,22 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
 			<Page className = {classNames(cls.ArticlesDetailsPage, {}, [className])} saveScroll>
-				<Button 
-					theme = {ButtonTheme.OUTLINE_INVERTED}
-					onClick = {onOpenArticleList}
-				>
-					{t("Назад к списку")}
-				</Button>
-				<ArticleDetails
-					id = {id}
+				<ArticlesDetailsPageHeader/>
+				<ArticleDetails id = {id}/>
+				<Text
+					size = {TextSize.L}
+					title = {t("Рекомендуем")}
+					className = {cls.commentTitle}
+				/>
+				<ArticleList
+					articles = {recomendations}
+					view = {ArticleView.TILE}
+					isLoading = {recomendationsIsLoading}
+					className = {cls.recomendations}
+					target = "_blank"
 				/>
 				<Text
+					size = {TextSize.L}
 					title = {t("Комментарии")}
 					className = {cls.commentTitle}
 				/>
