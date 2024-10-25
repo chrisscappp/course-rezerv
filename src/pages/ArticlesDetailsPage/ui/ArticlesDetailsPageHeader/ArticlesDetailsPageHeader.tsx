@@ -7,7 +7,7 @@ import { useCallback } from "react"
 import { RouterPath } from "shared/config/routeConfig/routeConfig"
 import { useSelector } from "react-redux"
 import { getCanEditArticle } from "../../model/selectors/article"
-import { getArticleDetailsData } from "enitites/Article"
+import { getArticleDetailsData } from "entities/Article"
 
 interface ArticlesDetailsPageHeaderProps {
 	className?: string

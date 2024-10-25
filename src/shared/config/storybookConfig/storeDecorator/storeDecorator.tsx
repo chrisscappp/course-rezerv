@@ -4,7 +4,7 @@ import { editableProfileReducer } from "feautures/EditableProfileCard";
 import { loginFormReducer } from "feautures/AuthByUsername/model/slice/loginFormSlice";
 import React from "react";
 import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { articleDetailsReducer } from "enitites/Article/model/slice/articleSlice";
+import { articleDetailsReducer } from "entities/Article";
 
 const initialAsyncReducers: ReducersList = {
 	loginForm: loginFormReducer,

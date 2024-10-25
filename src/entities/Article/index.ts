@@ -7,7 +7,8 @@ export {
 	Article,
 	ArticleView,
 	ArticleSortType,
-	ArticleType
+	ArticleType,
+	ArticleBlockType
 } from "./model/types/article"
 
 export { ArticleDetailsSchema } from "./model/types/articleDetailsSchema"

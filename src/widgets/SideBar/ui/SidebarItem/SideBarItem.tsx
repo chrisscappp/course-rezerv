@@ -6,7 +6,7 @@ import { SideBarItemType } from "../../model/types/sidebar"
 import { memo } from "react";
 import React from "react";
 import { useSelector } from "react-redux";
-import { getUserAuthData } from "enitites/User";
+import { getUserAuthData } from "entities/User";
 
 interface SideBarItemProps {
 	item: SideBarItemType;

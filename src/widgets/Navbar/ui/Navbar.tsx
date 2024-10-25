@@ -5,9 +5,8 @@ import React, { memo, useCallback, useState } from "react";
 import { ButtonTheme, Button } from "shared/ui/Button/Button";
 import { LoginModal } from "feautures/AuthByUsername";
 import { RegisterModal } from "feautures/RegisterByUsername";
-import { getUserAuthData } from "enitites/User/index"
+import { getUserAuthData, userActions } from "entities/User";
 import { useDispatch, useSelector } from "react-redux";
-import { userActions } from "enitites/User/index";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import { RouterPath } from "shared/config/routeConfig/routeConfig";

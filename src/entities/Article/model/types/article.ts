@@ -1,4 +1,4 @@
-import { IUser } from "enitites/User";
+import { IUser } from "entities/User"
 
 export enum ArticleBlockType {
 	CODE = "CODE",

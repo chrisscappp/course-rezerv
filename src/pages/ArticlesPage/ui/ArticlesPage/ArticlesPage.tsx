@@ -1,7 +1,7 @@
 import { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames/classNames"
 import cls from "./ArticlesPage.module.scss"
-import { ArticleList } from "enitites/Article";
+import { ArticleList } from "entities/Article";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { articlesPageReducer, getArticles } from "../../model/slices/articlesPageSlice";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
@@ -12,10 +12,9 @@ import { getArticlesPageError } from "../../model/selectors/getArticlesPageError
 import { getArticlesPageView } from "../../model/selectors/getArticlesPageView/getArticlesPageView";
 import { Page } from "widgets/Page/Page";
 import { fetchNextArticlesPart } from "../../model/services/fetchNextArticlesPart/fetchNextArticlesPart";
-import { initArticlesPage } from "pages/ArticlesPage/model/services/initArticlesPage/initArticlesPage";
+import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 import { useSearchParams } from "react-router-dom";
-import { ArticleListItem } from "enitites/Article/ui/ArticleListItem/ArticleListItem";
 
 interface ArticlesPageProps {
 	className?: string;
@@ -43,10 +42,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 	const onLoadNextPart = useCallback(() => {
 		dispatch(fetchNextArticlesPart())
 	}, [dispatch])
-
-	const itemContent = (index: number) => {
-		return <ArticleListItem article={articles[index]} view={view}/>
-	}
 
 	return (
 		<DynamicModuleLoader reducers = {reducers}>

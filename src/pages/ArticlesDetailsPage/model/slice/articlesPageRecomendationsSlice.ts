@@ -5,7 +5,7 @@ import {
 } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
 import { ArticleDetailsRecomendationsSchema } from "../types/articleDetailsRecomendationsSchema";
-import { Article } from "enitites/Article";
+import { Article } from "entities/Article";
 import { fetchArticleRecomendations } from "../services/fetchArticleRecomendations/fetchArticleRecomendations";
 
 const recomendationsAdapter = createEntityAdapter<Article>({

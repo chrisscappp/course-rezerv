@@ -1,11 +1,11 @@
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next"
 import { classNames } from "shared/lib/classNames/classNames"
-import { ArticleDetails, ArticleList, ArticleView } from "enitites/Article";
+import { ArticleDetails, ArticleList, ArticleView } from "entities/Article";
 import cls from "./ArticlesDetailsPage.module.scss"
 import { useParams } from "react-router-dom";
 import React from 'react'
-import { CommentList } from "enitites/Comment";
+import { CommentList } from "entities/Comment";
 import { Text, TextSize } from "shared/ui/Text/Text";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { getArticleComments } from "../../model/slice/articleDetailsCommentsSlice";

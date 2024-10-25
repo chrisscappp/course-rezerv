@@ -1,7 +1,7 @@
-import { Currency } from "enitites/Currency"
+import { Currency } from "entities/Currency"
 import { fetchProfileData } from "./fetchProfileData"
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
-import { Country } from "enitites/Country"
+import { Country } from "entities/Country"
 
 const data = {
 	age: 19,

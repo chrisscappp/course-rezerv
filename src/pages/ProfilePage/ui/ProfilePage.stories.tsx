@@ -5,8 +5,8 @@ import { ThemeDecorator } from "shared/config/storybookConfig/themeDecorator/the
 import { Themes } from "app/providers/ThemeProvider/index"
 import { StoreDecorator } from "shared/config/storybookConfig/storeDecorator/storeDecorator";
 import AvatarImg from "shared/assets/tests/storybook.jpg"
-import { Currency } from "enitites/Currency";
-import { Country } from "enitites/Country";
+import { Currency } from "entities/Currency";
+import { Country } from "entities/Country";
 
 const meta: Meta<typeof ProfilePage> = {
 	title: "pages/ProfilePage",

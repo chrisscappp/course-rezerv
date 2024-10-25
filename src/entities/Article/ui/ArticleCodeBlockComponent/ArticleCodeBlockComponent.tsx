@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticleCodeBlockComponent.module.scss"
-import { ArticleBlockCode } from "enitites/Article/model/types/article";
+import { ArticleBlockCode } from "../../model/types/article";
 import { Code } from "shared/ui/Code/Code";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Icon } from "shared/ui/Icon/Icon";

@@ -3,7 +3,7 @@ import HomeIcon from "shared/assets/icons/home-icon.svg"
 import ProfileIcon from "shared/assets/icons/profile-icon.svg"
 import ArticleIcon from "shared/assets/icons/articles-icon.svg"
 import { RouterPath } from "shared/config/routeConfig/routeConfig"
-import { getUserAuthData } from "enitites/User"
+import { getUserAuthData } from "entities/User";
 import { createSelector } from "@reduxjs/toolkit"
 import { SideBarItemType } from "../types/sidebar"
 

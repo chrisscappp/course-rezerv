@@ -9,8 +9,7 @@ import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEf
 import { useSelector } from "react-redux"
 import { StateSchema } from "app/providers/StoreProvider"
 import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle"
-
-export const PAGE_ID = "PAGE_ID"
+import { PAGE_ID } from "shared/consts/elementsId"
 
 interface PageProps {
 	className?: string,

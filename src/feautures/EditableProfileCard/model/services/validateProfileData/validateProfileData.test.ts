@@ -1,6 +1,6 @@
-import { Currency } from "enitites/Currency"
+import { Currency } from "entities/Currency"
 import { validateProfileData } from "./validateProfileData"
-import { Country } from "enitites/Country"
+import { Country } from "entities/Country"
 import { ValidateProfileError } from "../../types/editableProfile"
 
 const data = {

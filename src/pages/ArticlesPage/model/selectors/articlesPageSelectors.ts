@@ -1,5 +1,5 @@
 import { StateSchema } from "app/providers/StoreProvider"
-import { ArticleSortType, ArticleType } from "enitites/Article"
+import { ArticleSortType, ArticleType } from "entities/Article"
 
 export const getArticlesPageNum = (state: StateSchema) => state.articlesPage?.page || 1
 export const getArticlesPageLimit = (state: StateSchema) => state.articlesPage?.limit || 9

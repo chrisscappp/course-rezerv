@@ -15,7 +15,7 @@ import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLo
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader"
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useNavigate } from "react-router-dom";
-import { IUser } from "enitites/User";
+import { IUser } from "entities/User";
 
 export interface LoginFormProps {
 	className?: string;

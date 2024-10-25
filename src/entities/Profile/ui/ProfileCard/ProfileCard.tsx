@@ -3,11 +3,11 @@ import cls from "./ProfileCard.module.scss"
 import { Text, TextAlign, TextTheme } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import { Input } from "shared/ui/Input/Input";
-import { Profile } from "enitites/Profile/model/types/profile";
+import { Profile } from "../../model/types/profile";
 import { Spinner } from "shared/ui/Spinner/Spinner";
 import { Avatar } from "shared/ui/Avatar/Avatar";
-import { CurrencySelect, Currency } from "enitites/Currency";
-import { Country, CountrySelect } from "enitites/Country";
+import { CurrencySelect, Currency } from "entities/Currency";
+import { Country, CountrySelect } from "entities/Country";
 import React from "react"
 
 interface ProfileCardProps {

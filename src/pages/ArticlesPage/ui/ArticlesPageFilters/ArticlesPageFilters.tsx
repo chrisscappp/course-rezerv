@@ -6,7 +6,8 @@ import {
 	ArticleSortType,
 	ArticleView,
 	ArticleViewSelector,
-} from "enitites/Article";
+	ArticleType
+} from "entities/Article";
 import { articlesPageActions } from "../../model/slices/articlesPageSlice";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
@@ -24,7 +25,6 @@ import { SortOrder } from "shared/types";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { TabItem } from "shared/ui/Tabs/Tabs";
-import { ArticleType } from "enitites/Article";
 import { ArticleTypeTabs } from "feautures/ArticleTypeTabs";
 
 interface ArticlesPageFiltersProps {

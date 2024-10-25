@@ -20,7 +20,8 @@ module.exports = {
 		'react',
 		'@typescript-eslint',
 		'i18next',
-		'react-hooks'
+		'react-hooks',
+		'alexandroo4-plugin'
 	],
 	rules: {
 		indent: ["error", "tab"],
@@ -49,7 +50,8 @@ module.exports = {
 		], // отсутсвие переводов внутри jsx
 		'max-len': ['error', 170, { 'ignoreComments': true }],
 		"react/display-name": "off",
-		'no-undef': 'off'
+		'no-undef': 'off',
+		'alexandroo4-plugin/fsd-path-checker-beer-insomnia': 'error'
 	},
 	globals: {
 		__IS_DEV__: true,

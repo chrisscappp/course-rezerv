@@ -1,5 +1,5 @@
 import { classNames } from "shared/lib/classNames/classNames"
-import { ProfileCard } from "enitites/Profile";
+import { ProfileCard } from "entities/Profile";
 import cls from "./EditableProfileCard.module.scss"
 import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
@@ -9,10 +9,10 @@ import { getProfileError } from "../model/selectors/getProfileError/getProfileEr
 import { getProfileIsLoading } from "../model/selectors/getProfileIsLoading/getProfileIsLoading";
 import { getProfileReadonly } from "../model/selectors/getProfileReadonly/getProfileReadonly";
 import { useCallback } from "react";
-import { fetchProfileData } from "enitites/Profile";
+import { fetchProfileData } from "entities/Profile";
 import { editableProfileActions } from "../model/slice/editableProfileSlice";
-import { Currency } from "enitites/Currency";
-import { Country } from "enitites/Country";
+import { Currency } from "entities/Currency";
+import { Country } from "entities/Country";
 import React from "react"
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 
