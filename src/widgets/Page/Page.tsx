@@ -10,6 +10,7 @@ import { useSelector } from "react-redux"
 import { StateSchema } from "app/providers/StoreProvider"
 import { useThrottle } from "shared/lib/hooks/useThrottle/useThrottle"
 import { PAGE_ID } from "shared/consts/elementsId"
+import { VStack } from "shared/ui/Stack"
 
 interface PageProps {
 	className?: string,

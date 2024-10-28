@@ -1,6 +1,5 @@
 import { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames/classNames"
-import cls from "./ArticlesPage.module.scss"
 import { ArticleList } from "entities/Article";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { articlesPageReducer, getArticles } from "../../model/slices/articlesPageSlice";
@@ -15,6 +14,7 @@ import { fetchNextArticlesPart } from "../../model/services/fetchNextArticlesPar
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import { ArticlesPageFilters } from "../ArticlesPageFilters/ArticlesPageFilters";
 import { useSearchParams } from "react-router-dom";
+import { VStack } from "shared/ui/Stack";
 
 interface ArticlesPageProps {
 	className?: string;
@@ -46,17 +46,18 @@ const ArticlesPage = (props: ArticlesPageProps) => {
 	return (
 		<DynamicModuleLoader reducers = {reducers}>
 			<Page 
-				className = {classNames(cls.ArticlesPage, {}, [className])}
+				className = {classNames("", {}, [className])}
 				onScrollEnd = {onLoadNextPart}
 				saveScroll
 			>
-				<ArticlesPageFilters/>
-				<ArticleList
-					className = {cls.list}
-					view = {view}
-					articles = {articles}
-					isLoading = {isLoading}
-				/>
+				<VStack max gap="32">
+					<ArticlesPageFilters/>
+					<ArticleList
+						view = {view}
+						articles = {articles}
+						isLoading = {isLoading}
+					/>
+				</VStack>
 			</Page>
 		</DynamicModuleLoader>
 	)

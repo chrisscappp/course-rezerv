@@ -1,6 +1,5 @@
 import { memo, useCallback } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
-import cls from "./ArticlesPageFilters.module.scss";
 import {
 	ArticleSortSelector,
 	ArticleSortType,
@@ -26,6 +25,7 @@ import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchA
 import { useDebounce } from "shared/lib/hooks/useDebounce/useDebounce";
 import { TabItem } from "shared/ui/Tabs/Tabs";
 import { ArticleTypeTabs } from "feautures/ArticleTypeTabs";
+import { HStack, VStack } from "shared/ui/Stack";
 
 interface ArticlesPageFiltersProps {
   className?: string;
@@ -79,31 +79,30 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
 	// декомпозировать всё на фичи со своим стейтом и тд
 	return (
-		<div className={classNames(cls.ArticlePageFilters, {}, [className])}>
-			<div className = {cls.sortWrapper}>
+		<VStack max gap="16" className={classNames("", {}, [className])}>
+			<HStack max justify="between">
 				<ArticleSortSelector
-					order = {order}
-					sort = {sort}
-					onChangeOrder = {onChangeOrder}
-					onChangeSortType = {onChangeSort}
+					order={order}
+					sort={sort}
+					onChangeOrder={onChangeOrder}
+					onChangeSortType={onChangeSort}
 				/>
 				<ArticleViewSelector
 					view={view ? view : ArticleView.TILE_DETAIL}
 					onViewClick={onChangeView}
 				/>
-			</div>
-			<Card className = {cls.search}>
+			</HStack>
+			<Card>
 				<Input
-					placeholder = {t('Поиск')}
-					value = {searchValue}
-					onChange = {onChangeSearch}
+					placeholder={t('Поиск')}
+					value={searchValue}
+					onChange={onChangeSearch}
 				/>
 			</Card>
 			<ArticleTypeTabs
-				className = {cls.types}
-				onChangeArticleType = {onChangeArticleType}
-				value = {type}
+				onChangeArticleType={onChangeArticleType}
+				value={type}
 			/>
-		</div>
+		</VStack>
 	);
 })

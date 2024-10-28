@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { getAddCommentFormError, getAddCommentFormText } from "../../model/selectors/addCommentFormSelectors";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import { HStack } from "shared/ui/Stack";
 
 export interface AddCommentFormProps {
 	className?: string;
@@ -44,7 +45,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 	return (
 		<DynamicModuleLoader reducers = {reducers} removeAfterUnmount>
 			{error && <Text text = {error} theme = {TextTheme.ERROR}/>}
-			<div className = {classNames(cls.AddCommentForm, {}, [className])}>
+			<HStack justify="between" max className = {classNames(cls.AddCommentForm, {}, [className])}>
 				<Input
 					placeholder = {t("Введите текст комментария")}
 					value = {text}
@@ -57,7 +58,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 				>
 					{t("Отправить")}
 				</Button>
-			</div>
+			</HStack>
 		</DynamicModuleLoader>
 	)
 })

@@ -1,4 +1,4 @@
-import { HTMLAttributeAnchorTarget, memo, useCallback } from "react"
+import { HTMLAttributeAnchorTarget, memo } from "react"
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticleListItem.module.scss";
 import { Article, ArticleBlockText, ArticleBlockType, ArticleView } from "../../model/types/article";
@@ -12,6 +12,7 @@ import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { RouterPath } from "shared/config/routeConfig/routeConfig";
 import { AppLink } from "shared/ui/AppLink/AppLink";
+import { HStack } from "shared/ui/Stack";
 
 interface ArticleListItemProps {
 	className?: string;
@@ -33,10 +34,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
 	const types = <Text text = {article.type.join(", ")} className = {cls.types}/>
 	const views = (
-		<>
-			<Text text = {String(article.views)} className = {cls.views}/>
-			<Icon Svg={EyeIcon} className = {cls.eyeIcon}/>
-		</>
+		<HStack gap="4">
+			<Text text = {String(article.views)}/>
+			<Icon Svg={EyeIcon}/>
+		</HStack>
 	)
 
 	if (view === ArticleView.TILE_DETAIL) {
@@ -47,14 +48,16 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
 		return (
 			<div
-				className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+				className={classNames("", {}, [className, cls[view]])}
 			>
 				<Card>
-					<div className={cls.header}>
-						<Avatar size={30} src={article.user.avatar} />
-						<Text text={article.user.username} className={cls.username} />
+					<HStack max justify="between">
+						<HStack gap="8">
+							<Avatar size={30} src={article.user.avatar} />
+							<Text text={article.user.username} className={cls.username} />
+						</HStack>
 						<Text text={article.createdAt} className={cls.date} />
-					</div>
+					</HStack>
 					<Text title={article.title} className={cls.title} />
 					{types}
 					<img src={article.img} className={cls.img} alt={article.title} />
@@ -64,7 +67,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 							className={cls.textBlock}
 						/>
 					)}
-					<div className={cls.footer}>
+					<HStack max justify="between" className={cls.footer}>
 						<AppLink 
 							to={RouterPath.articles_details + article.id}
 							target = {target}
@@ -74,7 +77,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 							</Button>
 						</AppLink>
 						{views}
-					</div>
+					</HStack>
 				</Card>
 			</div>
 		);
@@ -98,10 +101,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 						className = {cls.date}
 					/>
 				</div>
-				<div className = {cls.infoWrapper}>
+				<HStack justify="between" className={cls.infoWrapper}>
 					{types}
 					{views}
-				</div>
+				</HStack>
 				<Text
 					text = {article.title}
 					className = {cls.title}

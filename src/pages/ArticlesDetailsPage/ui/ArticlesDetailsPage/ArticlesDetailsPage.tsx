@@ -32,6 +32,7 @@ import {
 } from "../../model/services/fetchArticleRecomendations/fetchArticleRecomendations";
 import { articleDetailsPageReducer } from "../../model/slice";
 import { ArticlesDetailsPageHeader } from "../ArticlesDetailsPageHeader/ArticlesDetailsPageHeader";
+import { VStack } from "shared/ui/Stack";
 
 interface ArticlesDetailsPageProps {
 	className?: string;
@@ -75,34 +76,40 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterUnmount>
 			<Page className = {classNames(cls.ArticlesDetailsPage, {}, [className])} saveScroll>
-				<ArticlesDetailsPageHeader/>
-				<ArticleDetails id = {id}/>
-				<Text
-					size = {TextSize.L}
-					title = {t("Рекомендуем")}
-					className = {cls.commentTitle}
-				/>
-				<ArticleList
-					articles = {recomendations}
-					view = {ArticleView.TILE}
-					isLoading = {recomendationsIsLoading}
-					className = {cls.recomendations}
-					target = "_blank"
-				/>
-				<Text
-					size = {TextSize.L}
-					title = {t("Комментарии")}
-					className = {cls.commentTitle}
-				/>
-				<AddCommentForm
-					className = {cls.addComment}
-					onSend = {onSendComment}
-				/>
-				{/* стейт с комментами храним на уровне страницы */}
-				<CommentList
-					comments = {comments}
-					isLoading = {commentsIsLoading}
-				/>
+				<VStack gap="32" max>
+					<ArticlesDetailsPageHeader/>
+					<ArticleDetails id = {id}/>
+					<VStack max gap="8">
+						<Text
+							size = {TextSize.L}
+							title = {t("Рекомендуем")}
+							className = {cls.commentTitle}
+						/>
+						<ArticleList
+							articles = {recomendations}
+							view = {ArticleView.TILE}
+							isLoading = {recomendationsIsLoading}
+							className = {cls.recomendations}
+							target = "_blank"
+						/>
+					</VStack>
+					<VStack max gap="16">
+						<Text
+							size = {TextSize.L}
+							title = {t("Комментарии")}
+							className = {cls.commentTitle}
+						/>
+						<AddCommentForm
+							className = {cls.addComment}
+							onSend = {onSendComment}
+						/>
+						{/* стейт с комментами храним на уровне страницы */}
+						<CommentList
+							comments = {comments}
+							isLoading = {commentsIsLoading}
+						/>
+					</VStack>
+				</VStack>
 			</Page>
 		</DynamicModuleLoader>
 		

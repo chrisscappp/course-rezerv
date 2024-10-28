@@ -1,27 +1,7 @@
 .TILE {
-	display: flex;
 	flex-wrap: wrap;
-	gap: 30px;
-
 	.card {
 		display: inline-flex;
 		height: 300px;
 	}
-
-	.row {
-		display: flex;
-		gap: 30px;
-	}
-}
-
-.TILE_DETAIL {
-	.card {
-		margin-bottom: 40px;
-	}
-}
-
-.emptyList {
-	margin-top: 32px;
-	display: flex;
-	justify-content: center;
 }

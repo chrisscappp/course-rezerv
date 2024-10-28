@@ -1,10 +1,9 @@
 import React from "react";
-import { classNames } from "shared/lib/classNames/classNames";
 import { useTranslation } from "react-i18next";
-import cls from "./CommentList.module.scss"
 import { Text } from "shared/ui/Text/Text";
 import { CommentCard } from "../CommentCard/CommentCard";
 import { Comment } from "../../model/types/comment"
+import { VStack } from "shared/ui/Stack";
 
 interface CommentListProps {
 	className?: string;
@@ -23,7 +22,11 @@ export const CommentList = (props: CommentListProps) => {
 	} = props
 
 	return (
-		<div className = {classNames(cls.CommentList, {}, [className])}>
+		<VStack
+			max
+			gap="16"
+			className = {className}
+		>
 			{
 				comments?.length > 0 ? 
 					comments?.map((comment: Comment) => (
@@ -31,11 +34,10 @@ export const CommentList = (props: CommentListProps) => {
 							key = {comment.text}
 							comment = {comment}
 							isLoading = {isLoading}
-							className = {cls.commentCard}
 						/>
 					)) 
 					: <Text text = {t("Комментариев нет")}/>
 			}
-		</div>
+		</VStack>
 	)
 }

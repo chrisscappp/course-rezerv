@@ -1,6 +1,4 @@
 import { useTranslation } from "react-i18next"
-import { classNames } from "shared/lib/classNames/classNames"
-import cls from "./ProfilePageHeader.module.scss"
 import { Text } from "shared/ui/Text/Text";
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { 
@@ -14,6 +12,7 @@ import { useSelector } from "react-redux";
 import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import React, { useCallback } from "react";
 import { getUserAuthData } from "entities/User";
+import { HStack } from "shared/ui/Stack/HStack/HStack";
 
 interface ProfilePageHeaderProps {
 	className?: string;
@@ -44,15 +43,14 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
 	}, [data, dispatch, formData])
 
 	return (
-		<div className = {classNames(cls.ProfilePageHeader, {}, [className])}>
+		<HStack max justify="between" className={className}>
 			<Text title = {t("Профиль")}/>
 			{canEdit && (
-				<div className = {cls.btnsWrap}>
+				<HStack gap="8">
 					{
 						readonly ? (
 							<Button 
 								theme = {ButtonTheme.OUTLINE_INVERTED}
-								className = {cls.editBtn}
 								onClick = {onEdit}
 							>
 								{t("Редактировать")}
@@ -63,14 +61,12 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
 								<>
 									<Button 
 										theme = {ButtonTheme.OUTLINE_RED}
-										className = {cls.editBtn}
 										onClick = {onCancelEdit}
 									>
 										{t("Отменить изменения")}
 									</Button>
 									<Button 
 										theme = {ButtonTheme.OUTLINE_INVERTED}
-										className = {cls.saveBtn}
 										onClick = {onSave}
 									>
 										{t("Сохранить")}
@@ -78,8 +74,8 @@ export const ProfilePageHeader = ({ className }: ProfilePageHeaderProps) => {
 								</>
 							)
 					}
-				</div>
+				</HStack>
 			)}
-		</div>	
+		</HStack>	
 	)
 }

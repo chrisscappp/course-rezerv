@@ -8,6 +8,7 @@ import { Text } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import { List, ListRowProps, WindowScroller } from "react-virtualized";
 import { PAGE_ID } from "shared/consts/elementsId";
+import { HStack, VStack } from "shared/ui/Stack";
 
 interface ArticleListProps {
 	className?: string;
@@ -64,23 +65,24 @@ export const ArticleList = memo((props: ArticleListProps) => {
 		}
 		
 		return (
-			<div
+			<HStack
 				key={key}
 				style={style}
 				className={cls.row}
+				gap="32"
 			>
 				{items}
-			</div>
+			</HStack>
 		)
 	}
 
 	if (!isLoading && !articles.length) {
 		return (
-			<div className = {classNames(cls.emptyList, {}, [])}>
+			<HStack gap="32" max justify="center">
 				<Text
 					title = {t("Статьи не найдены...")}
 				/>
-			</div>
+			</HStack>
 		)
 	}
 
@@ -92,8 +94,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
 			scrollElement={document.getElementById(PAGE_ID) as Element}
 		>
 			{({ width, height, registerChild, onChildScroll, scrollTop }) => (
-				<div 
-					className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+				<div
+					className={classNames("", {}, [className, cls[view]])}
 					ref={registerChild}
 				>
 					<List

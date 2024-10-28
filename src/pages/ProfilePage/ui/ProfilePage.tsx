@@ -10,6 +10,7 @@ import { Text, TextTheme } from "shared/ui/Text/Text";
 import { ValidateProfileError } from "feautures/EditableProfileCard/model/types/editableProfile";
 import { useParams } from "react-router-dom";
 import { Page } from "widgets/Page/Page";
+import { VStack } from "shared/ui/Stack";
 
 interface ProfilePageProps {
 	className?: string;
@@ -36,19 +37,21 @@ const ProfilePage = ({ className }: ProfilePageProps) => {
 	return (
 		<DynamicModuleLoader reducers = {reducers} removeAfterUnmount>
 			<Page className = {classNames("", {}, [className])}>
-				<ProfilePageHeader/>
-				{validateErrors?.length && validateErrors.map(err => {
-					return (
-						<Text
-							key = {err}
-							text = {validateTranslate[err]}
-							theme = {TextTheme.ERROR}
-						/>
-					)
-				})}
-				<EditableProfileCard
-					userId = {userId}
-				/>
+				<VStack max gap="16">
+					<ProfilePageHeader/>
+					{validateErrors?.length && validateErrors.map(err => {
+						return (
+							<Text
+								key = {err}
+								text = {validateTranslate[err]}
+								theme = {TextTheme.ERROR}
+							/>
+						)
+					})}
+					<EditableProfileCard
+						userId = {userId}
+					/>
+				</VStack>
 			</Page>
 		</DynamicModuleLoader>
 	)
