@@ -1,28 +1,24 @@
 import { useTranslation } from "react-i18next"
-import React, { memo, useState } from "react"
-import { Counter } from "entities/Counter"
-import { Input } from "shared/ui/Input/Input"
+import React, { memo } from "react"
 import { Page } from "widgets/Page/Page"
+import { ListBox } from "shared/ui/ListBox/ListBox"
 
 const MainPage = () => {
 
 	const { t } = useTranslation("main")
 
-	const [value, setValue] = useState<string>("")
-
-	const onChange = (val: string) => {
-		setValue(val)
-	}
-
 	return (
 		<Page>
 			{t("Главная страница")}
-			<Counter/>
-			<Input
-				placeholder = "Введите текст"
-				onChange = {onChange}
-				value = {value}
-				
+			<ListBox
+				onChange={(value: string) => {}}
+				defaultValue="Выберите значение"
+				value={undefined}
+				items={[
+					{ value: "1", content: "1" },
+					{ value: "2", content: "2" },
+					{ value: "3", content: "3" },
+				]}
 			/>
 		</Page>
 	)
