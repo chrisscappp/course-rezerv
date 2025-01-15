@@ -35,7 +35,7 @@ export const Page = memo((props: PageProps) => {
 	// закинули триггер на компонент ЗА КОТОРЫМ СЛЕДИМ
 	const scrollPosition = useSelector((state: StateSchema) =>
 		getScrollRestoringScrollByPath(state, pathname)
-	);
+	)
 
 	useInitialEffect(() => {
 		wrapperRef.current.scrollTop = scrollPosition;
@@ -48,12 +48,12 @@ export const Page = memo((props: PageProps) => {
 	})
 
 	const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
-		dispatch(
-			scrollRestoringActions.setScrollPosition({
+		if (saveScroll) {
+			dispatch(scrollRestoringActions.setScrollPosition({
 				path: location.pathname,
 				position: e?.currentTarget.scrollTop,
-			})
-		);
+			}))
+		}
 	}, 500)
 	
 	return (

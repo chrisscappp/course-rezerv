@@ -3,7 +3,6 @@ import { CounterSchema } from "entities/Counter"
 import { UserSchema } from "entities/User"
 import { LoginSchema } from "feautures/AuthByUsername"
 import { RegisterSchema } from "feautures/RegisterByUsername"
-import { ProfileSchema } from "entities/Profile"
 import { EditableProfileSchema } from "feautures/EditableProfileCard"
 import { AxiosInstance } from "axios"
 import { ArticleDetailsSchema } from "entities/Article"
@@ -11,16 +10,17 @@ import { ArticleDetailsPageSchema } from "pages/ArticlesDetailsPage"
 import { AddCommentFormSchema } from "feautures/AddCommentForm"
 import { ArticlesPageSchema } from "pages/ArticlesPage"
 import { ScrollRestoringSchema } from "widgets/ScrollRestoring"
+import { rtkApi } from "shared/api/rtkApi"
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   scroll: ScrollRestoringSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
 
   // Async
   registerForm?: RegisterSchema;
   loginForm?: LoginSchema;
-  profile?: ProfileSchema;
   editableProfile?: EditableProfileSchema;
   articleDetails?: ArticleDetailsSchema;
   addCommentForm?: AddCommentFormSchema;

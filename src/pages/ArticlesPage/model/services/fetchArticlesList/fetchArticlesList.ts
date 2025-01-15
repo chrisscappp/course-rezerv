@@ -29,12 +29,12 @@ export const fetchArticlesList = createAsyncThunk<
 		} = thunkAPI
 
 		const limit = getArticlesPageLimit(getState())
-		const page = getArticlesPageNum(getState());
+		const page = getArticlesPageNum(getState())
 		const sort = getArticlesPageSort(getState())
 		const order = getArticlesPageOrder(getState())
 		const search = getArticlesPageSearch(getState())
-		const type = getArticlesPageType(getState());
-		const parseType = type === ArticleType.ALL ? undefined : type;
+		const type = getArticlesPageType(getState())
+		const parseType = type === ArticleType.ALL ? undefined : type
 
 		try {
 			addQueryParams({

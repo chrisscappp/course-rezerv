@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { ThunkConfig } from "app/providers/StoreProvider";
-import { Profile } from "entities/Profile";
+import { ThunkConfig } from "app/providers/StoreProvider"
+import { Profile } from "entities/Profile"
 
 export const fetchProfileData = createAsyncThunk<
 	Profile, 
@@ -18,7 +18,7 @@ export const fetchProfileData = createAsyncThunk<
     		const response = await extra.api.get<Profile>(`/profile/${profileId}`)
 
 			if (!response.data) {
-				throw new Error("123")
+				throw new Error("Данные не найдены")
 			}
 
 			return response.data

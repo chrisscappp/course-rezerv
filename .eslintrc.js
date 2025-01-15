@@ -45,7 +45,7 @@ module.exports = {
 			1 , 
 			{
 				markupOnly: true, 
-				ignoreAttribute: ['data-testid', 'to', 'target', 'ref', 'as'],
+				ignoreAttribute: ['data-testid', 'to', 'target', 'ref', 'as', 'justify'],
 			},
 		], // отсутсвие переводов внутри jsx
 		'max-len': ['error', 170, { 'ignoreComments': true }],

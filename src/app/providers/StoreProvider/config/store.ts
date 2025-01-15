@@ -5,6 +5,7 @@ import { userReducer } from "entities/User"
 import { createReducerManager } from "./reducerManager"
 import { $api } from "shared/api/api"
 import { scrollRestoringReducer } from "widgets/ScrollRestoring"
+import { rtkApi } from "shared/api/rtkApi"
 
 export function createReduxStore(
 	initialState?: StateSchema,
@@ -15,7 +16,8 @@ export function createReduxStore(
 		...asyncReducers,
 		counter: counterReducer,
 		user: userReducer,
-		scroll: scrollRestoringReducer
+		scroll: scrollRestoringReducer,
+		[rtkApi.reducerPath]: rtkApi.reducer
 	};
 
 	const reducerManager = createReducerManager(rootReducers)
@@ -32,7 +34,7 @@ export function createReduxStore(
 			thunk: {
 				extraArgument: extraArg
 			} // передали в thunkAPI.extra своё api
-		})
+		}).concat(rtkApi.middleware)
 	})
 
 	// @ts-ignore
