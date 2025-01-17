@@ -106,9 +106,10 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 			{validateErrors?.length && validateErrors.map(err => {
 				return (
 					<Text
-						key = {err}
-						text = {validateTranslate[err]}
-						theme = {TextTheme.ERROR}
+						key={err}
+						text={validateTranslate[err]}
+						theme={TextTheme.ERROR}
+						data-testid="EditableProfileCard.Error"
 					/>
 				)
 			})}

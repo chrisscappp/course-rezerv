@@ -8,14 +8,15 @@ import { Text } from "shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
 import { List, ListRowProps, WindowScroller } from "react-virtualized";
 import { PAGE_ID } from "shared/consts/elementsId";
-import { HStack, VStack } from "shared/ui/Stack";
+import { HStack } from "shared/ui/Stack";
 
 interface ArticleListProps {
 	className?: string;
 	articles: Article[];
 	isLoading?: boolean;
 	view?: ArticleView;
-	target?: HTMLAttributeAnchorTarget
+	target?: HTMLAttributeAnchorTarget,
+	virtualized?: boolean
 }
 
 const getSkeletons = (view: ArticleView) => {
@@ -37,7 +38,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
 		articles,
 		isLoading,
 		view = ArticleView.TILE,
-		target
+		target,
+		virtualized = true
 	} = props
 
 	const { t } = useTranslation()
@@ -98,16 +100,29 @@ export const ArticleList = memo((props: ArticleListProps) => {
 					className={classNames("", {}, [className, cls[view]])}
 					ref={registerChild}
 				>
-					<List
-						autoHeight
-						onScroll={onChildScroll}
-						scrollTop={scrollTop}
-						height={height ?? 700}
-						rowCount={rowCount}
-						rowHeight={rowHeight}
-						rowRenderer={rowRender}
-						width={width ? width - 80 : 700}
-					/>
+					{virtualized ? (
+						<List
+							autoHeight
+							onScroll={onChildScroll}
+							scrollTop={scrollTop}
+							height={height ?? 700}
+							rowCount={rowCount}
+							rowHeight={rowHeight}
+							rowRenderer={rowRender}
+							width={width ? width - 80 : 700}
+						/>
+					) : (
+						articles.map(article => (
+							<ArticleListItem
+								article={article}
+								view={view}
+								key={article.id}
+								target={target}
+								className={cls.card}	
+							/>
+						))
+					)}
+					
 					{isLoading && getSkeletons(view)}
 				</div>
 			)}

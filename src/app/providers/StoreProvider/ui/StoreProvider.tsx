@@ -3,7 +3,6 @@ import { Provider } from "react-redux"
 import { createReduxStore } from "../config/store"
 import { StateSchema } from "../config/types"
 import { ReducersMapObject } from "@reduxjs/toolkit"
-import { useNavigate } from "react-router-dom"
 import React from "react"
 
 interface StoreProviderProps {

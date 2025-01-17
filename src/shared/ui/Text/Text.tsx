@@ -28,6 +28,7 @@ interface TextProps {
 	theme?: TextTheme;
 	align?: TextAlign;
 	size?: TextSize;
+	"data-testid"?: string
 } // специальный тип html тега
 
 export const Text = (props: TextProps) => {
@@ -38,7 +39,8 @@ export const Text = (props: TextProps) => {
 		text,
 		theme = TextTheme.PRIMARY,
 		align = TextAlign.LEFT,
-		size = TextSize.M
+		size = TextSize.M,
+		"data-testid": dataTestId = 'Text'
 	} = props
 
 	const mods = {
@@ -51,8 +53,22 @@ export const Text = (props: TextProps) => {
 		<div 
 			className = {classNames(cls.Button, mods, [className])}
 		>
-			{title && <p className = {cls.title}>{title}</p>}
-			{text && <p className = {cls.text}>{text}</p>}
+			{title && (
+				<p 
+					className={cls.title}
+					data-testid={`${dataTestId}.Header`}
+				>
+					{title}
+				</p>
+			)}
+			{text && (
+				<p 
+					className={cls.text}
+					data-testid={`${dataTestId}.Paragraph`}
+				>
+					{text}
+				</p>
+			)}
 		</div>
 	)
 }
