@@ -1,16 +1,18 @@
 import axios from "axios"
 import { registerByUsername } from "./registerByUsername"
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
-import { userActions } from "entities/User"
+import { IUser, userActions } from "entities/User"
+import { UserRoles } from "entities/User"
 
 jest.mock("axios")
 const mockedAxios = jest.mocked(axios, true)
 
 describe("test registerByUsername", () => {
 	test("success register", async () => {
-		const userData = {
+		const userData: IUser = {
 			username: "123",
-			id: "1"
+			id: "1",
+			roles: [UserRoles.ADMIN]
 		}
 		const regData = {
 			username: "123",

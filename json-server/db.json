@@ -642,15 +642,22 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://i.ytimg.com/vi/2LJzczk3TyQ/maxresdefault.jpg"
     },
     {
       "id": "2",
       "username": "user",
-      "password": "321",
-      "role": "USER",
+      "password": "123",
+      "roles": ["USER"],
       "avatar": "https://pic.rutubelist.ru/user/e5/0a/e50aa387f2a0cc2a012071b0e7ac10f6.jpg"
+    },
+    {
+      "id": "2",
+      "username": "manager",
+      "password": "123",
+      "roles": ["MANAGER"],
+      "avatar": ""
     }
   ],
   "profile": [

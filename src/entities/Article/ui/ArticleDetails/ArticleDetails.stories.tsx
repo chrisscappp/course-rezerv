@@ -5,6 +5,7 @@ import { Themes } from "app/providers/ThemeProvider";
 import { ThemeDecorator } from "shared/config/storybookConfig/themeDecorator/themeDecorator";
 import { StoreDecorator } from "shared/config/storybookConfig/storeDecorator/storeDecorator";
 import { Article, ArticleBlockType, ArticleType } from "../../model/types/article";
+import { UserRoles } from "entities/User";
 
 const meta: Meta<typeof ArticleDetails> = {
 	title: "entities/ArticleDetails",
@@ -19,7 +20,8 @@ const article: Article = {
 	user: {
 		id: "1",
 		username: "admin",
-		avatar: "asdasd"
+		avatar: "asdasd",
+		roles: [UserRoles.ADMIN]
 	},
 	title: "JavaScript news",
 	subtitle: "Что нового в JS за 2024 год?",

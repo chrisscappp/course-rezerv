@@ -1,6 +1,6 @@
 import axios from "axios"
 import { loginByUsername } from "./loginByUsername"
-import { userActions } from "entities/User/index"
+import { userActions, UserRoles } from "entities/User/index"
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
 
 describe("test loginByUsername", () => {
@@ -59,7 +59,8 @@ describe("test loginByUsername", () => {
 	test("success login", async () => {
 		const userData = { 
 			username: "123", 
-			id: "1" 
+			id: "1" ,
+			roles: [UserRoles.USER]
 		} // данные которые должны вернуться
 		
 		const asyncThunk = new TestAsyncThunk(loginByUsername)

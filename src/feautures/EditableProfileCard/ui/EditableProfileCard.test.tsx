@@ -8,6 +8,7 @@ import { componentRender } from "shared/lib/tests/componentRender/componentRende
 import { EditableProfileSchema } from "../model/types/editableProfile"
 import { screen } from "@testing-library/react"
 import { $api } from "shared/api/api"
+import { UserRoles } from "entities/User"
 
 const mockUserId = '1'
 
@@ -34,7 +35,7 @@ const options = {
 	initialState: {
 		editableProfile: initialEditableProfile,
 		user: {
-			authData: { id: mockUserId, username: 'admin' }
+			authData: { id: mockUserId, username: 'admin', roles: [UserRoles.USER] }
 		}
 	},
 	asyncReducers: {

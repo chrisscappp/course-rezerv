@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import ArticlesDetailsPage from './ArticlesDetailsPage';
 import { StoreDecorator } from "shared/config/storybookConfig/storeDecorator/storeDecorator";
 import { Article, ArticleBlockType, ArticleType } from "entities/Article";
+import { UserRoles } from "entities/User";
 
 const meta: Meta<typeof ArticlesDetailsPage> = {
 	title: "pages/ArticlesDetailsPage",
@@ -18,7 +19,8 @@ const article: Article = {
 	user: {
 		id: "1",
 		username: "admin",
-		avatar: "asdasd"
+		avatar: "asdasd",
+		roles: [UserRoles.ADMIN]
 	},
 	subtitle: "Что нового в JS за 2024 год?",
 	img: "https://fuzeservers.ru/wp-content/uploads/9/3/a/93a14a817aba78c219b6421198863989.png",
