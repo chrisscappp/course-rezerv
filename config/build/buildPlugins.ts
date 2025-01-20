@@ -5,6 +5,7 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin"
 import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer"
 import CopyPlugin from "copy-webpack-plugin"
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin')
+import CircularDependencyPlugin from "circular-dependency-plugin"
 
 export default function buildPlugins({ paths, isDev, apiURL, project }: BuildOptions): webpack.WebpackPluginInstance[] {
 
@@ -22,11 +23,15 @@ export default function buildPlugins({ paths, isDev, apiURL, project }: BuildOpt
 			__API__: JSON.stringify(apiURL),
 			__PROJECT__: JSON.stringify(project)
 		}), // глобальная переменная
-		 new CopyPlugin({
+		new CopyPlugin({
 			patterns: [
 				{ from: paths.locales, to: paths.buildLocales }
 			],
 		}),
+		new CircularDependencyPlugin({
+			exclude: /node_modules/,
+			failOnError: true
+		})
 	]
 
 	if (isDev) {
