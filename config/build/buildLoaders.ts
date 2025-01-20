@@ -1,23 +1,19 @@
 import webpack from "webpack"
 import { BuildOptions } from "./types/config"
 import { buildCssLoader } from "./loaders/buildCssLoader"
-import path from "path"
+import { buildBabelLoader } from "./loaders/buildBabelLoader"
 
-export default function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRule[] {
+export default function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 	
 	// уже умеет обрабатывать jsx. пишем на нативном js - добавляем babel-loader
-	const typescriptLoader = {
-		test: /\.tsx?$/, // фильтруем по этому регулярному выражению файлы, которые пропустим через лоудер
-		use: 'ts-loader',
-		exclude: /node_modules/,
-	}
+	// const typescriptLoader = {
+	// 	test: /\.tsx?$/, // фильтруем по этому регулярному выражению файлы, которые пропустим через лоудер
+	// 	use: 'ts-loader',
+	// 	exclude: /node_modules/,
+	// }
 
-	const babelLoader = {
-		test: /\.(ts|tsx)$/,
-		include: path.resolve(__dirname, 'src'),
-		exclude: /(node_modules|bower_components|build)/,
-		use: ['babel-loader']
-	}
+	const codeBabelLoader = buildBabelLoader({...options, isTsx: false})
+	const tsxCodeBabelLoader = buildBabelLoader({...options, isTsx: true})
 
 	const svgLoader = {
 		test: /\.svg$/,
@@ -33,13 +29,13 @@ export default function buildLoaders({ isDev }: BuildOptions): webpack.RuleSetRu
 		],
 	}
 
-	const cssLoader = buildCssLoader(isDev)
+	const cssLoader = buildCssLoader(options.isDev)
 	
 	return [
 		fileLoader,
 		svgLoader,
-		babelLoader,
-		typescriptLoader,
+		codeBabelLoader,
+		tsxCodeBabelLoader,
 		cssLoader,
 	] // порядок возврата лоудеров важен!
 }
