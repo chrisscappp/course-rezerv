@@ -2,7 +2,7 @@ import { Currency } from "entities/Currency"
 import { updateProfileData } from "./updateProfileData"
 import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
 import { Country } from "entities/Country"
-import { ValidateProfileError } from "../../types/editableProfile"
+import { ValidateProfileError } from "../../consts/validateProfileError"
 
 const data = {
 	age: 19,

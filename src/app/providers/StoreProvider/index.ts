@@ -8,7 +8,8 @@ export {
 	StateSchema, // импорт типов из вышестоящего слоя - исключение
 	ReduxStoreWithManager,
 	StateSchemaKey,
-	AppDispatch,
 	ThunkExtraArg,
 	ThunkConfig
 }
+
+export type { AppDispatch }

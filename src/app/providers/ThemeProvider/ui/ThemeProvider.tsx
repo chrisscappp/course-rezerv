@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from "react"
+import { ReactNode, useMemo, useState } from "react"
 import { LOCAL_STORAGE_THEME_KEY, ThemeContext, Themes } from "../lib/ThemeContext"
 import React from 'react'
 
@@ -6,9 +6,11 @@ const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Themes || 
 
 interface ThemeProviderProps {
 	initialTheme?: Themes;
+	children: ReactNode
 }
 
-const ThemeProvider: FC<ThemeProviderProps> = (props) => {
+// в 17 версии у FC по умолчанию был пропс children. сейчас уже не так
+const ThemeProvider = (props: ThemeProviderProps) => {
 	
 	const {
 		children,

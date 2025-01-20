@@ -1,4 +1,4 @@
-export { EditableProfileSchema } from "./model/types/editableProfile"
+export type { EditableProfileSchema } from "./model/types/editableProfile"
 
 export {
 	editableProfileActions,

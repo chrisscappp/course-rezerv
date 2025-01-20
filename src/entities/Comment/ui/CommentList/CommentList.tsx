@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Text } from "shared/ui/Text/Text";
+import { Text, TextTheme } from "shared/ui/Text/Text";
 import { CommentCard } from "../CommentCard/CommentCard";
 import { Comment } from "../../model/types/comment"
 import { VStack } from "shared/ui/Stack";
@@ -9,6 +9,7 @@ interface CommentListProps {
 	className?: string;
 	comments: Comment[];
 	isLoading: boolean | undefined;
+	error?: string
 }
 
 export const CommentList = (props: CommentListProps) => {
@@ -18,8 +19,13 @@ export const CommentList = (props: CommentListProps) => {
 	const {
 		className,
 		comments,
-		isLoading
+		isLoading,
+		error
 	} = props
+
+	if (error) {
+		return <Text theme={TextTheme.ERROR} text={error}/>
+	}
 
 	return (
 		<VStack

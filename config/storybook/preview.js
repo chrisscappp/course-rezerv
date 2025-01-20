@@ -1,7 +1,7 @@
 import { StyleDecorator } from "../../src/shared/config/storybookConfig/styleDecorator/styleDecorator"
 import { ThemeDecorator } from "../../src/shared/config/storybookConfig/themeDecorator/themeDecorator"
 import { RouterDecorator } from "../../src/shared/config/storybookConfig/routerDecorator/routerDecorator"
-import { TranslationDecorator } from "../../src/shared/config/storybookConfig/translationDecorator/translationDecorator"
+import { SuspenseDecorator } from "../../src/shared/config/storybookConfig/SuspenseDecorator/SuspenseDecorator"
 import { Themes } from "../../src/app/providers/ThemeProvider/index"
 
 const preview = {
@@ -18,6 +18,7 @@ const preview = {
 		StyleDecorator,
 		ThemeDecorator(Themes.LIGHT),
 		RouterDecorator,
+		SuspenseDecorator
 	]
 };
 

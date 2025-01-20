@@ -1,18 +1,4 @@
-// type ValueOf<T> = T[keyof T]
-
-// const UserRoles = {
-// 	USER: "USER",
-// 	ADMIN: "ADMIN",
-// 	MANAGER: "MANAGER"
-// } as const
-
-// type UserRolesEnum = ValueOf<typeof UserRoles>
-
-export enum UserRoles {
-	USER = "USER",
-	ADMIN = "ADMIN",
-	MANAGER = "MANAGER"
-}
+import { UserRoles } from "../consts/userRoles";
 
 export interface IUser {
 	id: string;

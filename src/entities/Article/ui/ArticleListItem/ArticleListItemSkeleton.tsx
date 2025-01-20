@@ -1,7 +1,7 @@
 import { memo } from "react"
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticleListItem.module.scss";
-import { ArticleView } from "../../model/types/article";
+import { ArticleView } from "../../model/consts/article";
 import { Text } from "shared/ui/Text/Text";
 import { Icon } from "shared/ui/Icon/Icon";
 import EyeIcon from "shared/assets/icons/eye-icon.svg"

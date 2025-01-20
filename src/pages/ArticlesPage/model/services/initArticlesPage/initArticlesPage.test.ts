@@ -26,3 +26,7 @@
 // 		expect(asyncThunk.dispatch).toBeCalledTimes(2);
 // 	});
 // });
+
+export interface ArticlesPageMockType {
+	id: string
+}

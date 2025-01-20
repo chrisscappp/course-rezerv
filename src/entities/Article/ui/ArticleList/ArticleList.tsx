@@ -1,7 +1,8 @@
 import { HTMLAttributeAnchorTarget, memo } from "react"
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticleList.module.scss";
-import { Article, ArticleView } from "../../model/types/article";
+import { Article } from "../../model/types/article";
+import { ArticleView } from "../../model/consts/article";
 import { ArticleListItem } from "../../ui/ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import { Text } from "shared/ui/Text/Text";
@@ -92,15 +93,18 @@ export const ArticleList = memo((props: ArticleListProps) => {
 	// registerChild - дочерний элемент по отношению к WINDOWSCROLLER
 	// onChildScroll - дочерний элемент по отношению к ОБЁРТКЕ registerChild. подписка на скролл
 	return (
+		//@ts-ignore
 		<WindowScroller
 			scrollElement={document.getElementById(PAGE_ID) as Element}
 		>
 			{({ width, height, registerChild, onChildScroll, scrollTop }) => (
 				<div
 					className={classNames("", {}, [className, cls[view]])}
+					//@ts-ignore
 					ref={registerChild}
 				>
 					{virtualized ? (
+						//@ts-ignore
 						<List
 							autoHeight
 							onScroll={onChildScroll}

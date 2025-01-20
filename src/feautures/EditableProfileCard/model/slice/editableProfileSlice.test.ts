@@ -1,5 +1,6 @@
 import { editableProfileActions, editableProfileReducer } from "./editableProfileSlice";
-import { EditableProfileSchema, ValidateProfileError } from "../types/editableProfile";
+import { EditableProfileSchema } from "../types/editableProfile";
+import { ValidateProfileError } from "../consts/validateProfileError";
 import { updateProfileData } from "../services/updateProfileData/updateProfileData";
 import { fetchProfileData } from "../services/fetchProfileData/fetchProfileData";
 

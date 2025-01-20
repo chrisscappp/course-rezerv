@@ -4,7 +4,7 @@ import { getArticleDetailsCommentsError } from "../../model/selectors/getArticle
 import { getArticleDetailsCommentsIsLoading } from "../../model/selectors/getArticleDetailsCommentsIsLoading/getArticleDetailsCommentsIsLoading"
 import { sendCommentForArticle } from "../../model/services/addCommentForArticle"
 import { getArticleComments } from "../../model/slice/articleDetailsCommentsSlice"
-import { memo, useCallback } from "react"
+import { memo, Suspense, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useSelector } from "react-redux"
 import { classNames } from "shared/lib/classNames/classNames"
@@ -13,10 +13,11 @@ import { VStack } from "shared/ui/Stack"
 import { Text, TextSize } from "shared/ui/Text/Text"
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect"
 import { fetchArticleCommentsById } from "../../model/services/fetchArticleComments"
+import { Spinner } from "shared/ui/Spinner/Spinner"
 
 interface ArticlesDetailsCommentsProps {
 	className?: string,
-	articleId: string
+	articleId?: string
 }
 
 export const ArticlesDetailsComments = memo((props: ArticlesDetailsCommentsProps) => {
@@ -27,8 +28,8 @@ export const ArticlesDetailsComments = memo((props: ArticlesDetailsCommentsProps
 	const dispatch = useAppDispatch()
 
 	const comments = useSelector(getArticleComments.selectAll)
-	const commentsError = useSelector(getArticleDetailsCommentsError)
-	const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading)
+	const error = useSelector(getArticleDetailsCommentsError)
+	const isLoading = useSelector(getArticleDetailsCommentsIsLoading)
 
 	useInitialEffect(() => {
 		dispatch(fetchArticleCommentsById(articleId))
@@ -44,13 +45,16 @@ export const ArticlesDetailsComments = memo((props: ArticlesDetailsCommentsProps
 				size={TextSize.L}
 				title={t("Комментарии")}
 			/>
-			<AddCommentForm
-				onSend={onSendComment}
-			/>
+			<Suspense fallback={<Spinner/>}>
+				<AddCommentForm
+					onSend={onSendComment}
+				/>
+			</Suspense>
 			{/* стейт с комментами храним на уровне страницы */}
 			<CommentList
 				comments={comments}
-				isLoading={commentsIsLoading}
+				isLoading={isLoading}
+				error={error}
 			/>
 		</VStack>
 	)

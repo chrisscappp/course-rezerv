@@ -4,7 +4,7 @@ import { Comment } from "entities/Comment";
 
 export const fetchArticleCommentsById = createAsyncThunk<
 	Comment[], 
-	string, 
+	string | undefined, 
 	ThunkConfig<string>
 >(
   	'articleDetails/fetchArticleComments',
@@ -19,6 +19,11 @@ export const fetchArticleCommentsById = createAsyncThunk<
 		}
 
 		try {
+
+			if (!articleId) {
+				throw new Error('Не удалось получить список комментариев для статьи')
+			}
+
 			// article - родительский ресурс по отношению к комментарию
     		const response = await extra.api.get<Comment[]>(`/comments`, {
 				params: {

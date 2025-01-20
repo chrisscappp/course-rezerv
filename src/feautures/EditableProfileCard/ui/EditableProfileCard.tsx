@@ -16,7 +16,7 @@ import { Country } from "entities/Country";
 import React from "react"
 import { useInitialEffect } from "shared/lib/hooks/useInitialEffect/useInitialEffect";
 import { DynamicModuleLoader, ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { ValidateProfileError } from "../model/types/editableProfile";
+import { ValidateProfileError } from "../model/consts/validateProfileError";
 import { getProfileValidateErrors } from "../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
 import { Text, TextTheme } from "shared/ui/Text/Text";
 import { EditableProfilePageHeader } from "./EditableProfileCardHeader/EditableProfileCardHeader";

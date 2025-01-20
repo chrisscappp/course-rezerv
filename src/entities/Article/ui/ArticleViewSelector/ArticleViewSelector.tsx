@@ -1,7 +1,7 @@
 import React, { memo } from "react";
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticleViewSelector.module.scss"
-import { ArticleView } from "../../model/types/article";
+import { ArticleView } from "../../model/consts/article";
 import TileIcon from "shared/assets/icons/tile__icon.svg"
 import TileDetailIcon from "shared/assets/icons/tile-detail__icon.svg"
 import { Button, ButtonTheme } from "shared/ui/Button/Button";

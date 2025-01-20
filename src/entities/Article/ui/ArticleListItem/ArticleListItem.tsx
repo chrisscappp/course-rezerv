@@ -1,7 +1,8 @@
 import { HTMLAttributeAnchorTarget, memo } from "react"
 import { classNames } from "shared/lib/classNames/classNames";
 import cls from "./ArticleListItem.module.scss";
-import { Article, ArticleBlockText, ArticleBlockType, ArticleView } from "../../model/types/article";
+import { Article, ArticleBlockText } from "../../model/types/article";
+import { ArticleBlockType, ArticleView } from "../../model/consts/article"
 import { Text } from "shared/ui/Text/Text";
 import { Icon } from "shared/ui/Icon/Icon";
 import EyeIcon from "shared/assets/icons/eye-icon.svg"
