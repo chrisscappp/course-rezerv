@@ -2,7 +2,7 @@ import { classNames, Mods } from "shared/lib/classNames/classNames"
 import React, { memo, useCallback }  from "react";
 import { SelectOption } from "shared/ui/Select/Select";
 import { Country } from "../../model/types/country";
-import { ListBox } from "shared/ui/ListBox/ListBox";
+import { ListBox } from "shared/ui/Popups";
 
 interface CountrySelectProps {
 	className?: string;

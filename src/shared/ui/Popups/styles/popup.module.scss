@@ -1,19 +1,6 @@
-.ListBox {
+.popup {
 	position: relative;
-}
-
-.triggerBtn {
-
-}
-
-.options {
-	background: var(--listbox-bg);
-	position: absolute;
-	z-index: 10000;
-	border-radius: 12px;
-	box-shadow: 4px 4px 8px var(--listbox-bg);
-	//min-width: 100%;
-}
+} // выносим общие стили со ВСЕМИ попапами из приложения
 
 .optionsBottomLeft {
 	top: 100%;
@@ -35,15 +22,19 @@
 	right: 0;
 }
 
-.item {
-	padding: 10px;
-	cursor: pointer;
-}
-
 .active {
 	background: var(--inverted-primary-color);
 }
 
-.unavailable {
+.disabled {
 	opacity: 0.7;
+}
+
+.trigger {
+	background: none;
+	outline: none;
+	padding: 0;
+	margin: 0;
+	border: none;
+	cursor: pointer;
 }

@@ -2,7 +2,7 @@ import { classNames, Mods } from "shared/lib/classNames/classNames"
 import React, { memo, useCallback }  from "react";
 import { SelectOption } from "shared/ui/Select/Select";
 import { Currency } from "../../model/types/currency";
-import { ListBox } from "shared/ui/ListBox/ListBox";
+import { ListBox } from "shared/ui/Popups";
 
 interface CurrencySelectProps {
 	className?: string;

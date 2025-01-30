@@ -1,4 +1,25 @@
 {
+  "notifications": [
+    {
+      "id": "1",
+      "title": "Вышла новая статья",
+      "description": "У пользователя Винни_пух22 вышла новая статья",
+      "href": "http://localhost:3000/articles/19",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "title": "Немало",
+      "description": "Массаброд сейчас в цене",
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "title": "Сигма",
+      "description": "Крутой я сигма сигма сигма",
+      "userId": "1"
+    }
+  ],
   "posts": [
     {
       "id": "1",
