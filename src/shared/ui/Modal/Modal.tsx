@@ -1,10 +1,11 @@
 import { Mods, classNames } from "shared/lib/classNames/classNames"
-import { MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { ReactNode } from "react";
 import React from "react"
 import { Portal } from "../Portal/Portal";
 import { useTheme } from "app/providers/ThemeProvider";
 import cls from "./Modal.module.scss"
 import { Overlay } from "../Overlay/Overlay";
+import { useModal } from "shared/lib/hooks/useModal/useModal";
 
 interface ModalProps {
 	className?: string;
@@ -13,8 +14,6 @@ interface ModalProps {
 	lazy?: boolean;
 	children?: ReactNode;
 } // специальный тип html тега
-
-const CLOSE_DELAY = 300
 
 export const Modal = (props: ModalProps) => {
 
@@ -26,49 +25,12 @@ export const Modal = (props: ModalProps) => {
 		children
 	} = props
 
+	const { close, isClosing, isMounted } = useModal({ 
+		animationDelay: 300,
+		isOpen,
+		onClose
+	})
 	const { theme } = useTheme()
-	const [ isClosing, setIsClosing ] = useState(false)
-	const [isMounted, setIsMounted] = useState(false)
-	const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>
-
-	useEffect(() => {
-		if (isOpen) {
-			setIsMounted(true)
-		}
-	}, [isOpen])
-	// проверяем открытось модалки. если открылась - рендерим
-
-	const handleClose = useCallback(() => {
-		if (onClose) {
-			setIsClosing(true)
-			timerRef.current = setTimeout(() => {
-				onClose()
-				setIsClosing(false)
-			}, CLOSE_DELAY)
-		}
-	}, [onClose]) // опциональный класс, зависящий от isClosing
-	// если onClose изменится, то вернётся новая ссылка на ф-ию. мы обернули ф-ию в useCallback
-	// следовательно она не изменится в памяти
-
-	const onKeyDown = useCallback((e: KeyboardEvent) => {
-		if (e.key === "Escape") {
-			handleClose()
-		}
-	}, [handleClose])
-	// если в массиве зависимостей ничего не изменилось, то вернётся старая ссылка на ф-ию
-	// следовательно перерендера ф-ии не будет. в памяти по ссылке она останется той же
-
-	useEffect(() => {
-		if (isOpen) {
-			window.addEventListener('keydown', onKeyDown)
-		}
-		
-		return () => {
-			clearTimeout(timerRef.current)
-			removeEventListener('keydown', onKeyDown)
-		}
-	}, [isOpen, onKeyDown])
-	// кладём ф-ии, состояние от которых зависит этот хук
 
 	const mods: Mods = {
 		[cls.opened]: isOpen,
@@ -85,7 +47,7 @@ export const Modal = (props: ModalProps) => {
 				className={classNames(cls.Modal, mods, [className, theme, "app_modal"])}
 				// вешаем класс темы в модальное окно
 			>
-				<Overlay onClick={handleClose}/>
+				<Overlay onClick={close}/>
 				<div className={classNames(cls.content, {[cls.contentOpened]: isOpen})}>
 					{children}
 				</div>
