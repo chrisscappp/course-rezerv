@@ -4,6 +4,7 @@ import React from "react"
 import { Portal } from "../Portal/Portal";
 import { useTheme } from "app/providers/ThemeProvider";
 import cls from "./Modal.module.scss"
+import { Overlay } from "../Overlay/Overlay";
 
 interface ModalProps {
 	className?: string;
@@ -49,10 +50,6 @@ export const Modal = (props: ModalProps) => {
 	// если onClose изменится, то вернётся новая ссылка на ф-ию. мы обернули ф-ию в useCallback
 	// следовательно она не изменится в памяти
 
-	const onClickContent = (e: React.MouseEvent) => {
-		e.stopPropagation()
-	}
-
 	const onKeyDown = useCallback((e: KeyboardEvent) => {
 		if (e.key === "Escape") {
 			handleClose()
@@ -85,13 +82,12 @@ export const Modal = (props: ModalProps) => {
 	return (
 		<Portal>
 			<div 
-				className = {classNames(cls.Modal, mods, [className, theme, "app_modal"])}
+				className={classNames(cls.Modal, mods, [className, theme, "app_modal"])}
 				// вешаем класс темы в модальное окно
 			>
-				<div className = {cls.overlay} onClick = {handleClose}>
-					<div className = {classNames(cls.content, {[cls.contentOpened]: isOpen})} onClick = {onClickContent}>
-						{children}
-					</div>
+				<Overlay onClick={handleClose}/>
+				<div className={classNames(cls.content, {[cls.contentOpened]: isOpen})}>
+					{children}
 				</div>
 			</div>
 		</Portal>

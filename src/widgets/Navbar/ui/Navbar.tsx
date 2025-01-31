@@ -22,8 +22,8 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
 	const { t } = useTranslation("navbar")
 	const authData = useSelector(getUserAuthData)
-	const [ isAuthModal, setIsAuthModal ] = useState<boolean>(false)
-	const [ isRegModal, setIsRegModal ] = useState<boolean>(false)
+	const [isAuthModal, setIsAuthModal] = useState(false)
+	const [isRegModal, setIsRegModal] = useState(false)
 
 	const onShowAuthModal = useCallback(() => {
 		setIsAuthModal(true)
@@ -84,18 +84,17 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 				</Button>
 			</div>
 			{isAuthModal && 
-			<LoginModal
-				isOpen = {isAuthModal}
-				onClose = {onCloseAuthModal}
-			/> 
+				<LoginModal
+					isOpen = {isAuthModal}
+					onClose = {onCloseAuthModal}
+				/> 
 			}
 			{isRegModal &&
-			<RegisterModal
-				isOpen = {isRegModal}
-				onClose = {onCloseRegModal}
-			/>
+				<RegisterModal
+					isOpen = {isRegModal}
+					onClose = {onCloseRegModal}
+				/>
 			}
-			
 		</header>
 	)
 })
