@@ -1,9 +1,9 @@
 import React from "react"
 import type { Meta, StoryObj } from '@storybook/react';
 import MainPage from './MainPage';
-import { ThemeDecorator } from "shared/config/storybookConfig/themeDecorator/themeDecorator";
-import { Themes } from "app/providers/ThemeProvider/index"
-import { StoreDecorator } from "shared/config/storybookConfig/storeDecorator/storeDecorator";
+import { ThemeDecorator } from "@/shared/config/storybookConfig/themeDecorator/themeDecorator";
+import { Themes } from "@/app/providers/ThemeProvider/index"
+import { StoreDecorator } from "@/shared/config/storybookConfig/storeDecorator/storeDecorator";
 
 const meta: Meta<typeof MainPage> = {
 	title: "pages/MainPage",

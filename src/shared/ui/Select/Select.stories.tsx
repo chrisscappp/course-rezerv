@@ -1,8 +1,8 @@
 import React from "react"
 import type { Meta, StoryObj } from '@storybook/react';
 import { Select } from './Select';
-import { ThemeDecorator } from "shared/config/storybookConfig/themeDecorator/themeDecorator";
-import { Themes } from "app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybookConfig/themeDecorator/themeDecorator";
+import { Themes } from "@/app/providers/ThemeProvider";
 
 const meta: Meta<typeof Select> = {
 	title: "shared/Select",

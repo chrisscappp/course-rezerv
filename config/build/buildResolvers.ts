@@ -11,6 +11,8 @@ export default function buildResolvers(options: BuildOptions): ResolveOptions {
 		preferAbsolute: true,
 		modules: [options.paths.src, "node_modules"],
 		mainFiles: ['index'], // главный файл в папке
-		alias: {} // пустые, тк preferAbsolute && modules
+		alias: {
+			'@': options.paths.src
+		}
   	}
 }

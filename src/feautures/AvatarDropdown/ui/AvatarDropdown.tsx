@@ -1,10 +1,10 @@
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "entities/User"
+import { getUserAuthData, isUserAdmin, isUserManager, userActions } from "@/entities/User"
 import { memo, useCallback } from "react"
 import { useTranslation } from "react-i18next"
 import { useDispatch, useSelector } from "react-redux"
-import { RouterPath } from "shared/config/routeConfig/routeConfig"
-import { Avatar } from "shared/ui/Avatar/Avatar"
-import { Dropdown } from "shared/ui/Popups"
+import { RouterPath } from "@/shared/config/routeConfig/routeConfig"
+import { Avatar } from "@/shared/ui/Avatar/Avatar"
+import { Dropdown } from "@/shared/ui/Popups"
 
 interface AvatarDropdownProps {
 	className?: string

@@ -1,10 +1,10 @@
 import React from "react"
 import type { Meta, StoryObj } from '@storybook/react';
 import { ArticleDetails } from './ArticleDetails';
-import { StoreDecorator } from "shared/config/storybookConfig/storeDecorator/storeDecorator";
+import { StoreDecorator } from "@/shared/config/storybookConfig/storeDecorator/storeDecorator";
 import { Article } from "../../model/types/article";
 import { ArticleBlockType, ArticleType } from "../../model/consts/article"
-import { UserRoles } from "entities/User";
+import { UserRoles } from "@/entities/User";
 
 const meta: Meta<typeof ArticleDetails> = {
 	title: "entities/ArticleDetails",

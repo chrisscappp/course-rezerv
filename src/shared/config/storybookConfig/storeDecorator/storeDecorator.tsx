@@ -1,10 +1,10 @@
 import { Decorator, StoryFn } from "@storybook/react"
-import { StoreProvider, StateSchema } from "app/providers/StoreProvider";
-import { editableProfileReducer } from "feautures/EditableProfileCard";
-import { loginFormReducer } from "feautures/AuthByUsername/model/slice/loginFormSlice";
+import { StoreProvider, StateSchema } from "@/app/providers/StoreProvider";
+import { editableProfileReducer } from "@/feautures/EditableProfileCard";
+import { loginFormReducer } from "@/feautures/AuthByUsername/model/slice/loginFormSlice";
 import React from "react";
-import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { articleDetailsReducer } from "entities/Article";
+import { ReducersList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { articleDetailsReducer } from "@/entities/Article";
 
 const initialAsyncReducers: ReducersList = {
 	loginForm: loginFormReducer,

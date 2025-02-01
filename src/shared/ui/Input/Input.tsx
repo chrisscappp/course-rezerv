@@ -1,5 +1,5 @@
 /* eslint-disable react/display-name */
-import { Mods, classNames } from "shared/lib/classNames/classNames"
+import { Mods, classNames } from "@/shared/lib/classNames/classNames"
 import { ChangeEvent, InputHTMLAttributes, memo, useEffect, useRef } from "react";
 import React, {useState} from "react"
 import cls from "./Input.module.scss"

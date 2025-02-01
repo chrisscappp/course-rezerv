@@ -1,11 +1,11 @@
 import React from "react"
 import type { Meta, StoryObj } from '@storybook/react';
 import { ProfileCard } from "./ProfileCard";
-import { Themes } from "app/providers/ThemeProvider";
-import { ThemeDecorator } from "shared/config/storybookConfig/themeDecorator/themeDecorator";
-import { Currency } from "entities/Currency";
-import { Country } from "entities/Country";
-import AvatarImg from "shared/assets/tests/storybook.jpg"
+import { Themes } from "@/app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybookConfig/themeDecorator/themeDecorator";
+import { Currency } from "@/entities/Currency";
+import { Country } from "@/entities/Country";
+import AvatarImg from "@/shared/assets/tests/storybook.jpg"
 
 const meta: Meta<typeof ProfileCard> = {
 	title: "entities/ProfileCard",

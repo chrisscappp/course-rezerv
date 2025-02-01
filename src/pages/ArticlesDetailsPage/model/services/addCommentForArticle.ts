@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { getUserAuthData } from "entities/User";
-import { ThunkConfig } from "app/providers/StoreProvider";
-import { getArticleDetailsData } from "entities/Article";
-import { Comment } from "entities/Comment";
+import { getUserAuthData } from "@/entities/User";
+import { ThunkConfig } from "@/app/providers/StoreProvider";
+import { getArticleDetailsData } from "@/entities/Article";
+import { Comment } from "@/entities/Comment";
 import { fetchArticleCommentsById } from "./fetchArticleComments";
 
 // обеспечили независимость от сущностей

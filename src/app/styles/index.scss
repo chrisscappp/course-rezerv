@@ -14,6 +14,10 @@
 .app {
 	background: var(--bg-color);
 	min-height: 100vh;
+	font-family: 'Consolas';
+	src: url('../../shared/assets/fonts/consolas.ttf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 .content-page {

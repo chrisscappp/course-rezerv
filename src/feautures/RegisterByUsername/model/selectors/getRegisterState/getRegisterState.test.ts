@@ -1,5 +1,5 @@
 import { getRegisterState } from "./getRegisterState";
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 
 describe('getRegisterState', () => {
 	test('get register state', () => {

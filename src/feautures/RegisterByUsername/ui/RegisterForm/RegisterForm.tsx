@@ -1,11 +1,11 @@
-import { classNames } from "shared/lib/classNames/classNames"
+import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./RegisterForm.module.scss"
 import React, { useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { Input } from "shared/ui/Input/Input";
+import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
+import { Input } from "@/shared/ui/Input/Input";
 import { useDispatch, useSelector } from "react-redux";
-import { Text, TextTheme } from "shared/ui/Text/Text"
+import { Text, TextTheme } from "@/shared/ui/Text/Text"
 import { registerByUsername } from "../../model/services/registerByUsername/registerByUsername";
 import { registerFormActions, registerFormReducer } from "../../model/slice/registerFormSlice";
 import { getRegisterLogin } from "../../model/selectors/getRegisterLogin/getRegisterLogin";
@@ -13,9 +13,9 @@ import { getRegisterPassword } from "../../model/selectors/getRegisterPassword/g
 import { getRegisterRepeatPassword } from "../../model/selectors/getRegisterRepeatPassword/getRegisterRepeatPassword";
 import { getRegisterIsLoading } from "../../model/selectors/getRegisterIsLoading/getRegisterIsLoading";
 import { getRegisterError } from "../../model/selectors/getRegisterError/getRegisterError";
-import { ReducersList } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { DynamicModuleLoader } from "shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
+import { ReducersList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { DynamicModuleLoader } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
+import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 export interface RegisterFormProps {
 	className?: string;

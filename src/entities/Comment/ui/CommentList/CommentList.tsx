@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Text, TextTheme } from "shared/ui/Text/Text";
+import { Text, TextTheme } from "@/shared/ui/Text/Text";
 import { CommentCard } from "../CommentCard/CommentCard";
 import { Comment } from "../../model/types/comment"
-import { VStack } from "shared/ui/Stack";
+import { VStack } from "@/shared/ui/Stack";
 
 interface CommentListProps {
 	className?: string;

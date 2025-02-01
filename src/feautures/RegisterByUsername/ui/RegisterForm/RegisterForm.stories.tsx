@@ -1,9 +1,9 @@
 import React from "react"
 import type { Meta, StoryObj } from '@storybook/react';
 import RegisterForm from './RegisterForm';
-import { Themes } from "app/providers/ThemeProvider";
-import { ThemeDecorator } from "shared/config/storybookConfig/themeDecorator/themeDecorator";
-import { StoreDecorator } from "shared/config/storybookConfig/storeDecorator/storeDecorator";
+import { Themes } from "@/app/providers/ThemeProvider";
+import { ThemeDecorator } from "@/shared/config/storybookConfig/themeDecorator/themeDecorator";
+import { StoreDecorator } from "@/shared/config/storybookConfig/storeDecorator/storeDecorator";
 
 const meta: Meta<typeof RegisterForm> = {
 	title: "feautures/RegisterForm",

@@ -1,5 +1,5 @@
 /* eslint-disable i18next/no-literal-string */
-import { Button, ButtonTheme } from "shared/ui/Button/Button" 
+import { Button, ButtonTheme } from "@/shared/ui/Button/Button" 
 import { render, screen } from "@testing-library/react"
 
 describe('Button', () => {

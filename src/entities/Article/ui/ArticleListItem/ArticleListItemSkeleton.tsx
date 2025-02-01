@@ -1,12 +1,12 @@
 import { memo } from "react"
-import { classNames } from "shared/lib/classNames/classNames";
+import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticleListItem.module.scss";
 import { ArticleView } from "../../model/consts/article";
-import { Text } from "shared/ui/Text/Text";
-import { Icon } from "shared/ui/Icon/Icon";
-import EyeIcon from "shared/assets/icons/eye-icon.svg"
-import { Card } from "shared/ui/Card/Card";
-import { Skeleton } from "shared/ui/Skeleton/Skeleton";
+import { Text } from "@/shared/ui/Text/Text";
+import { Icon } from "@/shared/ui/Icon/Icon";
+import EyeIcon from "@/shared/assets/icons/eye-icon.svg"
+import { Card } from "@/shared/ui/Card/Card";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 interface ArticleListItemSkeletonProps {
 	className?: string;

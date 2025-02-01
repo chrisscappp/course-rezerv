@@ -1,7 +1,7 @@
 import axios from "axios"
 import { loginByUsername } from "./loginByUsername"
-import { userActions, UserRoles } from "entities/User/index"
-import { TestAsyncThunk } from "shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
+import { userActions, UserRoles } from "@/entities/User/index"
+import { TestAsyncThunk } from "@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk"
 
 describe("test loginByUsername", () => {
 	/*let dispatch: Dispatch
