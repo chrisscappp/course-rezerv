@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import { ThunkConfig } from "@/app/providers/StoreProvider"
 import { Profile } from "@/entities/Profile"
+import { USER_LOCALSTORAGE_KEY } from "@/shared/consts/localStorage"
 
 export const fetchProfileData = createAsyncThunk<
 	Profile, 
@@ -16,7 +17,7 @@ export const fetchProfileData = createAsyncThunk<
 
 		try {
     		const response = await extra.api.get<Profile>(`/profile/${profileId}`)
-
+			
 			if (!response.data) {
 				throw new Error("Данные не найдены")
 			}

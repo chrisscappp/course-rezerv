@@ -3,6 +3,7 @@ import { IUser } from "@/entities/User";
 import { userActions } from "@/entities/User"
 import { USER_LOCALSTORAGE_KEY } from "@/shared/consts/localStorage";
 import { ThunkConfig } from "@/app/providers/StoreProvider";
+import { $api } from "@/shared/api/api";
 
 interface LoginByUsernameProps {
 	username: string;
@@ -31,8 +32,11 @@ export const loginByUsername = createAsyncThunk<
 			if (!response.data) {
 				throw new Error()
 			}
-			
 			localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data))
+			extra.api.interceptors.request.use((config) => {
+				config.headers.Authorization = JSON.stringify(response.data)
+				return config
+			}) // изменили инстанс апи после загрузки токена
 			dispatch(userActions.setAuthData(response.data))
 			return response.data
 			// по умолчанию данные обернутся в fullfiledWithValue

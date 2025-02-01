@@ -1,5 +1,4 @@
 import { HTMLAttributeAnchorTarget, memo } from "react"
-import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticleList.module.scss";
 import { Article } from "../../model/types/article";
 import { ArticleView } from "../../model/consts/article";
@@ -7,8 +6,6 @@ import { ArticleListItem } from "../../ui/ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
 import { Text } from "@/shared/ui/Text/Text";
 import { useTranslation } from "react-i18next";
-import { List, ListRowProps, WindowScroller } from "react-virtualized";
-import { PAGE_ID } from "@/shared/consts/elementsId";
 import { HStack } from "@/shared/ui/Stack";
 
 interface ArticleListProps {
@@ -44,40 +41,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
 	} = props
 
 	const { t } = useTranslation()
-	const isBig = view === ArticleView.TILE_DETAIL
-	const itemsPerRow = isBig ? 1 : 3
-	const rowCount = isBig ? articles.length : Math.ceil(articles.length / itemsPerRow)
-	const rowHeight = isBig ? 750 : 330
-
-	const rowRender = ({index, key, style}: ListRowProps) => {
-		// index - индекс элемента
-		const items = []
-		const fromIndex = index * itemsPerRow
-		const toIndex = Math.min(fromIndex + itemsPerRow, articles.length)
-
-		for (let i = fromIndex; i < toIndex; i += 1) {
-			items.push(
-				<ArticleListItem
-					key={'str' + i}
-					article={articles[i]}
-					view={view}
-					className={cls.card}
-					target={target}
-				/>	
-			)
-		}
-		
-		return (
-			<HStack
-				key={key}
-				style={style}
-				className={cls.row}
-				gap="32"
-			>
-				{items}
-			</HStack>
-		)
-	}
 
 	if (!isLoading && !articles.length) {
 		return (
@@ -89,47 +52,21 @@ export const ArticleList = memo((props: ArticleListProps) => {
 		)
 	}
 
-	// window scroller - привязали элемент (обёртку) В КОТОРОМ происходит скролл
-	// registerChild - дочерний элемент по отношению к WINDOWSCROLLER
-	// onChildScroll - дочерний элемент по отношению к ОБЁРТКЕ registerChild. подписка на скролл
+	if (isLoading) {
+		return <>{getSkeletons(view)}</>
+	}
+
 	return (
-		//@ts-ignore
-		<WindowScroller
-			scrollElement={document.getElementById(PAGE_ID) as Element}
-		>
-			{({ width, height, registerChild, onChildScroll, scrollTop }) => (
-				<div
-					className={classNames("", {}, [className, cls[view]])}
-					//@ts-ignore
-					ref={registerChild}
-				>
-					{virtualized ? (
-						//@ts-ignore
-						<List
-							autoHeight
-							onScroll={onChildScroll}
-							scrollTop={scrollTop}
-							height={height ?? 700}
-							rowCount={rowCount}
-							rowHeight={rowHeight}
-							rowRenderer={rowRender}
-							width={width ? width - 80 : 700}
-						/>
-					) : (
-						articles.map(article => (
-							<ArticleListItem
-								article={article}
-								view={view}
-								key={article.id}
-								target={target}
-								className={cls.card}	
-							/>
-						))
-					)}
-					
-					{isLoading && getSkeletons(view)}
-				</div>
-			)}
-		</WindowScroller>
+		<>
+			{articles.map(article => (
+				<ArticleListItem
+					article={article}
+					view={view}
+					key={article.id}
+					target={target}
+					className={cls.card}	
+				/>
+			))}
+		</>
 	)
 })
