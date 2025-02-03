@@ -30,6 +30,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	hoveredTheme?: ButtonTheme;
 	hovered?: boolean;
 	children?: ReactNode;
+	fullWidth?: boolean;
 } // специальный тип html тега
 
 export const Button = memo((props: ButtonProps) => {
@@ -43,6 +44,7 @@ export const Button = memo((props: ButtonProps) => {
 		hoveredTheme,
 		hovered,
 		size = ButtonSize.M,
+		fullWidth,
 		...otherProps
 	} = props
 
@@ -51,7 +53,8 @@ export const Button = memo((props: ButtonProps) => {
 		[cls.square]: square,
 		[cls[size]]: true,
 		[cls.disabled]: disabled,
-		[cls.hovered]: hovered
+		[cls.hovered]: hovered,
+		[cls.full]: fullWidth
 	}
 
 	return (

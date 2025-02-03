@@ -11,6 +11,7 @@ import { ArticlesDetailsPageHeader } from "../ArticlesDetailsPageHeader/Articles
 import { VStack } from "@/shared/ui/Stack";
 import { ArticleRecomendationsList } from "@/feautures/ArticleRecomendationsList";
 import { ArticlesDetailsComments } from "../ArticlesDetailsComments/ArticlesDetailsComments";
+import { ArticleRating } from "@/feautures/ArticleRating";
 
 interface ArticlesDetailsPageProps {
 	className?: string;
@@ -31,7 +32,8 @@ const ArticlesDetailsPage = (props: ArticlesDetailsPageProps) => {
 			<Page className = {classNames(cls.ArticlesDetailsPage, {}, [className])} saveScroll>
 				<VStack gap="32" max>
 					<ArticlesDetailsPageHeader/>
-					<ArticleDetails id = {id}/>
+					<ArticleDetails id={id}/>
+					<ArticleRating articleId={id}/>
 					<ArticleRecomendationsList/> 
 					<ArticlesDetailsComments articleId={id}/>
 				</VStack>

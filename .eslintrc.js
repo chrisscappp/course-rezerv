@@ -37,6 +37,7 @@ module.exports = {
 		'react/button-has-type': 'off',
 		'react/jsx-props-no-spreading': 'warn',
 		'react/function-component-definition': 'off',
+		'react/jsx-props-no-spreading': 'off',
 		'no-shadow': 'off',
 		'import/extensions': 'off',
 		'import/no-extraneous-dependencies': 'off',
@@ -46,7 +47,7 @@ module.exports = {
 			{
 				markupOnly: true, 
 				ignoreAttribute: [
-					'data-testid', 'to', 'target', 'ref', 'as', 'justify', 'border', 'direction'
+					'data-testid', 'to', 'target', 'ref', 'as', 'justify', 'border', 'direction', 'align'
 				],
 			},
 		], // отсутсвие переводов внутри jsx
