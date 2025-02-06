@@ -54,7 +54,8 @@ module.exports = {
 		'max-len': ['error', 170, { 'ignoreComments': true }],
 		"react/display-name": "off",
 		'no-undef': 'off',
-		'alexandroo4-plugin/fsd-path-checker-beer-insomnia': ['error', { alias: '@' }]
+		'alexandroo4-plugin/fsd-path-checker-beer-insomnia': ['error', { alias: '@' }],
+		'alexandroo4-plugin/fsd-public-api-imports-beer-insomnia': ['error', { alias: '@' }]
 	},
 	globals: {
 		__IS_DEV__: true,
