@@ -10,7 +10,8 @@ const initialAsyncReducers: ReducersList = {
 	loginForm: loginFormReducer,
 	editableProfile: editableProfileReducer,
 	articleDetails: articleDetailsReducer
-}
+} // проверка по ключу в виде названия редюсера. вытаскиваем из stateSchema конкретный тип
+// для этого редюсера. если совпадение есть - значит всё ок
 
 export const StoreDecorator = (
 	state: DeepPartial<StateSchema>,
