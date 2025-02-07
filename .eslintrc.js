@@ -59,7 +59,18 @@ module.exports = {
 			'error', 
 			{ 
 				alias: '@',
-				testFilesPatterns: ['**/*.test.*', '**/*.stories.*', '**/storeDecorator.tsx']
+				testFilesPatterns: [
+					'**/*.test.*', 
+					'**/*.stories.*', 
+					'**/storeDecorator.tsx'
+				]
+			}
+		],
+		'alexandroo4-plugin/fsd-layers-imports-beer-insomnia': [
+			'error',
+			{
+				alias: '@',
+				ignoreImportPatterns: ['**/StoreProvider', '**/testing', '**/providers/**']
 			}
 		]
 	},

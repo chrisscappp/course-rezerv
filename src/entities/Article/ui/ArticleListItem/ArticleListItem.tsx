@@ -11,9 +11,9 @@ import { Avatar } from "@/shared/ui/Avatar/Avatar";
 import { useTranslation } from "react-i18next";
 import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
-import { RouterPath } from "@/shared/config/routeConfig/routeConfig";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
 import { HStack } from "@/shared/ui/Stack";
+import { RouterPath } from "@/shared/consts/router";
 
 interface ArticleListItemProps {
 	className?: string;

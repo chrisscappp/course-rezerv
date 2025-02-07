@@ -1,14 +1,14 @@
 import { classNames } from "@/shared/lib/classNames/classNames"
-import { memo, useMemo, useState } from "react";
-import { ThemeSwitcher } from "@/widgets/ThemeSwitcher";
-import { LangSwitcher } from "@/widgets/LangSwitcher"
-import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button/Button";
-import React from "react";
+import { memo, useMemo, useState } from "react"
+import { ThemeSwitcher } from "@/feautures/ThemeSwitcher"
+import { LangSwitcher } from "@/feautures/LangSwitcher"
+import { Button, ButtonSize, ButtonTheme } from "@/shared/ui/Button/Button"
+import React from "react"
 import cls from "./SideBar.module.scss"
-import { getSidebarItems } from "../../model/selectors/getSidebarItems";
+import { getSidebarItems } from "../../model/selectors/getSidebarItems"
 import { SideBarItem } from "../SidebarItem/SideBarItem"
-import { useSelector } from "react-redux";
-import { VStack } from "@/shared/ui/Stack";
+import { useSelector } from "react-redux"
+import { VStack } from "@/shared/ui/Stack"
 
 interface SidebarProps {
 	className?: string;
@@ -16,7 +16,7 @@ interface SidebarProps {
 
 export const Sidebar = memo(({ className }: SidebarProps) => {
 
-	const [ collapsed, setCollapsed ] = useState(true)
+	const [collapsed, setCollapsed] = useState(true)
 	const sideBarItems = useSelector(getSidebarItems)
 
 	const onToggle = () => {

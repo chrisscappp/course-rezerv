@@ -9,10 +9,10 @@ import { getUserAuthData } from "@/entities/User";
 import { useSelector } from "react-redux";
 import { Text, TextTheme } from "@/shared/ui/Text/Text";
 import { AppLink, AppLinkTheme } from "@/shared/ui/AppLink/AppLink";
-import { RouterPath } from "@/shared/config/routeConfig/routeConfig";
 import { HStack } from "@/shared/ui/Stack";
 import { NotificationButton } from "@/feautures/NotificationButton";
 import { AvatarDropdown } from "@/feautures/AvatarDropdown";
+import { RouterPath } from "@/shared/consts/router";
 
 interface NavbarProps {
 	className?: string;

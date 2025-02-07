@@ -4,12 +4,14 @@ import type { StateSchema, ReduxStoreWithManager, StateSchemaKey, ThunkExtraArg,
 
 export {  
 	StoreProvider,
-	createReduxStore,
+	createReduxStore
+}
+
+export type { 
+	AppDispatch,
 	StateSchema, // импорт типов из вышестоящего слоя - исключение
 	ReduxStoreWithManager,
 	StateSchemaKey,
 	ThunkExtraArg,
 	ThunkConfig
 }
-
-export type { AppDispatch }

@@ -1,4 +1,3 @@
-//import type { StorybookConfig } from "@storybook/react-webpack5";
 import * as cn from './webpack.config'
 
 const config = {
