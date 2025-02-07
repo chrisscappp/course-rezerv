@@ -1,4 +1,5 @@
 import { Reducer } from "@reduxjs/toolkit";
+// eslint-disable-next-line alexandroo4-plugin/fsd-public-api-imports-beer-insomnia
 import { StateSchema, StateSchemaKey } from "@/app/providers/StoreProvider";
 import React, { useEffect } from "react";
 import { useStore, useDispatch } from "react-redux";

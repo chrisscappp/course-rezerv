@@ -1,9 +1,6 @@
 export type { EditableProfileSchema } from "./model/types/editableProfile"
 
-export {
-	editableProfileActions,
-	editableProfileReducer
-} from "./model/slice/editableProfileSlice"
+export { editableProfileActions } from "./model/slice/editableProfileSlice"
 
 export { updateProfileData } from "./model/services/updateProfileData/updateProfileData"
 

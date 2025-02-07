@@ -15,5 +15,5 @@ export {
 } from "./model/consts/article"
 
 export type { ArticleDetailsSchema } from "./model/types/articleDetailsSchema"
-export { articleDetailsActions, articleDetailsReducer } from "./model/slice/articleSlice"
+export { articleDetailsActions } from "./model/slice/articleSlice"
 export { getArticleDetailsData } from "./model/selectors/articleDetailsSelector"
