@@ -1,8 +1,8 @@
 import { classNames } from "@/shared/lib/classNames/classNames"
 import React, { Suspense }  from "react";
-import { Modal } from "@/shared/ui/Modal/Modal";
+import { Modal } from "@/shared/ui/Modal";
 import { RegisterFormAsync } from "../RegisterForm/RegisterForm.async";
-import { Spinner } from "@/shared/ui/Spinner/Spinner";
+import { Spinner } from "@/shared/ui/Spinner";
 
 interface RegisterModalProps {
 	className?: string;

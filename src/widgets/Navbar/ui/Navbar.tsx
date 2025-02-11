@@ -2,13 +2,13 @@ import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./Navbar.module.scss"
 import { useTranslation } from "react-i18next";
 import React, { memo, useCallback, useState } from "react";
-import { ButtonTheme, Button } from "@/shared/ui/Button/Button";
+import { ButtonTheme, Button } from "@/shared/ui/Button";
 import { LoginModal } from "@/feautures/AuthByUsername";
 import { RegisterModal } from "@/feautures/RegisterByUsername";
 import { getUserAuthData } from "@/entities/User";
 import { useSelector } from "react-redux";
-import { Text, TextTheme } from "@/shared/ui/Text/Text";
-import { AppLink, AppLinkTheme } from "@/shared/ui/AppLink/AppLink";
+import { Text, TextTheme } from "@/shared/ui/Text";
+import { AppLink, AppLinkTheme } from "@/shared/ui/AppLink";
 import { HStack } from "@/shared/ui/Stack";
 import { NotificationButton } from "@/feautures/NotificationButton";
 import { AvatarDropdown } from "@/feautures/AvatarDropdown";

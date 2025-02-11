@@ -1,4 +1,4 @@
-import { TabItem, Tabs } from "@/shared/ui/Tabs/Tabs"
+import { TabItem, Tabs } from "@/shared/ui/Tabs"
 import { ArticleType } from "@/entities/Article"
 import { useTranslation } from "react-i18next"
 import { useMemo } from "react"

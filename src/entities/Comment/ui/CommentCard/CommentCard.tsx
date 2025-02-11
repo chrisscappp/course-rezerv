@@ -2,10 +2,10 @@ import React from "react";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import { Comment } from "../../model/types/comment"
 import cls from "./CommentCard.module.scss"
-import { Avatar } from "@/shared/ui/Avatar/Avatar";
-import { Text, TextSize } from "@/shared/ui/Text/Text";
-import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
-import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { Avatar } from "@/shared/ui/Avatar";
+import { Text, TextSize } from "@/shared/ui/Text";
+import { Skeleton } from "@/shared/ui/Skeleton";
+import { AppLink } from "@/shared/ui/AppLink";
 import { HStack, VStack } from "@/shared/ui/Stack";
 import { RouterPath } from "@/shared/consts/router";
 

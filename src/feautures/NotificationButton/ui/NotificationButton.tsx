@@ -1,10 +1,10 @@
-import { Button, ButtonTheme } from "@/shared/ui/Button/Button"
-import { Icon } from "@/shared/ui/Icon/Icon"
+import { Button, ButtonTheme } from "@/shared/ui/Button"
+import { Icon } from "@/shared/ui/Icon"
 import { Popover } from "@/shared/ui/Popups"
 import NotificationIcon from "@/shared/assets/icons/notifications-64-64.svg"
 import cls from "./NotificationButton.module.scss"
 import { NotificationList } from "@/entities/Notification"
-import { Drawer } from "@/shared/ui/Drawer/Drawer"
+import { Drawer } from "@/shared/ui/Drawer"
 import { useCallback, useState } from "react"
 import { BrowserView, MobileView } from "react-device-detect"
 

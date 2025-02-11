@@ -4,7 +4,7 @@ import { Article } from "../../model/types/article";
 import { ArticleView } from "../../model/consts/article";
 import { ArticleListItem } from "../../ui/ArticleListItem/ArticleListItem";
 import { ArticleListItemSkeleton } from "../ArticleListItem/ArticleListItemSkeleton";
-import { Text } from "@/shared/ui/Text/Text";
+import { Text } from "@/shared/ui/Text";
 import { useTranslation } from "react-i18next";
 import { HStack } from "@/shared/ui/Stack";
 

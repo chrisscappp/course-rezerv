@@ -1,4 +1,5 @@
 import { Project } from "ts-morph"
+import { isAbsolutePath } from "../utils/isAbsolutePath"
 
 const project = new Project({})
 
@@ -9,17 +10,11 @@ project.addSourceFilesAtPaths("src/**/*.tsx")
 const files = project.getSourceFiles()
 // получили список всех файлов проекта
 
-const layers = ["app", "pages", "widgets", "feautures", "entities", "shared"];
-
-function isAbsolute(value: string) {
-	return layers.some(layer => value.startsWith(layer))
-}
-
 files.forEach(file => {
 	const importDeclarations = file.getImportDeclarations()
 	importDeclarations.forEach(importDeclaration => {
 		const value = importDeclaration.getModuleSpecifierValue()
-		if (isAbsolute(value)) {
+		if (isAbsolutePath(value)) {
 			importDeclaration.setModuleSpecifier(`@/${value}`)
 		}
 	})

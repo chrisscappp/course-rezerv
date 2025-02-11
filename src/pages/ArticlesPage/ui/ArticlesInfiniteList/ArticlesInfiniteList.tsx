@@ -10,7 +10,7 @@ import { useSearchParams } from "react-router-dom"
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch"
 import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitialEffect"
 import { useTranslation } from "react-i18next"
-import { Text } from "@/shared/ui/Text/Text"
+import { Text } from "@/shared/ui/Text"
 
 interface ArticlesInfiniteListProps {
 	className?: string

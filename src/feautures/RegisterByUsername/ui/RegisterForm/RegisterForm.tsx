@@ -2,10 +2,10 @@ import { classNames } from "@/shared/lib/classNames/classNames"
 import cls from "./RegisterForm.module.scss"
 import React, { useCallback, memo } from "react";
 import { useTranslation } from "react-i18next";
-import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
-import { Input } from "@/shared/ui/Input/Input";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
+import { Input } from "@/shared/ui/Input";
 import { useDispatch, useSelector } from "react-redux";
-import { Text, TextTheme } from "@/shared/ui/Text/Text"
+import { Text, TextTheme } from "@/shared/ui/Text"
 import { registerByUsername } from "../../model/services/registerByUsername/registerByUsername";
 import { registerFormActions, registerFormReducer } from "../../model/slice/registerFormSlice";
 import { getRegisterLogin } from "../../model/selectors/getRegisterLogin/getRegisterLogin";

@@ -2,7 +2,7 @@ import { memo } from "react"
 import { classNames } from "@/shared/lib/classNames/classNames"
 import { VStack } from "@/shared/ui/Stack"
 import { ArticleList, ArticleView } from "@/entities/Article"
-import { Text, TextSize } from "@/shared/ui/Text/Text"
+import { Text, TextSize } from "@/shared/ui/Text"
 import { useTranslation } from "react-i18next"
 import { useArticleRecomendationsList } from "../api/articleRecomendationsApi"
 

@@ -2,8 +2,8 @@ import React, { memo, useCallback } from "react";
 import { classNames } from "@/shared/lib/classNames/classNames";
 import cls from "./ArticleCodeBlockComponent.module.scss"
 import { ArticleBlockCode } from "../../model/types/article";
-import { Code } from "@/shared/ui/Code/Code";
-import { Button, ButtonTheme } from "@/shared/ui/Button/Button";
+import { Code } from "@/shared/ui/Code";
+import { Button, ButtonTheme } from "@/shared/ui/Button";
 import CopyIcon from "@/shared/assets/icons/copy-icon.svg"
 
 interface ArticleCodeBlockComponentProps {

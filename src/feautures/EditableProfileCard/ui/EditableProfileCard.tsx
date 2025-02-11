@@ -18,7 +18,7 @@ import { useInitialEffect } from "@/shared/lib/hooks/useInitialEffect/useInitial
 import { DynamicModuleLoader, ReducersList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
 import { ValidateProfileError } from "../model/consts/validateProfileError";
 import { getProfileValidateErrors } from "../model/selectors/getProfileValidateErrors/getProfileValidateErrors";
-import { Text, TextTheme } from "@/shared/ui/Text/Text";
+import { Text, TextTheme } from "@/shared/ui/Text";
 import { EditableProfilePageHeader } from "./EditableProfileCardHeader/EditableProfileCardHeader";
 
 interface EditableProfileCardProps {
