@@ -26,7 +26,8 @@
     "test:ui": "concurrently \"npm run test:ui:loki\" \"npm run test:ui:report\"",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "postinstall": "node ./scripts/clearCache.js"
   },
   "keywords": [],
   "author": "",

@@ -22,7 +22,7 @@ export function buildWebpackConfig(options: BuildOptions): webpack.Configuration
 			publicPath: "/"
 		}, // куда и как делаем сборку приложения
 		plugins: buildPlugins(options), // плагины для работы вебпак
-		devtool: isDev ? "inline-source-map" : undefined,
+		devtool: isDev ? "eval-cheap-module-source-map" : undefined,
 		devServer: isDev ? buildDevServer(options) : undefined, // настроили сервер для разработки
 	}
 }

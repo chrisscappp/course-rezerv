@@ -1,12 +1,6 @@
 import { memo, useCallback } from "react";
 import { classNames } from "@/shared/lib/classNames/classNames";
-import {
-	ArticleSortSelector,
-	ArticleSortType,
-	ArticleView,
-	ArticleViewSelector,
-	ArticleType
-} from "@/entities/Article";
+import { ArticleSortType, ArticleView, ArticleType } from "@/entities/Article";
 import { articlesPageActions } from "../../model/slices/articlesPageSlice";
 import { useAppDispatch } from "@/shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useSelector } from "react-redux";
@@ -26,6 +20,8 @@ import { useDebounce } from "@/shared/lib/hooks/useDebounce/useDebounce";
 import { TabItem } from "@/shared/ui/Tabs";
 import { ArticleTypeTabs } from "@/feautures/ArticleTypeTabs";
 import { HStack, VStack } from "@/shared/ui/Stack";
+import { ArticleSortSelector } from "@/feautures/ArticleSortSelector";
+import { ArticleViewSelector } from "@/feautures/ArticleViewSelector";
 
 interface ArticlesPageFiltersProps {
   className?: string;

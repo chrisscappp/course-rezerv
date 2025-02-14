@@ -5,7 +5,7 @@ import cls from "./ArticlesDetailsPage.module.scss"
 import { useParams } from "react-router-dom";
 import React from 'react'
 import { DynamicModuleLoader, ReducersList } from "@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader";
-import { Page } from "@/widgets/Page/Page";
+import { Page } from "@/widgets/Page/ui/Page";
 import { articleDetailsPageReducer } from "../../model/slice";
 import { ArticlesDetailsPageHeader } from "../ArticlesDetailsPageHeader/ArticlesDetailsPageHeader";
 import { VStack } from "@/shared/ui/Stack";
