@@ -27,7 +27,7 @@
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
     "prepare": "husky install",
-    "postinstall": "node ./scripts/clearCache.js"
+    "postinstall": "node ./scripts/clearBabelCache.js"
   },
   "keywords": [],
   "author": "",
