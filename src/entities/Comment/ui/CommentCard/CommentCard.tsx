@@ -7,7 +7,7 @@ import { Text, TextSize } from "@/shared/ui/Text";
 import { Skeleton } from "@/shared/ui/Skeleton";
 import { AppLink } from "@/shared/ui/AppLink";
 import { HStack, VStack } from "@/shared/ui/Stack";
-import { RouterPath } from "@/shared/consts/router";
+import { getRouteProfile } from "@/shared/consts/router";
 
 interface CommentCardProps {
 	className?: string;
@@ -37,7 +37,7 @@ export const CommentCard = (props: CommentCardProps) => {
 
 	return (
 		<VStack max gap="8" className = {classNames(cls.CommentCard, {}, [className])}>
-			<AppLink to = {`${RouterPath.profile}${comment.user.id}`}>
+			<AppLink to = {getRouteProfile(comment.user.id)}>
 				<HStack gap="8">
 					{comment.user.avatar && <Avatar size = {30} src = {comment.user.avatar}/>}
 					<Text text = {comment.user.username} size = {TextSize.L}/>

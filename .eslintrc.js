@@ -21,7 +21,8 @@ module.exports = {
 		'@typescript-eslint',
 		'i18next',
 		'react-hooks',
-		'alexandroo4-plugin'
+		'alexandroo4-plugin',
+		'unused-imports'
 	],
 	rules: {
 		indent: ["error", "tab"],
@@ -32,6 +33,7 @@ module.exports = {
 		'import/no-unresolved': 'off',
 		'import/prefer-default-export': 'off',
 		'no-unused-vars': 'warn',
+		"unused-imports/no-unused-imports": "error",
 		'react/require-default-props': 'off',
 		'react/react-in-jsx-scope': 'off',
 		'react/button-has-type': 'off',

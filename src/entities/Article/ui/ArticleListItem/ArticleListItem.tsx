@@ -13,7 +13,7 @@ import { Button, ButtonTheme } from "@/shared/ui/Button";
 import { ArticleTextBlockComponent } from "../ArticleTextBlockComponent/ArticleTextBlockComponent";
 import { AppLink } from "@/shared/ui/AppLink";
 import { HStack } from "@/shared/ui/Stack";
-import { RouterPath } from "@/shared/consts/router";
+import { getRouteArticleDetails } from "@/shared/consts/router";
 
 interface ArticleListItemProps {
 	className?: string;
@@ -70,7 +70,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 					)}
 					<HStack max justify="between" className={cls.footer}>
 						<AppLink 
-							to={RouterPath.articles_details + article.id}
+							to={getRouteArticleDetails(article.id)}
 							target = {target}
 						>
 							<Button theme={ButtonTheme.OUTLINE_INVERTED}>
@@ -88,7 +88,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 		<AppLink 
 			target = {target}
 			className = {classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-			to={RouterPath.articles_details + article.id}
+			to={getRouteArticleDetails(article.id)}
 		>
 			<Card>
 				<div className = {cls.imageWrapper}>

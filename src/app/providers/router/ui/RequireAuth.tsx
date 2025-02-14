@@ -1,5 +1,5 @@
 import { getUserAuthData } from "@/entities/User"
-import { RouterPath } from "@/shared/consts/router"
+import { getRouteMain } from "@/shared/consts/router"
 import { useSelector } from "react-redux"
 import { Navigate, useLocation } from "react-router-dom"
 
@@ -12,7 +12,7 @@ export function RequireAuth({ children }: RequireAuthProps) {
 	let location = useLocation()
 
 	if (!auth) {
-		return <Navigate to = {RouterPath.main} state = {{from: location}} replace/>
+		return <Navigate to = {getRouteMain()} state = {{from: location}} replace/>
 	}
 
 	return children

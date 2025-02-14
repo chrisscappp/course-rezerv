@@ -1,5 +1,5 @@
 import { getUserRoles, UserRoles } from "@/entities/User";
-import { RouterPath } from "@/shared/consts/router";
+import { getRouteForbidden } from "@/shared/consts/router";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
@@ -21,7 +21,7 @@ export function RequiredRoles({ children, roles }: RequiredRolesProps) {
 	}, [roles, userRoles])
 
 	if (!hasRequiredAuth) {
-		return <Navigate to = {RouterPath.forbidden_page} replace/>
+		return <Navigate to = {getRouteForbidden()} replace/>
 	}
 
 	return children
